@@ -1,6 +1,5 @@
 Menubar Countdown
-Version 1.3
-Copyright 2009 Capable Hands Technologies, Inc.
+Copyright 2009, 2015 Kristopher Johnson
 
 See <http://capablehands.net/menubarcountdown> for information
 about this software.
@@ -23,6 +22,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
 RELEASE NOTES
+
+v2.0
+
+- Work in progress
+
 
 v1.3 (2009/07/13)
 
