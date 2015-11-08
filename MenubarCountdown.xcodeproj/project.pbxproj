@@ -7,12 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E48658E1BEE6CE500C159BF /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E48658D1BEE6CE500C159BF /* Log.swift */; };
+		4E4865911BEE703A00C159BF /* MenubarIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E48658F1BEE703A00C159BF /* MenubarIcon.png */; };
+		4E4865921BEE703A00C159BF /* MenubarIconInverse.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E4865901BEE703A00C159BF /* MenubarIconInverse.png */; };
+		4E4865941BEE705E00C159BF /* UserDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4E4865931BEE705E00C159BF /* UserDefaults.plist */; };
+		4E4865961BEE721C00C159BF /* CATransactionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4865951BEE721C00C159BF /* CATransactionExtensions.swift */; };
+		4E4865981BEE749E00C159BF /* StartTimerDialogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4865971BEE749E00C159BF /* StartTimerDialogController.swift */; };
+		4E48659A1BEE79EA00C159BF /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4865991BEE79EA00C159BF /* TextField.swift */; };
+		4E48659C1BEE81C200C159BF /* TimerExpiredAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E48659B1BEE81C200C159BF /* TimerExpiredAlertController.swift */; };
+		4E48659E1BEE83E000C159BF /* dtrace_probes.d in Sources */ = {isa = PBXBuildFile; fileRef = 4E48659D1BEE83E000C159BF /* dtrace_probes.d */; };
+		4E4865A11BEE880A00C159BF /* DTrace.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4865A01BEE880A00C159BF /* DTrace.m */; };
 		4EB204231BED89F900D83EF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB204221BED89F900D83EF3 /* AppDelegate.swift */; };
 		4EB204251BED89F900D83EF3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB204241BED89F900D83EF3 /* ViewController.swift */; };
 		4EB204271BED89F900D83EF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EB204261BED89F900D83EF3 /* Assets.xcassets */; };
 		4EB2042A1BED89F900D83EF3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EB204281BED89F900D83EF3 /* Main.storyboard */; };
 		4EB204351BED89F900D83EF3 /* MenubarCountdownTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB204341BED89F900D83EF3 /* MenubarCountdownTests.swift */; };
 		4EB204401BED89F900D83EF3 /* MenubarCountdownUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB2043F1BED89F900D83EF3 /* MenubarCountdownUITests.swift */; };
+		4EB2044E1BED908300D83EF3 /* Stopwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB2044D1BED908300D83EF3 /* Stopwatch.swift */; };
+		4EB204501BEE29D700D83EF3 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB2044F1BEE29D700D83EF3 /* UserDefaults.swift */; };
+		4EB204521BEE2E8B00D83EF3 /* StatusItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB204511BEE2E8B00D83EF3 /* StatusItemView.swift */; };
+		4EB204541BEE307900D83EF3 /* CALayerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB204531BEE307900D83EF3 /* CALayerExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +47,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4E48658D1BEE6CE500C159BF /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		4E48658F1BEE703A00C159BF /* MenubarIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MenubarIcon.png; sourceTree = "<group>"; };
+		4E4865901BEE703A00C159BF /* MenubarIconInverse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MenubarIconInverse.png; sourceTree = "<group>"; };
+		4E4865931BEE705E00C159BF /* UserDefaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UserDefaults.plist; sourceTree = "<group>"; };
+		4E4865951BEE721C00C159BF /* CATransactionExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CATransactionExtensions.swift; sourceTree = "<group>"; };
+		4E4865971BEE749E00C159BF /* StartTimerDialogController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartTimerDialogController.swift; sourceTree = "<group>"; };
+		4E4865991BEE79EA00C159BF /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		4E48659B1BEE81C200C159BF /* TimerExpiredAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerExpiredAlertController.swift; sourceTree = "<group>"; };
+		4E48659D1BEE83E000C159BF /* dtrace_probes.d */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.dtrace; path = dtrace_probes.d; sourceTree = "<group>"; };
+		4E48659F1BEE85D200C159BF /* MenubarCountdown-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MenubarCountdown-Bridging-Header.h"; sourceTree = "<group>"; };
+		4E4865A01BEE880A00C159BF /* DTrace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTrace.m; sourceTree = "<group>"; };
+		4E4865A21BEE88E500C159BF /* DTrace.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTrace.h; sourceTree = "<group>"; };
 		4EB2041F1BED89F900D83EF3 /* MenubarCountdown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MenubarCountdown.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EB204221BED89F900D83EF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4EB204241BED89F900D83EF3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -45,6 +71,10 @@
 		4EB2043B1BED89F900D83EF3 /* MenubarCountdownUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MenubarCountdownUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EB2043F1BED89F900D83EF3 /* MenubarCountdownUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenubarCountdownUITests.swift; sourceTree = "<group>"; };
 		4EB204411BED89F900D83EF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4EB2044D1BED908300D83EF3 /* Stopwatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stopwatch.swift; sourceTree = "<group>"; };
+		4EB2044F1BEE29D700D83EF3 /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		4EB204511BEE2E8B00D83EF3 /* StatusItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusItemView.swift; sourceTree = "<group>"; };
+		4EB204531BEE307900D83EF3 /* CALayerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CALayerExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +102,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E4865A31BEE90D900C159BF /* Diagnostics */ = {
+			isa = PBXGroup;
+			children = (
+				4E48659D1BEE83E000C159BF /* dtrace_probes.d */,
+				4E4865A21BEE88E500C159BF /* DTrace.h */,
+				4E4865A01BEE880A00C159BF /* DTrace.m */,
+				4E48658D1BEE6CE500C159BF /* Log.swift */,
+			);
+			name = Diagnostics;
+			sourceTree = "<group>";
+		};
+		4E4865A41BEE910600C159BF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4EB204531BEE307900D83EF3 /* CALayerExtensions.swift */,
+				4E4865951BEE721C00C159BF /* CATransactionExtensions.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		4EB204161BED89F900D83EF3 = {
 			isa = PBXGroup;
 			children = (
@@ -96,10 +146,22 @@
 			isa = PBXGroup;
 			children = (
 				4EB204221BED89F900D83EF3 /* AppDelegate.swift */,
-				4EB204241BED89F900D83EF3 /* ViewController.swift */,
 				4EB204261BED89F900D83EF3 /* Assets.xcassets */,
-				4EB204281BED89F900D83EF3 /* Main.storyboard */,
+				4E4865A31BEE90D900C159BF /* Diagnostics */,
+				4E4865A41BEE910600C159BF /* Extensions */,
 				4EB2042B1BED89F900D83EF3 /* Info.plist */,
+				4EB204281BED89F900D83EF3 /* Main.storyboard */,
+				4E48659F1BEE85D200C159BF /* MenubarCountdown-Bridging-Header.h */,
+				4E48658F1BEE703A00C159BF /* MenubarIcon.png */,
+				4E4865901BEE703A00C159BF /* MenubarIconInverse.png */,
+				4E4865971BEE749E00C159BF /* StartTimerDialogController.swift */,
+				4EB204511BEE2E8B00D83EF3 /* StatusItemView.swift */,
+				4EB2044D1BED908300D83EF3 /* Stopwatch.swift */,
+				4E4865991BEE79EA00C159BF /* TextField.swift */,
+				4E48659B1BEE81C200C159BF /* TimerExpiredAlertController.swift */,
+				4E4865931BEE705E00C159BF /* UserDefaults.plist */,
+				4EB2044F1BEE29D700D83EF3 /* UserDefaults.swift */,
+				4EB204241BED89F900D83EF3 /* ViewController.swift */,
 			);
 			path = MenubarCountdown;
 			sourceTree = "<group>";
@@ -190,6 +252,7 @@
 				TargetAttributes = {
 					4EB2041E1BED89F900D83EF3 = {
 						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = D5E423632K;
 					};
 					4EB2042F1BED89F900D83EF3 = {
 						CreatedOnToolsVersion = 7.1;
@@ -226,7 +289,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E4865921BEE703A00C159BF /* MenubarIconInverse.png in Resources */,
+				4E4865941BEE705E00C159BF /* UserDefaults.plist in Resources */,
 				4EB204271BED89F900D83EF3 /* Assets.xcassets in Resources */,
+				4E4865911BEE703A00C159BF /* MenubarIcon.png in Resources */,
 				4EB2042A1BED89F900D83EF3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -252,7 +318,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EB204521BEE2E8B00D83EF3 /* StatusItemView.swift in Sources */,
+				4E4865981BEE749E00C159BF /* StartTimerDialogController.swift in Sources */,
+				4EB204541BEE307900D83EF3 /* CALayerExtensions.swift in Sources */,
+				4E48659A1BEE79EA00C159BF /* TextField.swift in Sources */,
+				4EB204501BEE29D700D83EF3 /* UserDefaults.swift in Sources */,
 				4EB204251BED89F900D83EF3 /* ViewController.swift in Sources */,
+				4E4865A11BEE880A00C159BF /* DTrace.m in Sources */,
+				4E4865961BEE721C00C159BF /* CATransactionExtensions.swift in Sources */,
+				4EB2044E1BED908300D83EF3 /* Stopwatch.swift in Sources */,
+				4E48658E1BEE6CE500C159BF /* Log.swift in Sources */,
+				4E48659C1BEE81C200C159BF /* TimerExpiredAlertController.swift in Sources */,
+				4E48659E1BEE83E000C159BF /* dtrace_probes.d in Sources */,
 				4EB204231BED89F900D83EF3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -336,9 +413,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "-DDEBUG";
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -374,7 +452,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 			};
@@ -384,11 +462,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = MenubarCountdown/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.kristopherjohnson.MenubarCountdown;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MenubarCountdown/MenubarCountdown-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -396,11 +476,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = MenubarCountdown/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.kristopherjohnson.MenubarCountdown;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MenubarCountdown/MenubarCountdown-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -475,6 +557,7 @@
 				4EB204461BED89F900D83EF3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4EB204471BED89F900D83EF3 /* Build configuration list for PBXNativeTarget "MenubarCountdownTests" */ = {
 			isa = XCConfigurationList;
@@ -483,6 +566,7 @@
 				4EB204491BED89F900D83EF3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4EB2044A1BED89F900D83EF3 /* Build configuration list for PBXNativeTarget "MenubarCountdownUITests" */ = {
 			isa = XCConfigurationList;
@@ -491,6 +575,7 @@
 				4EB2044C1BED89F900D83EF3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
