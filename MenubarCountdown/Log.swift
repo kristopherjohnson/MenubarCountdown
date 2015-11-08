@@ -14,7 +14,7 @@ struct Log {
     static func error(message: String,
         function: String = __FUNCTION__, file: String = __FILE__, line: Int32 = __LINE__)
     {
-        let filename = (file as NSString).lastPathComponent
+        let filename = file.lastPathComponent
 
         let msg = "ERROR: \(message) [\(function) \(filename):\(line)]"
         NSLog("%@", msg);
@@ -27,7 +27,7 @@ struct Log {
         function: String = __FUNCTION__, file: String = __FILE__, line: Int32 = __LINE__)
     {
         #if DEBUG
-            let filename = (file as NSString).lastPathComponent
+            let filename = file.lastPathComponent
             
             let msg = "DEBUG: \(message) [\(function) \(filename):\(line)]"
             NSLog("%@", msg);

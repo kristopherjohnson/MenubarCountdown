@@ -33,18 +33,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     var statusItemView: StatusItemView!
 
-    @IBOutlet weak var menu: NSMenu!
+    @IBOutlet var menu: NSMenu!
 
-    @IBOutlet weak var startTimerDialogController: StartTimerDialogController!
+    @IBOutlet var startTimerDialogController: StartTimerDialogController!
 
-    @IBOutlet weak var timerExpiredAlertController: TimerExpiredAlertController!
+    @IBOutlet var timerExpiredAlertController: TimerExpiredAlertController!
 
     override init() {
         UserDefaults.registerUserDefaults()
     }
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-        Log.error("application did finish launching")
+        Log.debug("application did finish launching")
 
         stopwatch.reset()
 
@@ -85,6 +85,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if isTimerRunning {
             secondsRemaining = Int(round(NSTimeInterval(timerSettingSeconds) - stopwatch.elapsedTimeInterval()))
             DTraceTimerTick(Int32(secondsRemaining))
+
+            if secondsRemaining <= 0 {
+                timerDidExpire()
+            }
+            else {
+                updateStatusItemTitle(secondsRemaining)
+                waitForNextSecond()
+            }
         }
         else {
             Log.debug("ignoring tick because timer is not running")
@@ -148,20 +156,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if isTimerRunning && (secondsRemaining < 1) {
             Log.debug("play alert sound")
             AudioServicesPlayAlertSound(kUserPreferredAlert);
-        }
 
-        let defaults = NSUserDefaults.standardUserDefaults()
-        if defaults.boolForKey(UserDefaults.RepeatAlertSoundOnExpirationKey) {
-            var repeatInterval = NSTimeInterval(defaults.integerForKey(UserDefaults.AlertSoundRepeatIntervalKey))
-            if repeatInterval < 1.0 {
-                repeatInterval = 1.0
+            let defaults = NSUserDefaults.standardUserDefaults()
+            if defaults.boolForKey(UserDefaults.RepeatAlertSoundOnExpirationKey) {
+                var repeatInterval = NSTimeInterval(defaults.integerForKey(UserDefaults.AlertSoundRepeatIntervalKey))
+                if repeatInterval < 1.0 {
+                    repeatInterval = 1.0
+                }
+                Log.debug("schedule alert sound repeat \(repeatInterval)s")
+                NSTimer.scheduledTimerWithTimeInterval(repeatInterval,
+                    target: self,
+                    selector: Selector("playAlertSound"),
+                    userInfo: nil,
+                    repeats: false)
             }
-            Log.debug("schedule alert sound repeat \(repeatInterval)s")
-            NSTimer.scheduledTimerWithTimeInterval(repeatInterval,
-                target: self,
-                selector: Selector("playAlertSound"),
-                userInfo: nil,
-                repeats: false)
         }
     }
 
@@ -190,7 +198,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         NSApp.activateIgnoringOtherApps(true)
 
-        assert(timerExpiredAlertController != nil, "timerExpiredAlertController outlet must be set")
+        if timerExpiredAlertController == nil {
+            NSBundle.mainBundle().loadNibNamed("TimerExpiredAlert",
+                owner: self,
+                topLevelObjects: nil)
+            assert(timerExpiredAlertController != nil, "timerExpiredAlertController outlet must be set")
+        }
         timerExpiredAlertController.showAlert()
     }
 
@@ -201,7 +214,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         dismissTimerExpiredAlert(sender)
 
-        assert(startTimerDialogController != nil, "startTimerDialogController must be set")
+        if startTimerDialogController == nil {
+            NSBundle.mainBundle().loadNibNamed("StartTimerDialog",
+                owner: self,
+                topLevelObjects: nil)
+            assert(startTimerDialogController != nil, "startTimerDialogController must be set")
+        }
         startTimerDialogController.showDialog()
     }
 
@@ -269,8 +287,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBAction func dismissTimerExpiredAlert(sender: AnyObject) {
         Log.debug("dismiss timer expired alert")
-        assert(timerExpiredAlertController != nil, "timerExpiredAlertController must be set")
-        timerExpiredAlertController.close()
+        if timerExpiredAlertController != nil {
+            timerExpiredAlertController.close()
+        }
         stopTimer(sender)
     }
 

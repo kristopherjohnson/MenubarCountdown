@@ -8,27 +8,26 @@
 
 import Cocoa
 
-/// Calculates elapsed time
-public struct Stopwatch {
+/// Timekeeping object
+///
+/// A Stopwatch computes the absolute time interval between
+/// the current time and the last call to `reset` (or `init`).
+
+@objc class Stopwatch: NSObject {
     private var startTime: NSTimeInterval
 
     /// Initialize with current time as start point
-    public init() {
+    override init() {
         startTime = CACurrentMediaTime()
     }
 
     /// Reset start point to current time
-    public mutating func reset() {
+    func reset() {
         startTime = CACurrentMediaTime()
     }
 
     /// Calculate elapsed time since initialization or last call to reset()
-    public func elapsedTimeInterval() -> NSTimeInterval {
+    func elapsedTimeInterval() -> NSTimeInterval {
         return CACurrentMediaTime() - startTime
-    }
-
-    /// Calculate elapsed nanoseconds since initialization or last call to reset()
-    func elapsedNanoseconds() -> UInt64 {
-        return UInt64(elapsedTimeInterval() * 1e9);
     }
 }
