@@ -42,7 +42,7 @@ import Cocoa
 ///
 /// The application can cause the title to blink by setting the `isTitleBlinking` property.
 ///
-class StatusItemView: NSView {
+class StatusItemView: NSView, NSMenuDelegate {
     static let IconPaddingWidth = CGFloat(3)
     static let TitlePaddingWidth = CGFloat(6)
     static let TitlePaddingHeight = CGFloat(3)
@@ -229,4 +229,71 @@ class StatusItemView: NSView {
 
     // MARK: Mouse and menu handling
 
+    override func mouseDown(theEvent: NSEvent) {
+        if let menu = menu {
+            menu.delegate = self
+            if let statusItem = statusItem {
+                statusItem.popUpStatusItemMenu(menu)
+            }
+            else {
+                Log.error("statusItem property not set")
+            }
+        }
+        else {
+            Log.error("menu property not set")
+        }
+    }
+
+    override func rightMouseDown(theEvent: NSEvent) {
+        // Treat right-click just like left-click
+        mouseDown(theEvent)
+    }
+
+    func menuWillOpen(menu: NSMenu) {
+        isMenuVisible = true
+
+        // Disable animation for the following changes
+        // (menu highlighting needs to be instantaneous)
+        CATransaction.begin()
+        CATransaction.disableActions()
+
+        // Need to highlight the background
+        backgroundLayer.setNeedsDisplay()
+        if isTitleVisible {
+            // The title's color will change
+            titleLayer.setNeedsDisplay()
+        }
+        else {
+            // Hide the normal icon and show the highlighted icon
+            iconLayer.hidden = true
+            highlightIconLayer.hidden = false
+        }
+
+        CATransaction.commit()
+    }
+
+    func menuDidClose(menu: NSMenu) {
+        isMenuVisible = false
+        menu.delegate = nil
+
+        // Disable animation for the following changes
+        // (menu highlighting needs to be instantaneous)
+        CATransaction.begin()
+        CATransaction.disableActions()
+
+        // Unhighlight the background
+        backgroundLayer.setNeedsDisplay()
+
+        if isTitleVisible {
+            // Restore title color
+            titleLayer.setNeedsDisplay()
+        }
+        else {
+            // Show the normal icon and hide the highlighted icon
+            iconLayer.hidden = false
+            highlightIconLayer.hidden = true
+        }
+
+        CATransaction.commit()
+    }
 }

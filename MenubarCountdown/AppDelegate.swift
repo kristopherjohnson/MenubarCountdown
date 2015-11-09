@@ -41,7 +41,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     /// Indicates whether the timer can be resumed
     var canResume = false
 
-    var stopwatch = Stopwatch()
+    var stopwatch: Stopwatch!
 
     var statusItem: NSStatusItem!
 
@@ -68,7 +68,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusItemView = StatusItemView()
         statusItemView.statusItem = statusItem
         statusItemView.menu = menu
-        statusItemView.toolTip = NSLocalizedString("Menubar Countdown", comment: "Status Item Tooltip")
+        statusItemView.toolTip = NSLocalizedString("Menubar Countdown",
+            comment: "Status Item Tooltip")
         statusItem.view = statusItemView
 
         updateStatusItemTitle(0)
