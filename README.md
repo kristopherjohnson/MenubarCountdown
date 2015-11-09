@@ -27,17 +27,13 @@ RELEASE NOTES
 
 v2.0 (work in progress)
 
-- Removed support for Growl
-- Translate Objective-C code to Swift
-
-
-v1.3 (2009/07/13)
-
+- Updated for OS X 10.10 and newer, with 64-bit support
+- Code translated to Swift
 - When timer is stopped, menubar displays small hourglass icon rather than 00:00:00, to conserve menubar space.
 - Add option to repeat alert sound after timer expiration, until it is acknowledged
 - Add option to blink 00:00:00 in the menu bar after timer expiration, until it is acknowledged
-- Added Pause menu item.
-
+- Add Pause menu item.
+- Remove support for Growl
 
 v1.2 (2009/06/22)
 
@@ -47,7 +43,6 @@ v1.2 (2009/06/22)
 - Add option to hide seconds in menu bar
 - Show start-timer dialog when application launches
 - Add Growl notifications.  The Announcement text specified in the Start dialog will be displayed in the Growl notification window.
-
 
 v1.1 (2009/04/20)
 
