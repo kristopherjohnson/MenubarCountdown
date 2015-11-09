@@ -1,4 +1,6 @@
 Menubar Countdown
+-----------------
+
 Copyright 2009, 2015 Kristopher Johnson
 
 See <http://capablehands.net/menubarcountdown> for information
@@ -23,43 +25,34 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 RELEASE NOTES
 
-v2.0
+v2.0 (work in progress)
 
-- Work in progress
+- Removed support for Growl
+- Translate Objective-C code to Swift
 
 
 v1.3 (2009/07/13)
 
 - When timer is stopped, menubar displays small hourglass icon rather than 00:00:00, to conserve menubar space.
-
 - Add option to repeat alert sound after timer expiration, until it is acknowledged
-
 - Add option to blink 00:00:00 in the menu bar after timer expiration, until it is acknowledged
-
 - Added Pause menu item.
 
 
 v1.2 (2009/06/22)
 
 - New application icon
-
 - Command-X, Command-C, Command-V, and Command-A now work in the text fields in the settings dialog
-
 - Command-R is now a shortcut key for the Restart Countdown... button in the alert window
-
 - Add option to hide seconds in menu bar
-
 - Show start-timer dialog when application launches
-
 - Add Growl notifications.  The Announcement text specified in the Start dialog will be displayed in the Growl notification window.
 
 
 v1.1 (2009/04/20)
 
 - timer-expired alert window floats above other applications' windows
-
 - added application icon
-
 - added Doxygen comments to source code
 
 
