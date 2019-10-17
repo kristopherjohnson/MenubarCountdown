@@ -33,13 +33,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var secondsRemaining = 0
 
     /// Indicates whether timer is running
-    var isTimerRunning = false
+    @objc var isTimerRunning = false
 
     /// Indicates whether the timer can be paused
-    var canPause = false
+    @objc var canPause = false
 
     /// Indicates whether the timer can be resumed
-    var canResume = false
+    @objc var canResume = false
 
     var stopwatch: Stopwatch!
 
@@ -76,7 +76,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         updateStatusItemTitle(timeRemaining: 0)
 
         if UserDefaults.standard.bool(forKey: AppUserDefaults.ShowStartDialogOnLaunchKey) {
-            showStartTimerDialog(sender: self)
+            showStartTimerDialog(self)
         }
     }
 
@@ -92,12 +92,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         Timer.scheduledTimer(timeInterval: intervalToNextSecond,
             target: self,
-            selector: #selector(nextSecondTimerDidFire(timer:)),
+            selector: #selector(nextSecondTimerDidFire(_:)),
             userInfo: nil,
             repeats: false)
     }
 
-    @objc func nextSecondTimerDidFire(timer: Timer) {
+    @objc func nextSecondTimerDidFire(_ timer: Timer) {
         if isTimerRunning {
             secondsRemaining = Int(round(TimeInterval(timerSettingSeconds) - stopwatch.elapsedTimeInterval()))
             DTraceTimerTick(Int32(secondsRemaining))
@@ -227,10 +227,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     // MARK: Menu item and button event handlers
 
-    @IBAction func showStartTimerDialog(sender: AnyObject) {
+    @IBAction func showStartTimerDialog(_ sender: AnyObject) {
         Log.debug("show start timer dialog")
 
-        dismissTimerExpiredAlert(sender: sender)
+        dismissTimerExpiredAlert(sender)
 
         if startTimerDialogController == nil {
             Bundle.main.loadNibNamed("StartTimerDialog",
@@ -241,10 +241,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         startTimerDialogController.showDialog()
     }
 
-    @IBAction func startTimerDialogStartButtonWasClicked(sender: AnyObject) {
+    @IBAction func startTimerDialogStartButtonWasClicked(_ sender: AnyObject) {
         Log.debug("start button was clicked")
 
-        dismissTimerExpiredAlert(sender: sender)
+        dismissTimerExpiredAlert(sender)
 
         startTimerDialogController.dismissDialog(sender: sender)
 
@@ -264,7 +264,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         waitForNextSecond()
     }
 
-    @IBAction func stopTimer(sender: AnyObject) {
+    @IBAction func stopTimer(_ sender: AnyObject) {
         Log.debug("stop timer")
         DTraceStartTimer(Int32(secondsRemaining))
 
@@ -276,7 +276,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusItemView.showIcon()
     }
 
-    @IBAction func pauseTimer(sender: AnyObject) {
+    @IBAction func pauseTimer(_ sender: AnyObject) {
         Log.debug("pause timer")
         DTracePauseTimer(Int32(secondsRemaining))
 
@@ -285,7 +285,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         canResume = true
     }
 
-    @IBAction func resumeTimer(sender: AnyObject) {
+    @IBAction func resumeTimer(_ sender: AnyObject) {
         Log.debug("resume timer")
         DTraceResumeTimer(Int32(secondsRemaining))
 
@@ -303,21 +303,21 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         waitForNextSecond()
     }
 
-    @IBAction func dismissTimerExpiredAlert(sender: AnyObject) {
+    @IBAction func dismissTimerExpiredAlert(_ sender: AnyObject) {
         Log.debug("dismiss timer expired alert")
         if timerExpiredAlertController != nil {
             timerExpiredAlertController.close()
         }
-        stopTimer(sender: sender)
+        stopTimer(sender)
     }
 
-    @IBAction func restartCountdownWasClicked(sender: AnyObject) {
+    @IBAction func restartCountdownWasClicked(_ sender: AnyObject) {
         Log.debug("restart countdown was clicked")
-        dismissTimerExpiredAlert(sender: sender)
-        showStartTimerDialog(sender: sender)
+        dismissTimerExpiredAlert(sender)
+        showStartTimerDialog(sender)
     }
 
-    @IBAction func showAboutPanel(sender: AnyObject) {
+    @IBAction func showAboutPanel(_ sender: AnyObject) {
         Log.debug("show About panel")
         NSApp.activate(ignoringOtherApps: true)
         NSApp.orderFrontStandardAboutPanel(sender)
