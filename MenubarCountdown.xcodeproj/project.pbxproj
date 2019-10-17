@@ -29,7 +29,7 @@
 		4EB204351BED89F900D83EF3 /* MenubarCountdownTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB204341BED89F900D83EF3 /* MenubarCountdownTests.swift */; };
 		4EB204401BED89F900D83EF3 /* MenubarCountdownUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB2043F1BED89F900D83EF3 /* MenubarCountdownUITests.swift */; };
 		4EB2044E1BED908300D83EF3 /* Stopwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB2044D1BED908300D83EF3 /* Stopwatch.swift */; };
-		4EB204501BEE29D700D83EF3 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB2044F1BEE29D700D83EF3 /* UserDefaults.swift */; };
+		4EB204501BEE29D700D83EF3 /* AppUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB2044F1BEE29D700D83EF3 /* AppUserDefaults.swift */; };
 		4EB204521BEE2E8B00D83EF3 /* StatusItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB204511BEE2E8B00D83EF3 /* StatusItemView.swift */; };
 		4EB204541BEE307900D83EF3 /* CALayerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB204531BEE307900D83EF3 /* CALayerExtensions.swift */; };
 /* End PBXBuildFile section */
@@ -82,7 +82,7 @@
 		4EB2043F1BED89F900D83EF3 /* MenubarCountdownUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenubarCountdownUITests.swift; sourceTree = "<group>"; };
 		4EB204411BED89F900D83EF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4EB2044D1BED908300D83EF3 /* Stopwatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stopwatch.swift; sourceTree = "<group>"; };
-		4EB2044F1BEE29D700D83EF3 /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		4EB2044F1BEE29D700D83EF3 /* AppUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUserDefaults.swift; sourceTree = "<group>"; };
 		4EB204511BEE2E8B00D83EF3 /* StatusItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusItemView.swift; sourceTree = "<group>"; };
 		4EB204531BEE307900D83EF3 /* CALayerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CALayerExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -191,7 +191,7 @@
 				4E4865991BEE79EA00C159BF /* TextField.swift */,
 				4E4865B21BEFC63700C159BF /* TimerExpiredAlert.xib */,
 				4E48659B1BEE81C200C159BF /* TimerExpiredAlertController.swift */,
-				4EB2044F1BEE29D700D83EF3 /* UserDefaults.swift */,
+				4EB2044F1BEE29D700D83EF3 /* AppUserDefaults.swift */,
 				4EB204241BED89F900D83EF3 /* ViewController.swift */,
 			);
 			path = MenubarCountdown;
@@ -278,7 +278,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0710;
-				LastUpgradeCheck = 0710;
+				LastUpgradeCheck = 1110;
 				ORGANIZATIONNAME = "Kristopher Johnson";
 				TargetAttributes = {
 					4EB2041E1BED89F900D83EF3 = {
@@ -297,7 +297,7 @@
 			};
 			buildConfigurationList = 4EB2041A1BED89F900D83EF3 /* Build configuration list for PBXProject "MenubarCountdown" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -357,7 +357,7 @@
 				4E4865981BEE749E00C159BF /* StartTimerDialogController.swift in Sources */,
 				4EB204541BEE307900D83EF3 /* CALayerExtensions.swift in Sources */,
 				4E48659A1BEE79EA00C159BF /* TextField.swift in Sources */,
-				4EB204501BEE29D700D83EF3 /* UserDefaults.swift in Sources */,
+				4EB204501BEE29D700D83EF3 /* AppUserDefaults.swift in Sources */,
 				4EB204251BED89F900D83EF3 /* ViewController.swift in Sources */,
 				4E4865A11BEE880A00C159BF /* DTrace.m in Sources */,
 				4E4865961BEE721C00C159BF /* CATransactionExtensions.swift in Sources */,
@@ -406,17 +406,28 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
@@ -438,12 +449,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_SWIFT_FLAGS = "-DDEBUG";
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -451,17 +463,28 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
@@ -477,9 +500,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -487,8 +512,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = MenubarCountdown/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.kristopherjohnson.MenubarCountdown;
@@ -501,8 +527,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = MenubarCountdown/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.kristopherjohnson.MenubarCountdown;

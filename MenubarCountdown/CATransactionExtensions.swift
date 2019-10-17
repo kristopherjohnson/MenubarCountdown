@@ -31,7 +31,7 @@ extension CATransaction {
 
 extension CATransaction {
     func setDuration(duration: Float) {
-        CATransaction.setValue(NSNumber(float: duration),
+        CATransaction.setValue(NSNumber(value: duration),
             forKey: kCATransactionAnimationDuration)
     }
 }
