@@ -2,7 +2,7 @@
 //  StartTimerDialogController.swift
 //  MenubarCountdown
 //
-//  Copyright © 2009, 2015 Kristopher Johnson. All rights reserved.
+//  Copyright © 2009,2015,2019 Kristopher Johnson. All rights reserved.
 //
 //  This file is part of Menubar Countdown.
 //
