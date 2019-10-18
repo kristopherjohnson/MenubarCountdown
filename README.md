@@ -3,6 +3,8 @@ Menubar Countdown
 
 Copyright 2009,2015,2019 Kristopher Johnson
 
+Releases available at <https://github.com/kristopherjohnson/MenubarCountdown/releases>.
+
 
 LICENSE
 
