@@ -24,7 +24,15 @@ import Cocoa
 
 // MARK: Create layer from image resource
 extension CALayer {
-    static func createImageNamed(name: String) -> CGImage? {
+
+    /**
+     Load am image from a resource in the main bundle.
+
+     - parameter name: name of image resource
+
+     - returns: `CGImage`, or `nil` if unable to load specified image.
+     */
+    static func imageFromResource(name: String) -> CGImage? {
         var image: CGImage? = nil
 
         if let path = Bundle.main.path(forResource: name, ofType: nil) {
@@ -43,14 +51,27 @@ extension CALayer {
         return image
     }
 
-    static func newLayerWithContentsFromFileNamed(name: String) -> CALayer {
+    /**
+     Create a layer containing an image loaded from a resource in the main bundle.
+
+     - parameter name: name of image resource
+
+     - returns: new `CALayer`.
+     */
+    static func newLayerFromImageResource(name: String) -> CALayer {
         let newLayer = CALayer()
-        newLayer.setContentsFromFileNamed(name: name)
+        newLayer.setContentsFromImageResource(name: name)
         return newLayer
     }
 
-    func setContentsFromFileNamed(name: String) {
-        if let image = CALayer.createImageNamed(name: name) {
+    /**
+     Set the contents of the layer to an image loaded from a resource in the main bundle.
+
+     - parameter name: name of image resource
+
+     */
+    func setContentsFromImageResource(name: String) {
+        if let image = CALayer.imageFromResource(name: name) {
             let imageWidth = CGFloat(image.width)
             let imageHeight = CGFloat(image.height)
 
@@ -65,6 +86,10 @@ extension CALayer {
 
 // MARK: Layer coordinate system
 extension CALayer {
+    /**
+     Set layer's `anchorPoint`, `position`, and `contentsGravity` to
+     position contents in lower-left corner.
+     */
     func orientBottomLeft() {
         self.anchorPoint = CGPoint.zero
         self.position = CGPoint.zero
@@ -74,10 +99,19 @@ extension CALayer {
 
 // MARK: Add/remove blink animation
 extension CALayer {
-    @nonobjc static let BlinkAnimationKey = "CALayer_Additions_BlinkAnimation"
+    /**
+     Unique key used to identify animation managed by `addBlinkAnimation` and `removeBlinkAnimation`.
+     */
+    @nonobjc static let blinkAnimationKey
+        = "MenubarCountdown_CALayerExtensions_BlinkAnimation"
 
+    /**
+     Add a repeating blinking animiation to the layer.
+
+     Call `removeBlinkAnimation` to stop the animation.
+     */
     func addBlinkAnimation() {
-        if let _ = animation(forKey: CALayer.BlinkAnimationKey) {
+        if let _ = animation(forKey: CALayer.blinkAnimationKey) {
             return
         }
 
@@ -93,10 +127,13 @@ extension CALayer {
         animation.toValue = 1.0
         animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
 
-        add(animation, forKey: CALayer.BlinkAnimationKey)
+        add(animation, forKey: CALayer.blinkAnimationKey)
     }
 
+    /**
+     Remove animation added by `addBlinkAnimation`.
+     */
     func removeBlinkAnimation() {
-        removeAnimation(forKey: CALayer.BlinkAnimationKey)
+        removeAnimation(forKey: CALayer.blinkAnimationKey)
     }
 }

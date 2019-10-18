@@ -97,12 +97,12 @@ class StatusItemView: NSView, NSMenuDelegate, CALayerDelegate {
 
         backgroundLayer = self.layer
 
-        iconLayer = CALayer.newLayerWithContentsFromFileNamed(name: "MenubarIcon.png")
+        iconLayer = CALayer.newLayerFromImageResource(name: "MenubarIcon.png")
         iconLayer.orientBottomLeft()
         iconLayer.position = CGPoint(x: StatusItemView.IconPaddingWidth, y: 0.0)
         backgroundLayer.addSublayer(iconLayer)
 
-        highlightIconLayer = CALayer.newLayerWithContentsFromFileNamed(name: "MenubarIconInverse.png")
+        highlightIconLayer = CALayer.newLayerFromImageResource(name: "MenubarIconInverse.png")
         highlightIconLayer.orientBottomLeft()
         highlightIconLayer.position = iconLayer.position
         highlightIconLayer.isHidden = true
