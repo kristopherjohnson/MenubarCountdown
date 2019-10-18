@@ -26,19 +26,35 @@ import AudioToolbox
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    /// Initial timer setting
+    /**
+     Initial timer setting.
+     */
     var timerSettingSeconds = 25 * 60
 
-    /// Number of seconds remaining
+    /**
+     Number of seconds remaining in countdown.
+     */
     var secondsRemaining = 0
 
-    /// Indicates whether timer is running
+    /**
+     Indicates whether timer is running.
+     
+     KVC compliant so it can be used to enable/disable menu items and other controls
+     */
     @objc var isTimerRunning = false
 
-    /// Indicates whether the timer can be paused
+    /**
+     Indicates whether the timer can be paused.
+    
+     KVC compliant so it can be used to enable/disable menu items and other controls
+    */
     @objc var canPause = false
 
-    /// Indicates whether the timer can be resumed
+    /**
+     Indicates whether the timer can be resumed.
+    
+     KVC compliant so it can be used to enable/disable menu items and other controls
+     */
     @objc var canResume = false
 
     var stopwatch: Stopwatch!
@@ -47,13 +63,23 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     var statusItemView: StatusItemView!
 
+    /**
+     Reference to menu loaded from MainMenu.xib.
+     */
     @IBOutlet var menu: NSMenu!
 
+    /**
+     Reference to dialog loaded from StartTimerDialog.xib.
+     */
     @IBOutlet var startTimerDialogController: StartTimerDialogController!
 
+    /**
+     Reference to dialog loaded from TimerExpiredAlert.xib.
+     */
     @IBOutlet var timerExpiredAlertController: TimerExpiredAlertController!
 
     override init() {
+        super.init()
         AppUserDefaults.registerUserDefaults()
     }
 
@@ -86,6 +112,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     // MARK: Timer updating
 
+    /**
+     Determine time to the next top of second, and set a timer to call `nextSecondTimerDidFire` at that time.
+     */
     func waitForNextSecond() {
         let elapsed = stopwatch.elapsedTimeInterval()
         let intervalToNextSecond = ceil(elapsed) - elapsed
@@ -97,6 +126,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             repeats: false)
     }
 
+    /**
+     Called at the top of each second.
+
+     Updates the timer display if the timer is running.
+     */
     @objc func nextSecondTimerDidFire(_ timer: Timer) {
         if isTimerRunning {
             secondsRemaining = Int(round(TimeInterval(timerSettingSeconds) - stopwatch.elapsedTimeInterval()))
@@ -115,6 +149,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
 
+    /**
+     Sets the text of the menu bar status item.
+     */
     func updateStatusItemTitle(timeRemaining: Int) {
         var timeRemaining = timeRemaining
         
@@ -143,6 +180,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     // MARK: Timer expiration
 
+    /**
+     Called when the timer reaches 00:00:00.
+
+     Fires all of the configured notifications.
+     */
     func timerDidExpire() {
         DTraceTimerExpired()
 
@@ -170,6 +212,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
 
+    /**
+     Plays the alert sound.
+
+     If configured to repeat, starts a timer to call this method again after a delay.
+     */
     @objc func playAlertSound() {
         if isTimerRunning && (secondsRemaining < 1) {
             Log.debug("play alert sound")
@@ -191,6 +238,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
 
+    /**
+     Speak the configured announcement.
+     */
     func announceTimerExpired() {
         let text = announcementText()
         Log.debug("speaking announcement \"\(text)\"")
@@ -202,6 +252,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
 
+    /**
+     Returns the configured announcement text, or a default value if not configured.
+     */
     func announcementText() -> String {
         var result = UserDefaults.standard.string(forKey: AppUserDefaults.AnnouncementTextKey)
         if (result == nil) || result!.isEmpty {
@@ -211,6 +264,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         return result!
     }
 
+    /**
+     Display the alert indicating timer is expired.
+     */
     func showTimerExpiredAlert() {
         Log.debug("show timer-expired alert")
 
@@ -227,6 +283,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     // MARK: Menu item and button event handlers
 
+    /**
+     Display the StartTimerDialog.xib dialog.
+
+     Called at startup, when the user chooses the Start... menu item,
+     or when the user clicks the Restart Countdown... button on the alert.
+     */
     @IBAction func showStartTimerDialog(_ sender: AnyObject) {
         Log.debug("show start timer dialog")
 
@@ -241,6 +303,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         startTimerDialogController.showDialog()
     }
 
+
+    /**
+     Start the timer.
+
+     Called when the user clicks the Start button in the StartTimerDialog.
+     */
     @IBAction func startTimerDialogStartButtonWasClicked(_ sender: AnyObject) {
         Log.debug("start button was clicked")
 
@@ -264,6 +332,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         waitForNextSecond()
     }
 
+    /**
+     Reset everything to a not-running state.
+
+     Called when the user clicks the Stop menu item or
+     clicks the OK button in the TimerExpiredAlert.
+     */
     @IBAction func stopTimer(_ sender: AnyObject) {
         Log.debug("stop timer")
         DTraceStartTimer(Int32(secondsRemaining))
@@ -276,6 +350,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusItemView.showIcon()
     }
 
+    /**
+     Pause the countdown timer.
+
+     Called when the user chooses the Pause menu item.
+     */
     @IBAction func pauseTimer(_ sender: AnyObject) {
         Log.debug("pause timer")
         DTracePauseTimer(Int32(secondsRemaining))
@@ -285,6 +364,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         canResume = true
     }
 
+    /**
+     Resume the countdown timer.
+
+     Called when the user chooses the Resume menu item.
+     */
     @IBAction func resumeTimer(_ sender: AnyObject) {
         Log.debug("resume timer")
         DTraceResumeTimer(Int32(secondsRemaining))
@@ -303,6 +387,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         waitForNextSecond()
     }
 
+    /**
+     Dismiss the TimerExpiredAlert.
+
+     Called when the user clicks the OK button in that alert,
+     or whenever the StartTimerDialog is shown.
+     */
     @IBAction func dismissTimerExpiredAlert(_ sender: AnyObject) {
         Log.debug("dismiss timer expired alert")
         if timerExpiredAlertController != nil {
@@ -311,12 +401,22 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         stopTimer(sender)
     }
 
+    /**
+     Dismiss the TimerExpiredAlert and show the StartTimerDialog.
+
+     Called when the user clicks the Restart Countdown button in the TimerExpiredAlert.
+     */
     @IBAction func restartCountdownWasClicked(_ sender: AnyObject) {
         Log.debug("restart countdown was clicked")
         dismissTimerExpiredAlert(sender)
         showStartTimerDialog(sender)
     }
 
+    /**
+     Show the About box.
+
+     Called when the user chooses the About Menubar Countdown menu item.
+     */
     @IBAction func showAboutPanel(_ sender: AnyObject) {
         Log.debug("show About panel")
         NSApp.activate(ignoringOtherApps: true)
