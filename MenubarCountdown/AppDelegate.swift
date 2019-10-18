@@ -57,7 +57,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         AppUserDefaults.registerUserDefaults()
     }
 
-    func applicationDidFinishLaunching(aNotification: NSNotification) {
+    func applicationDidFinishLaunching(_ notification: Notification) {
         Log.debug("application did finish launching")
 
         stopwatch.reset()
@@ -80,7 +80,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
 
-    func applicationWillTerminate(aNotification: NSNotification) {
+    func applicationWillTerminate(_ notification: Notification) {
         Log.debug("application will terminate")
     }
 
