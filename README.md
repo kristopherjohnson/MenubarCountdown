@@ -4,7 +4,8 @@ Menubar Countdown
 Copyright 2009,2015,2019 Kristopher Johnson
 
 
-_Menubar Countdown_ is a simple countdown timer that displays itself on the macOS menu bar.
+_Menubar Countdown_ is a simple countdown timer that displays itself on the
+macOS menu bar.
 
 To set the timer, click the menu bar icon and select the **Start...** menu item.
 A dialog will appear allowing you to specify the countdown time in hours,
@@ -18,10 +19,11 @@ following forms of notification you want when the timer gets down to 00:00:00:
 
 Releases are available at <https://github.com/kristopherjohnson/MenubarCountdown/releases>.
 
-The current 2.0 version of Menubar Countdown requires macOS 10.14 Mojave or 10.15 Catalina.
+The current 2.0 version of Menubar Countdown requires macOS Mojave 10.14.4 or
+newer.  It is compatible with macOS Catalina 10.15.
 
-For older versions of macOS (10.5 to 10.14), you can use version 1.2 available
-from <http://s3.amazonaws.com/capablehands/downloads/MenubarCountdown-1.2.zip>
+For older versions of macOS (10.5 to 10.14.3), you can use version 1.2,
+available from <http://s3.amazonaws.com/capablehands/downloads/MenubarCountdown-1.2.zip>
 
 
 LICENSE
