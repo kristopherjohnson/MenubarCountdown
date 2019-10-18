@@ -24,12 +24,12 @@ import Cocoa
 
 // MARK: Create layer from image resource
 extension CALayer {
-    static func createImageNamed(name: String) -> CGImageRef? {
-        var image: CGImageRef? = nil
+    static func createImageNamed(name: String) -> CGImage? {
+        var image: CGImage? = nil
 
-        if let path = NSBundle.mainBundle().pathForResource(name, ofType: nil) {
-            let url = NSURL.fileURLWithPath(path)
-            if let imageSource = CGImageSourceCreateWithURL(url, nil) {
+        if let path = Bundle.main.path(forResource: name, ofType: nil) {
+            let url = NSURL.fileURL(withPath: path)
+            if let imageSource = CGImageSourceCreateWithURL(url as CFURL, nil) {
                 image = CGImageSourceCreateImageAtIndex(imageSource, 0, nil)
             }
             else {
@@ -45,16 +45,16 @@ extension CALayer {
 
     static func newLayerWithContentsFromFileNamed(name: String) -> CALayer {
         let newLayer = CALayer()
-        newLayer.setContentsFromFileNamed(name)
+        newLayer.setContentsFromFileNamed(name: name)
         return newLayer
     }
 
     func setContentsFromFileNamed(name: String) {
-        if let image = CALayer.createImageNamed(name) {
-            let imageWidth = CGImageGetWidth(image)
-            let imageHeight = CGImageGetHeight(image)
+        if let image = CALayer.createImageNamed(name: name) {
+            let imageWidth = CGFloat(image.width)
+            let imageHeight = CGFloat(image.height)
 
-            self.bounds = CGRectMake(0.0, 0.0, CGFloat(imageWidth), CGFloat(imageHeight))
+            self.bounds = CGRect(x: 0.0, y: 0.0, width: imageWidth, height: imageHeight)
             self.contents = image
         }
         else {
@@ -66,9 +66,9 @@ extension CALayer {
 // MARK: Layer coordinate system
 extension CALayer {
     func orientBottomLeft() {
-        self.anchorPoint = CGPointZero
-        self.position = CGPointZero
-        self.contentsGravity = kCAGravityBottomLeft
+        self.anchorPoint = CGPoint.zero
+        self.position = CGPoint.zero
+        self.contentsGravity = CALayerContentsGravity.bottomLeft
     }
 }
 
@@ -77,7 +77,7 @@ extension CALayer {
     @nonobjc static let BlinkAnimationKey = "CALayer_Additions_BlinkAnimation"
 
     func addBlinkAnimation() {
-        if let _ = animationForKey(CALayer.BlinkAnimationKey) {
+        if let _ = animation(forKey: CALayer.BlinkAnimationKey) {
             return
         }
 
@@ -91,12 +91,12 @@ extension CALayer {
         // Cycle between 0 and full opacity
         animation.fromValue = 0.0
         animation.toValue = 1.0
-        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
 
-        addAnimation(animation, forKey: CALayer.BlinkAnimationKey)
+        add(animation, forKey: CALayer.BlinkAnimationKey)
     }
 
     func removeBlinkAnimation() {
-        removeAnimationForKey(CALayer.BlinkAnimationKey)
+        removeAnimation(forKey: CALayer.BlinkAnimationKey)
     }
 }

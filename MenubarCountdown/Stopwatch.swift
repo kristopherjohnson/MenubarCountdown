@@ -28,7 +28,7 @@ import Cocoa
 /// the current time and the last call to `reset` (or `init`).
 
 @objc class Stopwatch: NSObject {
-    private var startTime: NSTimeInterval
+    private var startTime: TimeInterval
 
     /// Initialize with current time as start point
     override init() {
@@ -41,7 +41,7 @@ import Cocoa
     }
 
     /// Calculate elapsed time since initialization or last call to reset()
-    func elapsedTimeInterval() -> NSTimeInterval {
+    func elapsedTimeInterval() -> TimeInterval {
         return CACurrentMediaTime() - startTime
     }
 }

@@ -25,17 +25,17 @@ import Cocoa
 class StartTimerDialogController: NSWindowController {
     @IBOutlet var startTimerDialog: NSWindow!
 
-    var timerInterval: NSTimeInterval {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        let hours = defaults.integerForKey(UserDefaults.TimerHoursKey);
-        let minutes = defaults.integerForKey(UserDefaults.TimerMinutesKey);
-        let seconds = defaults.integerForKey(UserDefaults.TimerSecondsKey);
-        return NSTimeInterval((hours * 3600) + (minutes * 60) + seconds);
+    var timerInterval: TimeInterval {
+        let defaults = UserDefaults.standard
+        let hours = defaults.integer(forKey: AppUserDefaults.TimerHoursKey);
+        let minutes = defaults.integer(forKey: AppUserDefaults.TimerMinutesKey);
+        let seconds = defaults.integer(forKey: AppUserDefaults.TimerSecondsKey);
+        return TimeInterval((hours * 3600) + (minutes * 60) + seconds);
     }
 
     func showDialog() {
-        NSApp.activateIgnoringOtherApps(true)
-        if !startTimerDialog.visible {
+        NSApp.activate(ignoringOtherApps: true)
+        if !startTimerDialog.isVisible {
             startTimerDialog.center()
             startTimerDialog.makeFirstResponder(nil)
         }
