@@ -1,10 +1,7 @@
 Menubar Countdown
 -----------------
 
-Copyright 2009, 2015 Kristopher Johnson
-
-See <http://capablehands.net/menubarcountdown> for information
-about this software.
+Copyright 2009,2015,2019 Kristopher Johnson
 
 
 LICENSE
@@ -27,7 +24,7 @@ RELEASE NOTES
 
 v2.0 (work in progress)
 
-- Updated for OS X 10.10 and newer, with 64-bit support
+- Updated for macOS 10.14 and newer, with 64-bit support
 - Code translated to Swift
 - When timer is stopped, menubar displays small hourglass icon rather than 00:00:00, to conserve menubar space.
 - Add option to repeat alert sound after timer expiration, until it is acknowledged
@@ -49,7 +46,6 @@ v1.1 (2009/04/20)
 - timer-expired alert window floats above other applications' windows
 - added application icon
 - added Doxygen comments to source code
-
 
 v1.0 (2009/04/09)
 
