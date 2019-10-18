@@ -246,7 +246,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         dismissTimerExpiredAlert(sender)
 
-        startTimerDialogController.dismissDialog(sender: sender)
+        startTimerDialogController.dismissDialog(sender)
 
         UserDefaults.standard.synchronize()
 

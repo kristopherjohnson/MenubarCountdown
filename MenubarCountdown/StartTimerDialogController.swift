@@ -42,7 +42,7 @@ class StartTimerDialogController: NSWindowController {
         startTimerDialog.makeKeyAndOrderFront(self)
     }
 
-    @IBAction func dismissDialog(sender: AnyObject) {
+    @IBAction func dismissDialog(_ sender: AnyObject) {
         if !startTimerDialog.makeFirstResponder(nil) {
             // TODO: Figure out what to do if responder didn't resign
         }
