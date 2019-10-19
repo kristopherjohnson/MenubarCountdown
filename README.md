@@ -4,6 +4,10 @@ Menubar Countdown
 _Menubar Countdown_ is a simple countdown timer that displays itself on the
 macOS menu bar.
 
+<div style="float: right;">
+<img src="docs/MenubarCountdownSettings.png" alt="Screenshot" />
+</div>
+
 To set the timer, click the menu bar icon and select the **Start...** menu item.
 A dialog will appear allowing you to specify the countdown time in hours,
 minutes, and seconds. The dialog also allows you to specify which of the
