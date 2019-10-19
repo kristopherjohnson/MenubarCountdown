@@ -24,7 +24,6 @@
 		4E4865B41BEFC63700C159BF /* StartTimerDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E4865B11BEFC63700C159BF /* StartTimerDialog.xib */; };
 		4E4865B51BEFC63700C159BF /* TimerExpiredAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E4865B21BEFC63700C159BF /* TimerExpiredAlert.xib */; };
 		4EB204231BED89F900D83EF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB204221BED89F900D83EF3 /* AppDelegate.swift */; };
-		4EB204251BED89F900D83EF3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB204241BED89F900D83EF3 /* ViewController.swift */; };
 		4EB204271BED89F900D83EF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EB204261BED89F900D83EF3 /* Assets.xcassets */; };
 		4EB204351BED89F900D83EF3 /* MenubarCountdownTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB204341BED89F900D83EF3 /* MenubarCountdownTests.swift */; };
 		4EB204401BED89F900D83EF3 /* MenubarCountdownUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB2043F1BED89F900D83EF3 /* MenubarCountdownUITests.swift */; };
@@ -72,7 +71,6 @@
 		4E4865B21BEFC63700C159BF /* TimerExpiredAlert.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimerExpiredAlert.xib; sourceTree = "<group>"; };
 		4EB2041F1BED89F900D83EF3 /* MenubarCountdown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MenubarCountdown.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EB204221BED89F900D83EF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4EB204241BED89F900D83EF3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4EB204261BED89F900D83EF3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4EB2042B1BED89F900D83EF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4EB204301BED89F900D83EF3 /* MenubarCountdownTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MenubarCountdownTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -192,7 +190,6 @@
 				4E4865B21BEFC63700C159BF /* TimerExpiredAlert.xib */,
 				4E48659B1BEE81C200C159BF /* TimerExpiredAlertController.swift */,
 				4EB2044F1BEE29D700D83EF3 /* AppUserDefaults.swift */,
-				4EB204241BED89F900D83EF3 /* ViewController.swift */,
 			);
 			path = MenubarCountdown;
 			sourceTree = "<group>";
@@ -358,7 +355,6 @@
 				4EB204541BEE307900D83EF3 /* CALayerExtensions.swift in Sources */,
 				4E48659A1BEE79EA00C159BF /* TextField.swift in Sources */,
 				4EB204501BEE29D700D83EF3 /* AppUserDefaults.swift in Sources */,
-				4EB204251BED89F900D83EF3 /* ViewController.swift in Sources */,
 				4E4865A11BEE880A00C159BF /* DTrace.m in Sources */,
 				4E4865961BEE721C00C159BF /* CATransactionExtensions.swift in Sources */,
 				4EB2044E1BED908300D83EF3 /* Stopwatch.swift in Sources */,
