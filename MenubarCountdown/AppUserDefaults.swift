@@ -22,20 +22,30 @@
 
 import Foundation
 
-struct AppUserDefaults {
-    static let TimerHoursKey                   = "TimerHours"
-    static let TimerMinutesKey                 = "TimerMinutes"
-    static let TimerSecondsKey                 = "TimerSeconds"
-    static let BlinkOnExpirationKey            = "BlinkOnExpiration"
-    static let PlayAlertSoundOnExpirationKey   = "PlayAlertSoundOnExpiration"
-    static let RepeatAlertSoundOnExpirationKey = "RepeatAlertSoundOnExpiration"
-    static let AlertSoundRepeatIntervalKey     = "AlertSoundRepeatInterval"
-    static let AnnounceExpirationKey           = "AnnounceExpiration"
-    static let AnnouncementTextKey             = "AnnouncementText"
-    static let ShowAlertWindowOnExpirationKey  = "ShowAlertWindowOnExpiration"
-    static let ShowStartDialogOnLaunchKey      = "ShowStartDialogOnLaunch"
-    static let ShowSeconds                     = "ShowSeconds"
+/**
+ Defines UserDefaults keys used by this application.
 
+ The resource `UserDefaults.plist` holds default values for these keys.
+ */
+struct AppUserDefaults {
+    static let timerHoursKey                   = "TimerHours"
+    static let timerMinutesKey                 = "TimerMinutes"
+    static let timerSecondsKey                 = "TimerSeconds"
+    static let blinkOnExpirationKey            = "BlinkOnExpiration"
+    static let playAlertSoundOnExpirationKey   = "PlayAlertSoundOnExpiration"
+    static let repeatAlertSoundOnExpirationKey = "RepeatAlertSoundOnExpiration"
+    static let alertSoundRepeatIntervalKey     = "AlertSoundRepeatInterval"
+    static let announceExpirationKey           = "AnnounceExpiration"
+    static let announcementTextKey             = "AnnouncementText"
+    static let showAlertWindowOnExpirationKey  = "ShowAlertWindowOnExpiration"
+    static let showStartDialogOnLaunchKey      = "ShowStartDialogOnLaunch"
+    static let showSeconds                     = "ShowSeconds"
+
+    /**
+     Adds default values to the registration domain.
+
+     Default values are read from the `UserDefaults.plist` resource.
+     */
     static func registerUserDefaults() {
         if let plistPath = Bundle.main.path(forResource: "UserDefaults", ofType: "plist") {
             if let dict = NSDictionary(contentsOfFile: plistPath) as? [String : Any] {

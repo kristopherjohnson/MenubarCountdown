@@ -101,7 +101,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         updateStatusItemTitle(timeRemaining: 0)
 
-        if UserDefaults.standard.bool(forKey: AppUserDefaults.ShowStartDialogOnLaunchKey) {
+        if UserDefaults.standard.bool(forKey: AppUserDefaults.showStartDialogOnLaunchKey) {
             showStartTimerDialog(self)
         }
     }
@@ -155,7 +155,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func updateStatusItemTitle(timeRemaining: Int) {
         var timeRemaining = timeRemaining
         
-        let showSeconds = UserDefaults.standard.bool(forKey: AppUserDefaults.ShowSeconds)
+        let showSeconds = UserDefaults.standard.bool(forKey: AppUserDefaults.showSeconds)
         if (!showSeconds) {
             // Round timeRemaining up to the next minute
             let minutes = Double(timeRemaining) / 60.0
@@ -195,19 +195,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         let defaults = UserDefaults.standard
 
-        if defaults.bool(forKey: AppUserDefaults.BlinkOnExpirationKey) {
+        if defaults.bool(forKey: AppUserDefaults.blinkOnExpirationKey) {
             statusItemView.isTitleBlinking = true
         }
 
-        if defaults.bool(forKey: AppUserDefaults.PlayAlertSoundOnExpirationKey) {
+        if defaults.bool(forKey: AppUserDefaults.playAlertSoundOnExpirationKey) {
             playAlertSound()
         }
 
-        if defaults.bool(forKey: AppUserDefaults.AnnounceExpirationKey) {
+        if defaults.bool(forKey: AppUserDefaults.announceExpirationKey) {
             announceTimerExpired()
         }
 
-        if defaults.bool(forKey: AppUserDefaults.ShowAlertWindowOnExpirationKey) {
+        if defaults.bool(forKey: AppUserDefaults.showAlertWindowOnExpirationKey) {
             showTimerExpiredAlert()
         }
     }
@@ -223,8 +223,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             AudioServicesPlayAlertSound(kUserPreferredAlert);
 
             let defaults = UserDefaults.standard
-            if defaults.bool(forKey: AppUserDefaults.RepeatAlertSoundOnExpirationKey) {
-                var repeatInterval = TimeInterval(defaults.integer(forKey: AppUserDefaults.AlertSoundRepeatIntervalKey))
+            if defaults.bool(forKey: AppUserDefaults.repeatAlertSoundOnExpirationKey) {
+                var repeatInterval = TimeInterval(defaults.integer(forKey: AppUserDefaults.alertSoundRepeatIntervalKey))
                 if repeatInterval < 1.0 {
                     repeatInterval = 1.0
                 }
@@ -256,7 +256,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
      Returns the configured announcement text, or a default value if not configured.
      */
     func announcementText() -> String {
-        var result = UserDefaults.standard.string(forKey: AppUserDefaults.AnnouncementTextKey)
+        var result = UserDefaults.standard.string(forKey: AppUserDefaults.announcementTextKey)
         if (result == nil) || result!.isEmpty {
             result = NSLocalizedString("The Menubar Countdown timer has reached zero.",
                 comment: "Default announcement text")

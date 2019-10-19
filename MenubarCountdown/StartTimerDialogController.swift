@@ -27,9 +27,9 @@ class StartTimerDialogController: NSWindowController {
 
     var timerInterval: TimeInterval {
         let defaults = UserDefaults.standard
-        let hours = defaults.integer(forKey: AppUserDefaults.TimerHoursKey);
-        let minutes = defaults.integer(forKey: AppUserDefaults.TimerMinutesKey);
-        let seconds = defaults.integer(forKey: AppUserDefaults.TimerSecondsKey);
+        let hours = defaults.integer(forKey: AppUserDefaults.timerHoursKey);
+        let minutes = defaults.integer(forKey: AppUserDefaults.timerMinutesKey);
+        let seconds = defaults.integer(forKey: AppUserDefaults.timerSecondsKey);
         return TimeInterval((hours * 3600) + (minutes * 60) + seconds);
     }
 

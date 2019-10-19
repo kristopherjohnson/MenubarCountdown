@@ -22,30 +22,28 @@
 
 import Cocoa
 
-/// Custom view for status item
-///
-/// StatusItemView implements the custom view for the menubar status item.
-///
-/// StatusItemView uses layers to display its content.  There are four layers:
-///
-/// - the background/root layer, which draws the background and hosts the other layers
-///
-/// - the icon layer, which is a 22x22 image displayed in the menu bar
-///
-/// - the highlighted icon layer, which is the inverse to the icon layer, displayed
-///   when the menu is popped up, and hidden otherwise
-///
-/// - the title layer, which displays a string
-///
-/// The application can switch between displaying the icon and displaying the string
-/// by calling `showIcon` and `showTitle`, respectively.
-///
-/// The application can cause the title to blink by setting the `isTitleBlinking` property.
-///
+/**
+ Custom view for menu bar status item
+
+ StatusItemView implements the custom view for the menubar status item.
+
+ StatusItemView uses layers to display its content.  There are four layers:
+
+ - the background/root layer, which draws the background and hosts the other layers
+ - the icon layer, which is a 22x22 image displayed in the menu bar
+ - the highlighted icon layer, which is the inverse to the icon layer, displayed
+   when the menu is popped up, and hidden otherwise
+ - the title layer, which displays a string
+
+ The application can switch between displaying the icon and displaying the string
+ by calling `showIcon` and `showTitle`, respectively.
+
+ The application can cause the title to blink by setting the `isTitleBlinking` property.
+ */
 class StatusItemView: NSView, NSMenuDelegate, CALayerDelegate {
-    static let IconPaddingWidth = CGFloat(3)
-    static let TitlePaddingWidth = CGFloat(6)
-    static let TitlePaddingHeight = CGFloat(3)
+    static let iconPaddingWidth = CGFloat(3)
+    static let titlePaddingWidth = CGFloat(6)
+    static let titlePaddingHeight = CGFloat(3)
 
     var statusItem: NSStatusItem?
 
@@ -99,7 +97,7 @@ class StatusItemView: NSView, NSMenuDelegate, CALayerDelegate {
 
         iconLayer = CALayer.newLayerFromImageResource(name: "MenubarIcon.png")
         iconLayer.orientBottomLeft()
-        iconLayer.position = CGPoint(x: StatusItemView.IconPaddingWidth, y: 0.0)
+        iconLayer.position = CGPoint(x: StatusItemView.iconPaddingWidth, y: 0.0)
         backgroundLayer.addSublayer(iconLayer)
 
         highlightIconLayer = CALayer.newLayerFromImageResource(name: "MenubarIconInverse.png")
@@ -158,7 +156,7 @@ class StatusItemView: NSView, NSMenuDelegate, CALayerDelegate {
         newLayer.orientBottomLeft()
 
         let titleBounds = titleBoundingRect()
-        let desiredWidth = titleBounds.size.width + 2 * StatusItemView.TitlePaddingWidth
+        let desiredWidth = titleBounds.size.width + 2 * StatusItemView.titlePaddingWidth
         let desiredHeight = self.bounds.size.height
         newLayer.bounds = CGRect(x: 0.0, y: 0.0, width: desiredWidth, height: desiredHeight)
 
@@ -230,8 +228,8 @@ class StatusItemView: NSView, NSMenuDelegate, CALayerDelegate {
 
     func drawTitle() {
         let position = NSMakePoint(
-            StatusItemView.TitlePaddingWidth,
-            StatusItemView.TitlePaddingHeight)
+            StatusItemView.titlePaddingWidth,
+            StatusItemView.titlePaddingHeight)
         (title as NSString).draw(at: position, withAttributes: titleAttributes())
     }
 
