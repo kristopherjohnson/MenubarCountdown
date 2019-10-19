@@ -176,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				4EB204221BED89F900D83EF3 /* AppDelegate.swift */,
+				4EB2044F1BEE29D700D83EF3 /* AppUserDefaults.swift */,
 				4E4865A31BEE90D900C159BF /* Diagnostics */,
 				4E4865A41BEE910600C159BF /* Extensions */,
 				4E4865AA1BEFA07E00C159BF /* Image Resources */,
@@ -189,7 +190,6 @@
 				4E4865991BEE79EA00C159BF /* TextField.swift */,
 				4E4865B21BEFC63700C159BF /* TimerExpiredAlert.xib */,
 				4E48659B1BEE81C200C159BF /* TimerExpiredAlertController.swift */,
-				4EB2044F1BEE29D700D83EF3 /* AppUserDefaults.swift */,
 			);
 			path = MenubarCountdown;
 			sourceTree = "<group>";
