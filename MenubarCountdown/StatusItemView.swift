@@ -182,9 +182,11 @@ class StatusItemView: NSView, NSMenuDelegate, CALayerDelegate {
     }
 
     func titleAttributes() -> [NSAttributedString.Key : Any] {
+        let font = NSFont.monospacedDigitSystemFont(ofSize: 0, weight: .thin)
+        let foregroundColor = titleForegroundColor()
         return [
-            NSAttributedString.Key.font: NSFont.menuBarFont(ofSize: 0),
-            NSAttributedString.Key.foregroundColor: titleForegroundColor()
+            NSAttributedString.Key.font: font,
+            NSAttributedString.Key.foregroundColor: foregroundColor
         ]
     }
 
