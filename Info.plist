@@ -6,10 +6,12 @@
 	<string>English</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
+	<key>CFBundleGetInfoString</key>
+	<string>1.3, © 2009,2015,2019 Kristopher Johnson</string>
 	<key>CFBundleIconFile</key>
 	<string>MenuTimerIcon</string>
 	<key>CFBundleIdentifier</key>
-	<string>net.capablehands.${PRODUCT_NAME:identifier}</string>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -19,16 +21,14 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.2</string>
-	<key>CFBundleGetInfoString</key>
-	<string>1.2, © 2009 Capable Hands Technologies, Inc.</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>LSUIElement</key>
+	<true/>
 	<key>NSHumanReadableCopyright</key>
-	<string>© 2009 Capable Hands Technologies, Inc.</string>
+	<string>© 2009,2015,2019 Kristopher Johnson</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
-	<key>LSUIElement</key>
-	<true/>
 </dict>
 </plist>

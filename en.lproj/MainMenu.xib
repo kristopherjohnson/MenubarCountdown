@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="NSApplication"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject">
+            <connections>
+                <outlet property="delegate" destination="458" id="459"/>
+            </connections>
+        </customObject>
+        <customObject id="420" customClass="NSFontManager"/>
+        <menu title="00:00:00" id="450">
+            <items>
+                <menuItem title="Start…" toolTip="Start a countdown" id="451">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="startTimer:" target="458" id="463"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Resume" enabled="NO" toolTip="Resume a stopped countdown" id="465">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="resumeTimer:" target="458" id="477"/>
+                        <binding destination="458" name="enabled" keyPath="canResume" id="474"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Stop" toolTip="Stop the countdown" id="452">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="stopTimer:" target="458" id="460"/>
+                        <binding destination="458" name="enabled" keyPath="timerIsRunning" id="476"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="464"/>
+                <menuItem title="About Menubar Countdown" toolTip="Display version, copyright, and licensing information" id="471">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="showAboutPanel:" target="458" id="478"/>
+                    </connections>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="470"/>
+                <menuItem title="Quit Menubar Countdown" toolTip="Terminate the Menubar Countdown application" id="453">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="terminate:" target="-3" id="455"/>
+                    </connections>
+                </menuItem>
+            </items>
+            <point key="canvasLocation" x="139" y="152"/>
+        </menu>
+        <customObject id="458" customClass="MenuTimerAppDelegate">
+            <connections>
+                <outlet property="menu" destination="450" id="466"/>
+                <outlet property="stopwatch" destination="468" id="469"/>
+            </connections>
+        </customObject>
+        <customObject id="468" customClass="Stopwatch"/>
+    </objects>
+</document>

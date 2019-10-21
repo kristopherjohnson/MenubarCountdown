@@ -3,7 +3,7 @@
 //  MenuTimer
 //
 //  Created by Kristopher Johnson on 3/19/09.
-//  Copyright 2009 Capable Hands Technologies, Inc.. All rights reserved.
+//  Copyright © 2009,2015,2019 Kristopher Johnson
 //
 //  This file is part of Menubar Countdown.
 //
@@ -27,7 +27,6 @@
 #import "TimerExpiredAlertController.h"
 #import "UserDefaults.h"
 #import <AudioToolbox/AudioServices.h>
-#import "GrowlHandler.h"
 
 
 @interface MenuTimerAppDelegate (private)
@@ -56,7 +55,6 @@
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
     [nc removeObserver:self];
 
-    [growl release];
     [timerExpiredAlertController release];
     [startTimerDialogController release];
     [stopwatch release];
@@ -80,14 +78,6 @@
     [statusItem setHighlightMode:YES];
     [statusItem setToolTip:NSLocalizedString(@"Menubar Countdown",
                                              @"Status Item Tooltip")];
-
-    // Call startTimer: whenever Growl notification is clicked
-    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
-    [nc addObserver:self
-           selector:@selector(startTimer:)
-               name:GrowlHandlerTimerExpiredNotificationWasClicked
-             object:nil];
-    [growl connectToGrowl];
 
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if ([defaults boolForKey:UserDefaultsShowStartDialogOnLaunchKey]) {
@@ -203,8 +193,6 @@
     self.canResume = NO;
     self.timerIsRunning = NO;
     [self updateStatusItemTitle:0];
-
-    [growl notifyTimerExpired:[self announcementText]];
 
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 

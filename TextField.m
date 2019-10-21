@@ -3,7 +3,7 @@
 //  MenuTimer
 //
 //  Created by Kristopher Johnson on 6/11/09.
-//  Copyright 2009 Capable Hands Technologies, Inc.. All rights reserved.
+//  Copyright © 2009,2015,2019 Kristopher Johnson
 //
 //  This file is part of Menubar Countdown.
 //

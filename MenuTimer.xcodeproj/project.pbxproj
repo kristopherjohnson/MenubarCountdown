@@ -10,9 +10,6 @@
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		4E04D6750F9D476A006023D1 /* TimerExpiredAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E04D6740F9D476A006023D1 /* TimerExpiredAlertController.m */; };
 		4E04D6B90F9D5E2F006023D1 /* TimerExpiredAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E04D6B70F9D5E2F006023D1 /* TimerExpiredAlert.xib */; };
-		4E255A400FD9FD9F0025F48C /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E255A3F0FD9FD9F0025F48C /* Growl.framework */; };
-		4E255A450FD9FDC60025F48C /* GrowlHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E255A440FD9FDC60025F48C /* GrowlHandler.m */; };
-		4E255A660FD9FF3A0025F48C /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4E255A3F0FD9FD9F0025F48C /* Growl.framework */; };
 		4E5848A60F8050030001EFEB /* StartTimerDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E5848A40F8050030001EFEB /* StartTimerDialog.xib */; };
 		4E753AA90F8E3A67007B2C05 /* MenuTimerIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 4E753AA80F8E3A67007B2C05 /* MenuTimerIcon.icns */; };
 		4EAF35AD0F87EFD400F8CCCB /* UserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAF35AC0F87EFD400F8CCCB /* UserDefaults.m */; };
@@ -35,40 +32,36 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				4E255A660FD9FF3A0025F48C /* Growl.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
-		1DDD58150DA1D0A300B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		32CA4F630368D1EE00C91783 /* MenuTimer_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTimer_Prefix.pch; sourceTree = "<group>"; };
 		4E04D6730F9D476A006023D1 /* TimerExpiredAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerExpiredAlertController.h; sourceTree = "<group>"; };
 		4E04D6740F9D476A006023D1 /* TimerExpiredAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerExpiredAlertController.m; sourceTree = "<group>"; };
-		4E04D6B80F9D5E2F006023D1 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/TimerExpiredAlert.xib; sourceTree = "<group>"; };
-		4E255A3F0FD9FD9F0025F48C /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Growl.framework; sourceTree = "<group>"; };
-		4E255A430FD9FDC60025F48C /* GrowlHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrowlHandler.h; sourceTree = "<group>"; };
-		4E255A440FD9FDC60025F48C /* GrowlHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrowlHandler.m; sourceTree = "<group>"; };
-		4E5848A50F8050030001EFEB /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/StartTimerDialog.xib; sourceTree = "<group>"; };
 		4E753AA80F8E3A67007B2C05 /* MenuTimerIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = MenuTimerIcon.icns; sourceTree = "<group>"; };
 		4EAF35AB0F87EFD400F8CCCB /* UserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDefaults.h; sourceTree = "<group>"; };
 		4EAF35AC0F87EFD400F8CCCB /* UserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDefaults.m; sourceTree = "<group>"; };
-		4EBC344B0F7D010100AE610D /* English */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = English; path = English.lproj/Credits.rtf; sourceTree = "<group>"; };
 		4EC281850FE0CE03008B70D5 /* TextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextField.h; sourceTree = "<group>"; };
 		4EC281860FE0CE03008B70D5 /* TextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextField.m; sourceTree = "<group>"; };
 		4EC45D220F7324A900952786 /* MenuTimerAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTimerAppDelegate.h; sourceTree = "<group>"; };
 		4EC45D230F7324A900952786 /* MenuTimerAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTimerAppDelegate.m; sourceTree = "<group>"; };
 		4EC578F70F7FE2EB0000D737 /* StartTimerDialogController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartTimerDialogController.h; sourceTree = "<group>"; };
 		4EC578F80F7FE2EB0000D737 /* StartTimerDialogController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartTimerDialogController.m; sourceTree = "<group>"; };
+		4ECDC3F1235DB7EA002CAC23 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		4ECDC3F2235DB7EA002CAC23 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4ECDC3F3235DB7EA002CAC23 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		4ECDC3F4235DB7EA002CAC23 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/StartTimerDialog.xib; sourceTree = "<group>"; };
+		4ECDC3F5235DB7EA002CAC23 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TimerExpiredAlert.xib; sourceTree = "<group>"; };
+		4ECDC3F6235DB7EA002CAC23 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/UserDefaults.plist; sourceTree = "<group>"; };
 		4EDFF4440F82D3F5002ACE13 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = ../../../System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		4EE7B25C0F83D3AC004F66B8 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = English; path = English.lproj/UserDefaults.plist; sourceTree = "<group>"; };
 		4EFE68CF0F7C515A00251776 /* Stopwatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stopwatch.h; sourceTree = "<group>"; };
 		4EFE68D00F7C515A00251776 /* Stopwatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stopwatch.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -82,7 +75,6 @@
 			files = (
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				4EDFF4450F82D3F5002ACE13 /* AudioToolbox.framework in Frameworks */,
-				4E255A400FD9FD9F0025F48C /* Growl.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,8 +84,6 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				4E255A430FD9FDC60025F48C /* GrowlHandler.h */,
-				4E255A440FD9FDC60025F48C /* GrowlHandler.m */,
 				4EC45D220F7324A900952786 /* MenuTimerAppDelegate.h */,
 				4EC45D230F7324A900952786 /* MenuTimerAppDelegate.m */,
 				4EC578F70F7FE2EB0000D737 /* StartTimerDialogController.h */,
@@ -176,7 +166,6 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4E255A3F0FD9FD9F0025F48C /* Growl.framework */,
 				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
 			);
@@ -210,9 +199,17 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1110;
+			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "MenuTimer" */;
 			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = en;
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				en,
+				Base,
+			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* MenuTimer */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -250,7 +247,6 @@
 				4EC578F90F7FE2EB0000D737 /* StartTimerDialogController.m in Sources */,
 				4EAF35AD0F87EFD400F8CCCB /* UserDefaults.m in Sources */,
 				4E04D6750F9D476A006023D1 /* TimerExpiredAlertController.m in Sources */,
-				4E255A450FD9FDC60025F48C /* GrowlHandler.m in Sources */,
 				4EC281870FE0CE03008B70D5 /* TextField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -261,7 +257,7 @@
 		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				089C165DFE840E0CC02AAC07 /* English */,
+				4ECDC3F2235DB7EA002CAC23 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -269,7 +265,7 @@
 		1DDD58140DA1D0A300B32029 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				1DDD58150DA1D0A300B32029 /* English */,
+				4ECDC3F3235DB7EA002CAC23 /* en */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -277,7 +273,7 @@
 		4E04D6B70F9D5E2F006023D1 /* TimerExpiredAlert.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4E04D6B80F9D5E2F006023D1 /* English */,
+				4ECDC3F5235DB7EA002CAC23 /* en */,
 			);
 			name = TimerExpiredAlert.xib;
 			sourceTree = "<group>";
@@ -285,7 +281,7 @@
 		4E5848A40F8050030001EFEB /* StartTimerDialog.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4E5848A50F8050030001EFEB /* English */,
+				4ECDC3F4235DB7EA002CAC23 /* en */,
 			);
 			name = StartTimerDialog.xib;
 			sourceTree = "<group>";
@@ -293,7 +289,7 @@
 		4EBC344A0F7D010100AE610D /* Credits.rtf */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4EBC344B0F7D010100AE610D /* English */,
+				4ECDC3F1235DB7EA002CAC23 /* en */,
 			);
 			name = Credits.rtf;
 			sourceTree = "<group>";
@@ -301,7 +297,7 @@
 		4EE7B25B0F83D3AC004F66B8 /* UserDefaults.plist */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4EE7B25C0F83D3AC004F66B8 /* English */,
+				4ECDC3F6235DB7EA002CAC23 /* en */,
 			);
 			name = UserDefaults.plist;
 			sourceTree = "<group>";
@@ -313,20 +309,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SDKROOT)/../../../System/Library/Frameworks\"",
-					"\"$(SRCROOT)\"",
-				);
+				CURRENT_PROJECT_VERSION = 1.3;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MenuTimer_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.capablehands.${PRODUCT_NAME:identifier}";
 				PRODUCT_NAME = "Menubar Countdown";
 			};
 			name = Debug;
@@ -335,17 +329,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "-";
+				CURRENT_PROJECT_VERSION = 1.3;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SDKROOT)/../../../System/Library/Frameworks\"",
-					"\"$(SRCROOT)\"",
-				);
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MenuTimer_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.capablehands.${PRODUCT_NAME:identifier}";
 				PRODUCT_NAME = "Menubar Countdown";
 			};
 			name = Release;
@@ -353,26 +346,73 @@
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				ONLY_ACTIVE_ARCH = YES;
-				PREBINDING = NO;
-				SDKROOT = macosx10.5;
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				PREBINDING = NO;
-				SDKROOT = macosx10.5;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};

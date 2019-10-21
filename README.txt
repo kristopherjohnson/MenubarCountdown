@@ -1,8 +1,8 @@
 Menubar Countdown
-Version 1.2
-Copyright 2009 Capable Hands Technologies, Inc.
+Version 1.3
+Copyright 2009,2015,2019 Kristopher Johnson
 
-See <http://capablehands.net/menubarcountdown> for information
+See <https://github.com/kristopherjohnson/MenubarCountdown> for information
 about this software.
 
 
@@ -23,6 +23,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
 RELEASE NOTES
+
+v1.3 (2019/10/21)
+
+- Updated for Xcode 11.1 and macOS 10.15 Catalina.
+
+- Minimum macOS version supported is 10.6.
+
+- 32-bit processors are no longer supported.
+
+- Growl is no longer supported.
+
 
 v1.2 (2009/06/22)
 

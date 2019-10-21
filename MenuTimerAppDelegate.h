@@ -3,7 +3,7 @@
 //  MenuTimer
 //
 //  Created by Kristopher Johnson on 3/19/09.
-//  Copyright 2009 Capable Hands Technologies, Inc.. All rights reserved.
+//  Copyright © 2009,2015,2019 Kristopher Johnson
 //
 //  This file is part of Menubar Countdown.
 //
@@ -26,7 +26,6 @@
 @class Stopwatch;
 @class StartTimerDialogController;
 @class TimerExpiredAlertController;
-@class GrowlHandler;
 
 /// \brief Application delegate
 @interface MenuTimerAppDelegate : NSObject {
@@ -42,7 +41,6 @@
     IBOutlet Stopwatch *stopwatch;                                     ///< Outlet for Stopwatch
     IBOutlet StartTimerDialogController *startTimerDialogController;   ///< Outlet for StartTimerDialogController
     IBOutlet TimerExpiredAlertController *timerExpiredAlertController; ///< Outlet for TimerExpiredAlertController
-    IBOutlet GrowlHandler *growl;                                      ///< Outlet for GrowlHandler
 }
 
 /// \brief Indicates whether the timer is running

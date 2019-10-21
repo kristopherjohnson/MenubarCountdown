@@ -3,7 +3,7 @@
 //  MenuTimer
 //
 //  Created by Kristopher Johnson on 3/29/09.
-//  Copyright 2009 Capable Hands Technologies, Inc.. All rights reserved.
+//  Copyright © 2009,2015,2019 Kristopher Johnson
 //
 //  This file is part of Menubar Countdown.
 //
@@ -47,9 +47,9 @@
 
 - (NSTimeInterval)timerInterval {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    int timerHours = [defaults integerForKey:UserDefaultsTimerHoursKey];
-    int timerMinutes = [defaults integerForKey:UserDefaultsTimerMinutesKey];
-    int timerSeconds = [defaults integerForKey:UserDefaultsTimerSecondsKey];
+    NSInteger timerHours = [defaults integerForKey:UserDefaultsTimerHoursKey];
+    NSInteger timerMinutes = [defaults integerForKey:UserDefaultsTimerMinutesKey];
+    NSInteger timerSeconds = [defaults integerForKey:UserDefaultsTimerSecondsKey];
     return (timerHours * 3600) + (timerMinutes * 60) + timerSeconds;
 }
 
