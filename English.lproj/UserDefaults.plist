@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>TimerHours</key>
+	<integer>0</integer>
+	<key>TimerMinutes</key>
+	<integer>25</integer>
+	<key>TimerSeconds</key>
+	<integer>0</integer>
+	<key>PlayAlertSoundOnExpiration</key>
+	<true/>
+	<key>AnnounceExpiration</key>
+	<true/>
+	<key>AnnouncementText</key>
+	<string>The Menubar Countdown timer has reached zero.</string>
+	<key>ShowAlertWindowOnExpiration</key>
+	<true/>
+	<key>ShowStartDialogOnLaunch</key>
+	<true/>
+	<key>ShowSeconds</key>
+	<true/>
+</dict>
+</plist>

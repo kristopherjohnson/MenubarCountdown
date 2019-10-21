@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# Source beautifier script
+#
+# Run Uncrustify on the source files; this should be done before each commit
+# <http://uncrustify.sourceforge.net>
+
+uncrustify -l OC -c uncrustify.cfg --no-backup $(find . -maxdepth 1 -name "*.[hm]")
+

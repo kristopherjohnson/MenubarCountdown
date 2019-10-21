@@ -1,0 +1,403 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
+		4E04D6750F9D476A006023D1 /* TimerExpiredAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E04D6740F9D476A006023D1 /* TimerExpiredAlertController.m */; };
+		4E04D6B90F9D5E2F006023D1 /* TimerExpiredAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E04D6B70F9D5E2F006023D1 /* TimerExpiredAlert.xib */; };
+		4E255A400FD9FD9F0025F48C /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E255A3F0FD9FD9F0025F48C /* Growl.framework */; };
+		4E255A450FD9FDC60025F48C /* GrowlHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E255A440FD9FDC60025F48C /* GrowlHandler.m */; };
+		4E255A660FD9FF3A0025F48C /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4E255A3F0FD9FD9F0025F48C /* Growl.framework */; };
+		4E5848A60F8050030001EFEB /* StartTimerDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E5848A40F8050030001EFEB /* StartTimerDialog.xib */; };
+		4E753AA90F8E3A67007B2C05 /* MenuTimerIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 4E753AA80F8E3A67007B2C05 /* MenuTimerIcon.icns */; };
+		4EAF35AD0F87EFD400F8CCCB /* UserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EAF35AC0F87EFD400F8CCCB /* UserDefaults.m */; };
+		4EBC344C0F7D010100AE610D /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 4EBC344A0F7D010100AE610D /* Credits.rtf */; };
+		4EC281870FE0CE03008B70D5 /* TextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC281860FE0CE03008B70D5 /* TextField.m */; };
+		4EC45D240F7324A900952786 /* MenuTimerAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC45D230F7324A900952786 /* MenuTimerAppDelegate.m */; };
+		4EC578F90F7FE2EB0000D737 /* StartTimerDialogController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EC578F80F7FE2EB0000D737 /* StartTimerDialogController.m */; };
+		4EDFF4450F82D3F5002ACE13 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EDFF4440F82D3F5002ACE13 /* AudioToolbox.framework */; };
+		4EE7B25D0F83D3AC004F66B8 /* UserDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4EE7B25B0F83D3AC004F66B8 /* UserDefaults.plist */; };
+		4EFE68D10F7C515A00251776 /* Stopwatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EFE68D00F7C515A00251776 /* Stopwatch.m */; };
+		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
+		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
+		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4E255A640FD9FF0F0025F48C /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4E255A660FD9FF3A0025F48C /* Growl.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		1DDD58150DA1D0A300B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		32CA4F630368D1EE00C91783 /* MenuTimer_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTimer_Prefix.pch; sourceTree = "<group>"; };
+		4E04D6730F9D476A006023D1 /* TimerExpiredAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerExpiredAlertController.h; sourceTree = "<group>"; };
+		4E04D6740F9D476A006023D1 /* TimerExpiredAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerExpiredAlertController.m; sourceTree = "<group>"; };
+		4E04D6B80F9D5E2F006023D1 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/TimerExpiredAlert.xib; sourceTree = "<group>"; };
+		4E255A3F0FD9FD9F0025F48C /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Growl.framework; sourceTree = "<group>"; };
+		4E255A430FD9FDC60025F48C /* GrowlHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrowlHandler.h; sourceTree = "<group>"; };
+		4E255A440FD9FDC60025F48C /* GrowlHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrowlHandler.m; sourceTree = "<group>"; };
+		4E5848A50F8050030001EFEB /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/StartTimerDialog.xib; sourceTree = "<group>"; };
+		4E753AA80F8E3A67007B2C05 /* MenuTimerIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = MenuTimerIcon.icns; sourceTree = "<group>"; };
+		4EAF35AB0F87EFD400F8CCCB /* UserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDefaults.h; sourceTree = "<group>"; };
+		4EAF35AC0F87EFD400F8CCCB /* UserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDefaults.m; sourceTree = "<group>"; };
+		4EBC344B0F7D010100AE610D /* English */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = English; path = English.lproj/Credits.rtf; sourceTree = "<group>"; };
+		4EC281850FE0CE03008B70D5 /* TextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextField.h; sourceTree = "<group>"; };
+		4EC281860FE0CE03008B70D5 /* TextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextField.m; sourceTree = "<group>"; };
+		4EC45D220F7324A900952786 /* MenuTimerAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTimerAppDelegate.h; sourceTree = "<group>"; };
+		4EC45D230F7324A900952786 /* MenuTimerAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTimerAppDelegate.m; sourceTree = "<group>"; };
+		4EC578F70F7FE2EB0000D737 /* StartTimerDialogController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartTimerDialogController.h; sourceTree = "<group>"; };
+		4EC578F80F7FE2EB0000D737 /* StartTimerDialogController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartTimerDialogController.m; sourceTree = "<group>"; };
+		4EDFF4440F82D3F5002ACE13 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = ../../../System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		4EE7B25C0F83D3AC004F66B8 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = English; path = English.lproj/UserDefaults.plist; sourceTree = "<group>"; };
+		4EFE68CF0F7C515A00251776 /* Stopwatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stopwatch.h; sourceTree = "<group>"; };
+		4EFE68D00F7C515A00251776 /* Stopwatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stopwatch.m; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D1107320486CEB800E47090 /* Menubar Countdown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Menubar Countdown.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D11072E0486CEB800E47090 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
+				4EDFF4450F82D3F5002ACE13 /* AudioToolbox.framework in Frameworks */,
+				4E255A400FD9FD9F0025F48C /* Growl.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				4E255A430FD9FDC60025F48C /* GrowlHandler.h */,
+				4E255A440FD9FDC60025F48C /* GrowlHandler.m */,
+				4EC45D220F7324A900952786 /* MenuTimerAppDelegate.h */,
+				4EC45D230F7324A900952786 /* MenuTimerAppDelegate.m */,
+				4EC578F70F7FE2EB0000D737 /* StartTimerDialogController.h */,
+				4EC578F80F7FE2EB0000D737 /* StartTimerDialogController.m */,
+				4EFE68CF0F7C515A00251776 /* Stopwatch.h */,
+				4EFE68D00F7C515A00251776 /* Stopwatch.m */,
+				4EC281850FE0CE03008B70D5 /* TextField.h */,
+				4EC281860FE0CE03008B70D5 /* TextField.m */,
+				4E04D6730F9D476A006023D1 /* TimerExpiredAlertController.h */,
+				4E04D6740F9D476A006023D1 /* TimerExpiredAlertController.m */,
+				4EAF35AB0F87EFD400F8CCCB /* UserDefaults.h */,
+				4EAF35AC0F87EFD400F8CCCB /* UserDefaults.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4EDFF4440F82D3F5002ACE13 /* AudioToolbox.framework */,
+				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
+				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
+				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D1107320486CEB800E47090 /* Menubar Countdown.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* MenuTimer */ = {
+			isa = PBXGroup;
+			children = (
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = MenuTimer;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				32CA4F630368D1EE00C91783 /* MenuTimer_Prefix.pch */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4EBC344A0F7D010100AE610D /* Credits.rtf */,
+				8D1107310486CEB800E47090 /* Info.plist */,
+				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
+				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
+				4E753AA80F8E3A67007B2C05 /* MenuTimerIcon.icns */,
+				4E5848A40F8050030001EFEB /* StartTimerDialog.xib */,
+				4E04D6B70F9D5E2F006023D1 /* TimerExpiredAlert.xib */,
+				4EE7B25B0F83D3AC004F66B8 /* UserDefaults.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4E255A3F0FD9FD9F0025F48C /* Growl.framework */,
+				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
+				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D1107260486CEB800E47090 /* MenuTimer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "MenuTimer" */;
+			buildPhases = (
+				8D1107290486CEB800E47090 /* Resources */,
+				8D11072C0486CEB800E47090 /* Sources */,
+				8D11072E0486CEB800E47090 /* Frameworks */,
+				4E255A640FD9FF0F0025F48C /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MenuTimer;
+			productInstallPath = "$(HOME)/Applications";
+			productName = MenuTimer;
+			productReference = 8D1107320486CEB800E47090 /* Menubar Countdown.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "MenuTimer" */;
+			compatibilityVersion = "Xcode 3.1";
+			hasScannedForEncodings = 1;
+			mainGroup = 29B97314FDCFA39411CA2CEA /* MenuTimer */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D1107260486CEB800E47090 /* MenuTimer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D1107290486CEB800E47090 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
+				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
+				4EBC344C0F7D010100AE610D /* Credits.rtf in Resources */,
+				4E5848A60F8050030001EFEB /* StartTimerDialog.xib in Resources */,
+				4EE7B25D0F83D3AC004F66B8 /* UserDefaults.plist in Resources */,
+				4E753AA90F8E3A67007B2C05 /* MenuTimerIcon.icns in Resources */,
+				4E04D6B90F9D5E2F006023D1 /* TimerExpiredAlert.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D11072C0486CEB800E47090 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072D0486CEB800E47090 /* main.m in Sources */,
+				4EC45D240F7324A900952786 /* MenuTimerAppDelegate.m in Sources */,
+				4EFE68D10F7C515A00251776 /* Stopwatch.m in Sources */,
+				4EC578F90F7FE2EB0000D737 /* StartTimerDialogController.m in Sources */,
+				4EAF35AD0F87EFD400F8CCCB /* UserDefaults.m in Sources */,
+				4E04D6750F9D476A006023D1 /* TimerExpiredAlertController.m in Sources */,
+				4E255A450FD9FDC60025F48C /* GrowlHandler.m in Sources */,
+				4EC281870FE0CE03008B70D5 /* TextField.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C165DFE840E0CC02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		1DDD58140DA1D0A300B32029 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1DDD58150DA1D0A300B32029 /* English */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		4E04D6B70F9D5E2F006023D1 /* TimerExpiredAlert.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4E04D6B80F9D5E2F006023D1 /* English */,
+			);
+			name = TimerExpiredAlert.xib;
+			sourceTree = "<group>";
+		};
+		4E5848A40F8050030001EFEB /* StartTimerDialog.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4E5848A50F8050030001EFEB /* English */,
+			);
+			name = StartTimerDialog.xib;
+			sourceTree = "<group>";
+		};
+		4EBC344A0F7D010100AE610D /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4EBC344B0F7D010100AE610D /* English */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		4EE7B25B0F83D3AC004F66B8 /* UserDefaults.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4EE7B25C0F83D3AC004F66B8 /* English */,
+			);
+			name = UserDefaults.plist;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C01FCF4B08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SDKROOT)/../../../System/Library/Frameworks\"",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = MenuTimer_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = "Menubar Countdown";
+			};
+			name = Debug;
+		};
+		C01FCF4C08A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SDKROOT)/../../../System/Library/Frameworks\"",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = MenuTimer_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = "Menubar Countdown";
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.5;
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.5;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "MenuTimer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4B08A954540054247B /* Debug */,
+				C01FCF4C08A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "MenuTimer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}
