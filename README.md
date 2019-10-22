@@ -54,12 +54,13 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 v2.0 (work in progress)
 
-- Updated for macOS 10.14 and newer, with 64-bit support
+- Updated for macOS 10.14.4 and newer, with 64-bit support
 - Code translated to Swift
-- When timer is stopped, menubar displays small hourglass icon rather than 00:00:00, to conserve menubar space.
+- When timer is stopped, menubar displays small hourglass icon rather than 00:00:00, to conserve menubar space
 - Add option to repeat alert sound after timer expiration, until it is acknowledged
 - Add option to blink 00:00:00 in the menu bar after timer expiration, until it is acknowledged
-- Add Pause menu item.
+- Add Pause menu item
+- Supports dark mode
 - Remove support for Growl
 
 v1.2 (2009/06/22)
