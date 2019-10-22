@@ -70,13 +70,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         stopwatch.reset()
 
-        let statusBar = NSStatusBar.system
-        statusItem = statusBar.statusItem(withLength: NSStatusItem.variableLength)
-
-        statusItem.menu = menu
-        statusItem.button?.toolTip = NSLocalizedString("Menubar Countdown",
-                                                       comment: "Status Item Tooltip")
-        showStatusItemIcon()
+        initializeStatusItem()
 
         if UserDefaults.standard.bool(forKey: AppUserDefaults.showStartDialogOnLaunchKey) {
             showStartTimerDialog(self)
@@ -127,6 +121,22 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     /**
+     Create `statusItem` and set its initial state.
+     */
+    func initializeStatusItem() {
+        let statusBar = NSStatusBar.system
+        statusItem = statusBar.statusItem(withLength: NSStatusItem.variableLength)
+
+        statusItem.menu = menu
+        statusItem.button?.wantsLayer = true
+        statusItem.button?.toolTip = NSLocalizedString("Menubar Countdown",
+                                                       comment: "Status Item Tooltip")
+        statusItem.button?.font = NSFont.monospacedDigitSystemFont(ofSize: 0,
+                                                                   weight: .regular)
+        showStatusItemIcon()
+    }
+
+    /**
      Sets the text of the menu bar status item.
      */
     func updateStatusItemTitle(timeRemaining: Int) {
@@ -162,6 +172,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusItem.button?.title = "⌛️"
     }
 
+    func startBlinking() {
+        statusItem.button?.layer?.addBlinkAnimation()
+    }
+
+    func stopBlinking() {
+        statusItem.button?.layer?.removeBlinkAnimation()
+    }
+
     // MARK: Timer expiration
 
     /**
@@ -180,7 +198,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let defaults = UserDefaults.standard
 
         if defaults.bool(forKey: AppUserDefaults.blinkOnExpirationKey) {
-            //statusItemView.isTitleBlinking = true
+            startBlinking()
         }
 
         if defaults.bool(forKey: AppUserDefaults.playAlertSoundOnExpirationKey) {
@@ -328,7 +346,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         canPause = false
         canResume = false
 
-        //statusItemView.isTitleBlinking = false
+        stopBlinking()
         showStatusItemIcon()
     }
 
