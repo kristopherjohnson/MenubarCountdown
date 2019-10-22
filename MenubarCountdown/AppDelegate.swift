@@ -45,8 +45,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     var statusItem: NSStatusItem!
 
-    var statusItemView: StatusItemView!
-
     /**
      Reference to menu loaded from MainMenu.xib.
      */
@@ -75,15 +73,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let statusBar = NSStatusBar.system
         statusItem = statusBar.statusItem(withLength: NSStatusItem.variableLength)
 
-        statusItemView = StatusItemView()
-        statusItemView.statusItem = statusItem
-        statusItemView.menu = menu
-        statusItemView.toolTip = NSLocalizedString("Menubar Countdown",
-            comment: "Status Item Tooltip")
-        // #KJ TODO: 'view' is deprecated. Use the standard button property instead.
-        statusItem.view = statusItemView
-
-        updateStatusItemTitle(timeRemaining: 0)
+        statusItem.menu = menu
+        statusItem.button?.toolTip = NSLocalizedString("Menubar Countdown",
+                                                       comment: "Status Item Tooltip")
+        showStatusItemIcon()
 
         if UserDefaults.standard.bool(forKey: AppUserDefaults.showStartDialogOnLaunchKey) {
             showStartTimerDialog(self)
@@ -159,7 +152,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         else {
             timeString = NSString(format: "%02d:%02d", hours, minutes) as String
         }
-        statusItemView.title = timeString
+        statusItem.button?.title = timeString
+    }
+
+    /**
+     Change the status item to an hourglass icon
+     */
+    func showStatusItemIcon() {
+        statusItem.button?.title = "⌛️"
     }
 
     // MARK: Timer expiration
@@ -180,7 +180,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let defaults = UserDefaults.standard
 
         if defaults.bool(forKey: AppUserDefaults.blinkOnExpirationKey) {
-            statusItemView.isTitleBlinking = true
+            //statusItemView.isTitleBlinking = true
         }
 
         if defaults.bool(forKey: AppUserDefaults.playAlertSoundOnExpirationKey) {
@@ -287,7 +287,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         startTimerDialogController.showDialog()
     }
 
-
     /**
      Start the timer.
 
@@ -311,7 +310,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         stopwatch.reset()
 
         updateStatusItemTitle(timeRemaining: timerSettingSeconds)
-        statusItemView.showTitle()
 
         waitForNextSecond()
     }
@@ -330,8 +328,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         canPause = false
         canResume = false
 
-        statusItemView.isTitleBlinking = false
-        statusItemView.showIcon()
+        //statusItemView.isTitleBlinking = false
+        showStatusItemIcon()
     }
 
     /**
@@ -366,7 +364,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         stopwatch.reset()
 
         updateStatusItemTitle(timeRemaining: timerSettingSeconds)
-        statusItemView.showTitle()
 
         waitForNextSecond()
     }
