@@ -64,7 +64,7 @@
 		4E4865B01BEFC63700C159BF /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		4E4865B11BEFC63700C159BF /* StartTimerDialog.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StartTimerDialog.xib; sourceTree = "<group>"; };
 		4E4865B21BEFC63700C159BF /* TimerExpiredAlert.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimerExpiredAlert.xib; sourceTree = "<group>"; };
-		4EB2041F1BED89F900D83EF3 /* MenubarCountdown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MenubarCountdown.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4EB2041F1BED89F900D83EF3 /* Menubar Countdown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Menubar Countdown.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EB204221BED89F900D83EF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4EB204261BED89F900D83EF3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4EB2042B1BED89F900D83EF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -157,7 +157,7 @@
 		4EB204201BED89F900D83EF3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4EB2041F1BED89F900D83EF3 /* MenubarCountdown.app */,
+				4EB2041F1BED89F900D83EF3 /* Menubar Countdown.app */,
 				4EB204301BED89F900D83EF3 /* MenubarCountdownTests.xctest */,
 				4EB2043B1BED89F900D83EF3 /* MenubarCountdownUITests.xctest */,
 			);
@@ -206,9 +206,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4EB2041E1BED89F900D83EF3 /* MenubarCountdown */ = {
+		4EB2041E1BED89F900D83EF3 /* Menubar Countdown */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4EB204441BED89F900D83EF3 /* Build configuration list for PBXNativeTarget "MenubarCountdown" */;
+			buildConfigurationList = 4EB204441BED89F900D83EF3 /* Build configuration list for PBXNativeTarget "Menubar Countdown" */;
 			buildPhases = (
 				4EB2041B1BED89F900D83EF3 /* Sources */,
 				4EB2041C1BED89F900D83EF3 /* Frameworks */,
@@ -218,9 +218,9 @@
 			);
 			dependencies = (
 			);
-			name = MenubarCountdown;
+			name = "Menubar Countdown";
 			productName = MenubarCountdown;
-			productReference = 4EB2041F1BED89F900D83EF3 /* MenubarCountdown.app */;
+			productReference = 4EB2041F1BED89F900D83EF3 /* Menubar Countdown.app */;
 			productType = "com.apple.product-type.application";
 		};
 		4EB2042F1BED89F900D83EF3 /* MenubarCountdownTests */ = {
@@ -296,7 +296,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4EB2041E1BED89F900D83EF3 /* MenubarCountdown */,
+				4EB2041E1BED89F900D83EF3 /* Menubar Countdown */,
 				4EB2042F1BED89F900D83EF3 /* MenubarCountdownTests */,
 				4EB2043A1BED89F900D83EF3 /* MenubarCountdownUITests */,
 			);
@@ -375,12 +375,12 @@
 /* Begin PBXTargetDependency section */
 		4EB204321BED89F900D83EF3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4EB2041E1BED89F900D83EF3 /* MenubarCountdown */;
+			target = 4EB2041E1BED89F900D83EF3 /* Menubar Countdown */;
 			targetProxy = 4EB204311BED89F900D83EF3 /* PBXContainerItemProxy */;
 		};
 		4EB2043D1BED89F900D83EF3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4EB2041E1BED89F900D83EF3 /* MenubarCountdown */;
+			target = 4EB2041E1BED89F900D83EF3 /* Menubar Countdown */;
 			targetProxy = 4EB2043C1BED89F900D83EF3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -586,7 +586,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4EB204441BED89F900D83EF3 /* Build configuration list for PBXNativeTarget "MenubarCountdown" */ = {
+		4EB204441BED89F900D83EF3 /* Build configuration list for PBXNativeTarget "Menubar Countdown" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4EB204451BED89F900D83EF3 /* Debug */,
