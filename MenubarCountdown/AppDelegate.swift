@@ -7,6 +7,18 @@
 import Cocoa
 import AudioToolbox
 
+/**
+ Application delegate which implements most of the logic of Menubar Countdown.
+
+ From the user's point of view, the application switches between these states:
+
+ - reset: timer is not running
+ - running: timer has been started and is counting down
+ - paused: timer has been started but is in a paused state
+ - expired: timer has reached 00:00:00 and is waiting to be turned off
+
+ The persistent settings of the app are managed by the UserDefaults system. 
+ */
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
@@ -53,12 +65,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     /**
      Reference to dialog loaded from StartTimerDialog.xib.
      */
-    @IBOutlet var startTimerDialogController: StartTimerDialogController!
+    @IBOutlet var startTimerDialogController: StartTimerDialogController?
 
     /**
      Reference to dialog loaded from TimerExpiredAlert.xib.
      */
-    @IBOutlet var timerExpiredAlertController: TimerExpiredAlertController!
+    @IBOutlet var timerExpiredAlertController: TimerExpiredAlertController?
 
     override init() {
         super.init()
@@ -275,12 +287,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSApp.activate(ignoringOtherApps: true)
 
         if timerExpiredAlertController == nil {
-            Bundle.main.loadNibNamed("TimerExpiredAlert",
-                owner: self,
-                topLevelObjects: nil)
+            TimerExpiredAlertController.load(owner: self)
             assert(timerExpiredAlertController != nil, "timerExpiredAlertController outlet must be set")
         }
-        timerExpiredAlertController.showAlert()
+        timerExpiredAlertController?.showAlert()
     }
 
     // MARK: Menu item and button event handlers
@@ -297,12 +307,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         dismissTimerExpiredAlert(sender)
 
         if startTimerDialogController == nil {
-            Bundle.main.loadNibNamed("StartTimerDialog",
-                owner: self,
-                topLevelObjects: nil)
+            StartTimerDialogController.load(owner: self)
             assert(startTimerDialogController != nil, "startTimerDialogController must be set")
         }
-        startTimerDialogController.showDialog()
+        startTimerDialogController?.showDialog()
     }
 
     /**
@@ -315,21 +323,23 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         dismissTimerExpiredAlert(sender)
 
-        startTimerDialogController.dismissDialog(sender)
+        if let startTimerDialogController = startTimerDialogController {
+            startTimerDialogController.dismissDialog(sender)
 
-        UserDefaults.standard.synchronize()
+            UserDefaults.standard.synchronize()
 
-        timerSettingSeconds = Int(startTimerDialogController.timerInterval)
-        DTraceStartTimer(Int32(timerSettingSeconds))
+            timerSettingSeconds = Int(startTimerDialogController.timerInterval)
+            DTraceStartTimer(Int32(timerSettingSeconds))
 
-        isTimerRunning = true
-        canPause = true
-        canResume = true
-        stopwatch.reset()
+            isTimerRunning = true
+            canPause = true
+            canResume = true
+            stopwatch.reset()
 
-        updateStatusItemTitle(timeRemaining: timerSettingSeconds)
+            updateStatusItemTitle(timeRemaining: timerSettingSeconds)
 
-        waitForNextSecond()
+            waitForNextSecond()
+        }
     }
 
     /**
@@ -394,9 +404,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
      */
     @IBAction func dismissTimerExpiredAlert(_ sender: AnyObject) {
         Log.debug("dismiss timer expired alert")
-        if timerExpiredAlertController != nil {
-            timerExpiredAlertController.close()
-        }
+        timerExpiredAlertController?.close()
         stopTimer(sender)
     }
 
