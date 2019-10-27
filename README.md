@@ -54,13 +54,14 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 v2.0 (work in progress)
 
-- Updated for macOS 10.14.4 and newer
-- Code translated to Swift
-- When timer is not active, menubar displays small hourglass icon rather than 00:00:00, to conserve menubar space
-- Added option to repeat alert sound after timer expiration, until it is acknowledged
-- Added option to blink 00:00:00 in the menu bar after timer expiration, until it is acknowledged
-- Added Pause menu item
-- Supports dark mode
+- Updated for macOS 10.14.4 and newer.
+- Supports dark mode.
+- When timer is not active, menubar displays small hourglass icon rather than 00:00:00, to conserve menubar space.
+- Added option to repeat alert sound after timer expiration, until it is acknowledged.
+- Added option to blink 00:00:00 in the menu bar after timer expiration, until it is acknowledged.
+- Added option to show a notification alert in Notification Center.
+- Added Pause and Resume menu items.
+- Translated code to Swift.
 
 v1.3 (2019/10/21)
 
