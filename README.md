@@ -11,9 +11,10 @@ A dialog will appear allowing you to specify the countdown time in hours,
 minutes, and seconds. The dialog also allows you to specify which of the
 following forms of notification you want when the timer gets down to 00:00:00:
 
-- Blink the icon in the menu bar
-- Play the system alert sound
-- Display an alert window
+- Blink the icon in the menu bar.
+- Play the system alert sound.
+- Display an alert window.
+- Display a notification in Notification Center.
 - Make a spoken announcement. You can specify the text to be spoken.
 
 Releases are available at
