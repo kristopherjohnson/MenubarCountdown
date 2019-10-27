@@ -28,5 +28,7 @@
 	<true/>
 	<key>ShowNotificationOnExpiration</key>
 	<false/>
+	<key>PlaySoundWithNotification</key>
+	<true/>
 </dict>
 </plist>

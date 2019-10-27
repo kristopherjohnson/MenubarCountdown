@@ -323,7 +323,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
                 content.body = NSLocalizedString("The countdown timer has reached 00:00:00",
                                                  comment: "Notification body")
 
-                if settings.soundSetting == .enabled {
+                if UserDefaults.standard.bool(forKey: AppUserDefaults.playSoundWithNotification) &&
+                    settings.soundSetting == .enabled
+                {
                     content.sound = UNNotificationSound.default
                 }
 
@@ -379,11 +381,15 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
 
         dismissTimerExpiredAlert(sender)
 
-        UserDefaults.standard.synchronize()
+        let defaults = UserDefaults.standard
+        defaults.synchronize()
 
-        if UserDefaults.standard.bool(forKey: AppUserDefaults.showNotificationOnExpirationKey) {
+        if defaults.bool(forKey: AppUserDefaults.showNotificationOnExpirationKey) {
+            let authorizationOptions: UNAuthorizationOptions =
+                defaults.bool(forKey: AppUserDefaults.playSoundWithNotification)
+                    ? [.alert, .sound] : [.alert]
             let notificationCenter = UNUserNotificationCenter.current()
-            notificationCenter.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
+            notificationCenter.requestAuthorization(options: authorizationOptions) { (granted, error) in
                 if let error = error {
                     Log.debug("user notification authorization error: \(error)")
                 }
@@ -512,16 +518,22 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
 
     // MARK: UNUserNotificationCenterDelegate methods
 
-    func userNotificationCenter(_ center: UNUserNotificationCenter,
-                                willPresent notification: UNNotification,
-                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+    func userNotificationCenter(
+        _ center: UNUserNotificationCenter,
+        willPresent notification: UNNotification,
+        withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void)
+    {
         Log.debug("calling completion handler")
-        completionHandler([.alert, .sound])
+        let presentationOptions: UNNotificationPresentationOptions =
+            UserDefaults.standard.bool(forKey: AppUserDefaults.playSoundWithNotification)
+                ? [.alert, .sound] : [.alert]
+        completionHandler(presentationOptions)
     }
 
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 didReceive response: UNNotificationResponse,
                                 withCompletionHandler completionHandler: @escaping () -> Void) {
+        // If notification is clicked, stop the timer and show the start dialog
         DispatchQueue.main.async {
             self.dismissTimerExpiredAlert(self)
             self.showStartTimerDialog(self)

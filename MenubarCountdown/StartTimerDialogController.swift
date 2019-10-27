@@ -54,7 +54,7 @@ class StartTimerDialogController: NSWindowController {
      */
     @IBAction func dismissDialog(_ sender: AnyObject) {
         if !startTimerDialog.makeFirstResponder(nil) {
-            // TODO: Figure out what to do if responder didn't resign
+            Log.error("first responder didn't resign")
         }
         startTimerDialog.orderOut(sender);
     }

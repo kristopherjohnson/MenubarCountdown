@@ -23,6 +23,7 @@ struct AppUserDefaults {
     static let announcementTextKey             = "AnnouncementText"
     static let showAlertWindowOnExpirationKey  = "ShowAlertWindowOnExpiration"
     static let showNotificationOnExpirationKey = "ShowNotificationOnExpiration"
+    static let playSoundWithNotification       = "PlaySoundWithNotification"
     static let showStartDialogOnLaunchKey      = "ShowStartDialogOnLaunch"
     static let showSeconds                     = "ShowSeconds"
 
