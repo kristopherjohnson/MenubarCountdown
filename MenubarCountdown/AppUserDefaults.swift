@@ -22,6 +22,7 @@ struct AppUserDefaults {
     static let announceExpirationKey           = "AnnounceExpiration"
     static let announcementTextKey             = "AnnouncementText"
     static let showAlertWindowOnExpirationKey  = "ShowAlertWindowOnExpiration"
+    static let showNotificationOnExpirationKey = "ShowNotificationOnExpiration"
     static let showStartDialogOnLaunchKey      = "ShowStartDialogOnLaunch"
     static let showSeconds                     = "ShowSeconds"
 

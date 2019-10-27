@@ -6,6 +6,7 @@
 
 import Cocoa
 import AudioToolbox
+import UserNotifications
 
 /**
  Application delegate which implements most of the logic of Menubar Countdown.
@@ -20,7 +21,7 @@ import AudioToolbox
  The persistent settings of the app are managed by the UserDefaults system. 
  */
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDelegate {
 
     /**
      Initial timer setting.
@@ -57,6 +58,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     var statusItem: NSStatusItem!
 
+    var notificationId: String = ""
+
     /**
      Reference to menu loaded from MainMenu.xib.
      */
@@ -87,6 +90,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if UserDefaults.standard.bool(forKey: AppUserDefaults.showStartDialogOnLaunchKey) {
             showStartTimerDialog(self)
         }
+
+        UNUserNotificationCenter.current().delegate = self
     }
 
     func applicationWillTerminate(_ notification: Notification) {
@@ -224,6 +229,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if defaults.bool(forKey: AppUserDefaults.showAlertWindowOnExpirationKey) {
             showTimerExpiredAlert()
         }
+
+        if defaults.bool(forKey: AppUserDefaults.showNotificationOnExpirationKey) {
+            showTimerExpiredNotification()
+        }
     }
 
     /**
@@ -293,6 +302,49 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         timerExpiredAlertController?.showAlert()
     }
 
+    /**
+     Display notification indicating timer is expired.
+     */
+    func showTimerExpiredNotification() {
+        Log.debug("show timer-expired notification")
+
+        let notificationCenter = UNUserNotificationCenter.current()
+
+        notificationCenter.getNotificationSettings { settings in
+            guard settings.authorizationStatus == .authorized else {
+                Log.debug("not authorized to display notifications")
+                return
+            }
+
+            if settings.alertSetting == .enabled {
+                let content = UNMutableNotificationContent()
+                content.title = NSLocalizedString("Menubar Countdown Expired",
+                                                  comment: "Notification title")
+                content.body = NSLocalizedString("The countdown timer has reached 00:00:00",
+                                                 comment: "Notification body")
+
+                if settings.soundSetting == .enabled {
+                    content.sound = UNNotificationSound.default
+                }
+
+                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.1,
+                                                                repeats: false)
+
+                self.notificationId = UUID().uuidString
+
+                let request = UNNotificationRequest(identifier: self.notificationId,
+                                                    content: content,
+                                                    trigger: trigger)
+
+                UNUserNotificationCenter.current().add(request) { error in
+                    if let error = error {
+                        Log.error("notification error: \(error.localizedDescription)")
+                    }
+                }
+            }
+        }
+    }
+
     // MARK: Menu item and button event handlers
 
     /**
@@ -317,16 +369,44 @@ class AppDelegate: NSObject, NSApplicationDelegate {
      Start the timer.
 
      Called when the user clicks the Start button in the StartTimerDialog.
+
+     If user selected "Show notification", then check for authorization and
+     show the notification-authorization dialog if necessary before dismissing
+     the dialog and starting the timer.
      */
     @IBAction func startTimerDialogStartButtonWasClicked(_ sender: AnyObject) {
         Log.debug("start button was clicked")
 
         dismissTimerExpiredAlert(sender)
 
+        UserDefaults.standard.synchronize()
+
+        if UserDefaults.standard.bool(forKey: AppUserDefaults.showNotificationOnExpirationKey) {
+            let notificationCenter = UNUserNotificationCenter.current()
+            notificationCenter.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
+                if let error = error {
+                    Log.debug("user notification authorization error: \(error)")
+                }
+
+                if !granted {
+                    Log.debug("user notification authorization was not granted")
+                    UserDefaults.standard.set(false,
+                                              forKey: AppUserDefaults.showNotificationOnExpirationKey)
+                }
+
+                DispatchQueue.main.async {
+                    self.dismissStartTimerDialogAndStartTimer(sender)
+                }
+            }
+        }
+        else {
+            dismissStartTimerDialogAndStartTimer(sender)
+        }
+    }
+
+    func dismissStartTimerDialogAndStartTimer(_ sender: AnyObject) {
         if let startTimerDialogController = startTimerDialogController {
             startTimerDialogController.dismissDialog(sender)
-
-            UserDefaults.standard.synchronize()
 
             timerSettingSeconds = Int(startTimerDialogController.timerInterval)
             DTraceStartTimer(Int32(timerSettingSeconds))
@@ -428,5 +508,23 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         Log.debug("show About panel")
         NSApp.activate(ignoringOtherApps: true)
         NSApp.orderFrontStandardAboutPanel(sender)
+    }
+
+    // MARK: UNUserNotificationCenterDelegate methods
+
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                willPresent notification: UNNotification,
+                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        Log.debug("calling completion handler")
+        completionHandler([.alert, .sound])
+    }
+
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                didReceive response: UNNotificationResponse,
+                                withCompletionHandler completionHandler: @escaping () -> Void) {
+        DispatchQueue.main.async {
+            self.dismissTimerExpiredAlert(self)
+            self.showStartTimerDialog(self)
+        }
     }
 }

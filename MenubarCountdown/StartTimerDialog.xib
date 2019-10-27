@@ -16,10 +16,10 @@
         <window title="Menubar Countdown Settings" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="1">
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="541" y="320" width="335" height="445"/>
+            <rect key="contentRect" x="541" y="320" width="333" height="458"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
             <view key="contentView" id="2">
-                <rect key="frame" x="0.0" y="0.0" width="335" height="445"/>
+                <rect key="frame" x="0.0" y="0.0" width="333" height="458"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <userGuides>
                     <userLayoutGuide location="441" affinity="minY"/>
@@ -27,7 +27,7 @@
                 </userGuides>
                 <subviews>
                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="20">
-                        <rect key="frame" x="17" y="392" width="89" height="17"/>
+                        <rect key="frame" x="17" y="405" width="89" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Countdown:" id="21">
                             <font key="font" metaFont="system"/>
@@ -36,7 +36,7 @@
                         </textFieldCell>
                     </textField>
                     <box autoresizesSubviews="NO" fixedFrame="YES" borderType="line" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="83" userLabel="CountdownGroup">
-                        <rect key="frame" x="108" y="360" width="208" height="67"/>
+                        <rect key="frame" x="108" y="373" width="208" height="67"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <view key="contentView" id="3eZ-9d-t4D">
                             <rect key="frame" x="3" y="3" width="202" height="61"/>
@@ -160,7 +160,7 @@
                         </view>
                     </box>
                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="87">
-                        <rect key="frame" x="17" y="331" width="299" height="17"/>
+                        <rect key="frame" x="17" y="344" width="299" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="When countdown timer reaches 00:00:00:" id="88">
                             <font key="font" metaFont="system"/>
@@ -169,7 +169,7 @@
                         </textFieldCell>
                     </textField>
                     <button toolTip="If checked, the menubar display will start blinking when the timer reaches zero." fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="155" userLabel="BlinkOnExpiration">
-                        <rect key="frame" x="81" y="304" width="194" height="18"/>
+                        <rect key="frame" x="81" y="317" width="194" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="check" title="Blink in menu bar" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="156">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -181,7 +181,7 @@
                         </connections>
                     </button>
                     <button toolTip="If checked, the alert sound specified in System Preferences will be played when the countdown timer reaches zero." fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="89" userLabel="PlayAlertSoundOnExpiration">
-                        <rect key="frame" x="81" y="284" width="194" height="18"/>
+                        <rect key="frame" x="81" y="297" width="194" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="check" title="Play system alert sound" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="90">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -193,7 +193,7 @@
                         </connections>
                     </button>
                     <button toolTip="If checked, the alert sound specified in System Preferences will be repeated until the alarm is acknowledged." fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="157" userLabel="RepeatAlertSoundOnExpiration">
-                        <rect key="frame" x="109" y="264" width="166" height="18"/>
+                        <rect key="frame" x="109" y="277" width="166" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="check" title="Repeat alert sound" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="158">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -206,7 +206,7 @@
                         </connections>
                     </button>
                     <button toolTip="If checked, an alert window will be displayed when the countdown timer reaches zero." fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="91" userLabel="ShowAlertWindowOnExpiration">
-                        <rect key="frame" x="81" y="244" width="194" height="18"/>
+                        <rect key="frame" x="81" y="257" width="194" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="check" title="Show alert window" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="92">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -220,15 +220,15 @@
                             <outlet property="nextKeyView" destination="93" id="101"/>
                         </connections>
                     </button>
-                    <button toolTip="If checked, the announcement text will be spoken when the countdown timer reaches zero." fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="93" userLabel="AnnounceExpiration">
-                        <rect key="frame" x="81" y="224" width="194" height="18"/>
+                    <button toolTip="If checked, a notification will be shown when the countdown timer reaches zero." fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="93" userLabel="ShowNotificationOnExpiration">
+                        <rect key="frame" x="81" y="237" width="194" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="check" title="Speak announcement" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="94">
+                        <buttonCell key="cell" type="check" title="Show notification" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="94">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
-                            <binding destination="54" name="value" keyPath="values.AnnounceExpiration" id="113"/>
+                            <binding destination="54" name="value" keyPath="values.ShowNotificationOnExpiration" id="4TD-UV-0VB"/>
                             <outlet property="nextKeyView" destination="97" id="102"/>
                         </connections>
                     </button>
@@ -258,7 +258,7 @@
                         </connections>
                     </button>
                     <button toolTip="Close this window" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="13" userLabel="CancelButton">
-                        <rect key="frame" x="129" y="12" width="96" height="32"/>
+                        <rect key="frame" x="127" y="12" width="96" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                         <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="14">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -273,7 +273,7 @@ Gw
                         </connections>
                     </button>
                     <button toolTip="Start the countdown" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="11" userLabel="StartButton">
-                        <rect key="frame" x="225" y="12" width="96" height="32"/>
+                        <rect key="frame" x="223" y="12" width="96" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                         <buttonCell key="cell" type="push" title="Start" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="12">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -308,6 +308,18 @@ DQ
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <button toolTip="If checked, the announcement text will be spoken when the countdown timer reaches zero." fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3qB-5D-P9G" userLabel="AnnounceExpiration">
+                        <rect key="frame" x="81" y="217" width="154" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="check" title="Speak announcement" bezelStyle="regularSquare" imagePosition="left" alignment="left" state="on" inset="2" id="8Xj-Yq-95V">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <binding destination="54" name="value" keyPath="values.AnnounceExpiration" id="3wK-np-NMr"/>
+                            <outlet property="nextKeyView" destination="97" id="Q36-HV-YcL"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <connections>
                     <outlet property="nextKeyView" destination="22" id="68"/>
@@ -316,7 +328,7 @@ DQ
             <connections>
                 <outlet property="initialFirstResponder" destination="22" id="70"/>
             </connections>
-            <point key="canvasLocation" x="140" y="147"/>
+            <point key="canvasLocation" x="138.5" y="153"/>
         </window>
         <customObject id="47" customClass="StartTimerDialogController" customModule="Menubar_Countdown" customModuleProvider="target">
             <connections>

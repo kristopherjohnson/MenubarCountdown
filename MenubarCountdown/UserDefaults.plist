@@ -26,5 +26,7 @@
 	<true/>
 	<key>ShowSeconds</key>
 	<true/>
+	<key>ShowNotificationOnExpiration</key>
+	<false/>
 </dict>
 </plist>
