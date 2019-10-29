@@ -17,8 +17,8 @@ following forms of notification you want when the timer gets down to 00:00:00:
 - Display a notification in Notification Center.
 - Make a spoken announcement. You can specify the text to be spoken.
 
-Releases are available at
-<https://github.com/kristopherjohnson/MenubarCountdown/releases>.
+Releases are available from [the Mac App Store](https://apps.apple.com/us/app/menubar-countdown/id1485343244?mt=12) 
+or <https://github.com/kristopherjohnson/MenubarCountdown/releases>.
 
 The current [2.0 version](https://github.com/kristopherjohnson/MenubarCountdown/releases/tag/2.0)
 of Menubar Countdown requires macOS Mojave 10.14.4 or
@@ -57,9 +57,10 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ## Release Notes
 
-v2.0 (work in progress)
+v2.0 (2019/10/28)
 
 - Updated for macOS 10.14.4 and newer.
+- Distributed through the Mac App Store.
 - Supports dark mode.
 - When timer is not active, menubar displays small hourglass icon rather than 00:00:00, to conserve menubar space.
 - Added option to repeat alert sound after timer expiration, until it is acknowledged.
