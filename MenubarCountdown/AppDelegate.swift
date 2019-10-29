@@ -419,7 +419,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
 
             isTimerRunning = true
             canPause = true
-            canResume = true
+            canResume = false
             stopwatch.reset()
 
             updateStatusItemTitle(timeRemaining: timerSettingSeconds)
@@ -470,7 +470,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         DTraceResumeTimer(Int32(secondsRemaining))
 
         isTimerRunning = true
-        canPause = false
+        canPause = true
         canResume = false
 
         timerSettingSeconds = secondsRemaining
