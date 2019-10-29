@@ -20,7 +20,7 @@ following forms of notification you want when the timer gets down to 00:00:00:
 Releases are available at
 <https://github.com/kristopherjohnson/MenubarCountdown/releases>.
 
-The current [2.0 version](https://github.com/kristopherjohnson/MenubarCountdown/releases/tag/2.0b3)
+The current [2.0 version](https://github.com/kristopherjohnson/MenubarCountdown/releases/tag/2.0)
 of Menubar Countdown requires macOS Mojave 10.14.4 or
 newer.  It is compatible with macOS Catalina 10.15.
 
