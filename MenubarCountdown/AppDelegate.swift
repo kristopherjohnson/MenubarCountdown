@@ -179,6 +179,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         else {
             timeString = NSString(format: "%02d:%02d", hours, minutes) as String
         }
+        statusItem.button?.image = nil
         statusItem.button?.title = timeString
     }
 
@@ -186,7 +187,14 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
      Change the status item to an hourglass icon
      */
     func showStatusItemIcon() {
-        statusItem.button?.title = "⌛️"
+        statusItem.button?.title = ""
+        if let image = NSImage(named: "HourglassIcon") {
+            image.isTemplate = true
+            statusItem.button?.image = image
+        }
+        else {
+            Log.error("unable to load HourglassIcon")
+        }
     }
 
     func startBlinking() {
