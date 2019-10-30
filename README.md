@@ -2,7 +2,9 @@ Menubar Countdown
 -----------------
 
 _Menubar Countdown_ is a simple countdown timer that displays itself on the
-macOS menu bar.
+macOS menu bar.  It's great for use as a [pomodoro timer](https://en.wikipedia.org/wiki/Pomodoro_Technique),
+to remind yourself to get back to work after a break, or whenever you want
+to quickly set a time limit on some activity.
 
 <img src="docs/MenubarCountdownSettings.png" alt="Screenshot" align="right"/>
 
