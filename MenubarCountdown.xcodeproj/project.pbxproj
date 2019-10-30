@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		4E48658E1BEE6CE500C159BF /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E48658D1BEE6CE500C159BF /* Log.swift */; };
 		4E4865941BEE705E00C159BF /* UserDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4E4865931BEE705E00C159BF /* UserDefaults.plist */; };
-		4E4865961BEE721C00C159BF /* CATransactionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4865951BEE721C00C159BF /* CATransactionExtensions.swift */; };
 		4E4865981BEE749E00C159BF /* StartTimerDialogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4865971BEE749E00C159BF /* StartTimerDialogController.swift */; };
 		4E48659A1BEE79EA00C159BF /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4865991BEE79EA00C159BF /* TextField.swift */; };
 		4E48659C1BEE81C200C159BF /* TimerExpiredAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E48659B1BEE81C200C159BF /* TimerExpiredAlertController.swift */; };
@@ -50,7 +49,6 @@
 /* Begin PBXFileReference section */
 		4E48658D1BEE6CE500C159BF /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		4E4865931BEE705E00C159BF /* UserDefaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UserDefaults.plist; sourceTree = "<group>"; };
-		4E4865951BEE721C00C159BF /* CATransactionExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CATransactionExtensions.swift; sourceTree = "<group>"; };
 		4E4865971BEE749E00C159BF /* StartTimerDialogController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartTimerDialogController.swift; sourceTree = "<group>"; };
 		4E4865991BEE79EA00C159BF /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		4E48659B1BEE81C200C159BF /* TimerExpiredAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerExpiredAlertController.swift; sourceTree = "<group>"; };
@@ -120,7 +118,6 @@
 			isa = PBXGroup;
 			children = (
 				4EB204531BEE307900D83EF3 /* CALayerExtensions.swift */,
-				4E4865951BEE721C00C159BF /* CATransactionExtensions.swift */,
 				4E4865AE1BEFA2B900C159BF /* StringExtensions.swift */,
 			);
 			name = Extensions;
@@ -346,7 +343,6 @@
 				4E48659A1BEE79EA00C159BF /* TextField.swift in Sources */,
 				4EB204501BEE29D700D83EF3 /* AppUserDefaults.swift in Sources */,
 				4E4865A11BEE880A00C159BF /* DTrace.m in Sources */,
-				4E4865961BEE721C00C159BF /* CATransactionExtensions.swift in Sources */,
 				4EB2044E1BED908300D83EF3 /* Stopwatch.swift in Sources */,
 				4E48658E1BEE6CE500C159BF /* Log.swift in Sources */,
 				4E4865AF1BEFA2B900C159BF /* StringExtensions.swift in Sources */,
