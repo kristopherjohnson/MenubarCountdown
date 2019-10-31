@@ -62,7 +62,7 @@
 		4E4865B01BEFC63700C159BF /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		4E4865B11BEFC63700C159BF /* StartTimerDialog.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StartTimerDialog.xib; sourceTree = "<group>"; };
 		4E4865B21BEFC63700C159BF /* TimerExpiredAlert.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimerExpiredAlert.xib; sourceTree = "<group>"; };
-		4E4D0E552367E5D9004B1404 /* Menubar Countdown.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Menubar Countdown.entitlements"; sourceTree = "<group>"; };
+		4E4D0E552367E5D9004B1404 /* MenubarCountdown.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MenubarCountdown.entitlements; sourceTree = "<group>"; };
 		4EB2041F1BED89F900D83EF3 /* Menubar Countdown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Menubar Countdown.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EB204221BED89F900D83EF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4EB204261BED89F900D83EF3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -145,7 +145,6 @@
 		4EB204161BED89F900D83EF3 = {
 			isa = PBXGroup;
 			children = (
-				4E4D0E552367E5D9004B1404 /* Menubar Countdown.entitlements */,
 				4EB204211BED89F900D83EF3 /* MenubarCountdown */,
 				4EB204331BED89F900D83EF3 /* MenubarCountdownTests */,
 				4EB2043E1BED89F900D83EF3 /* MenubarCountdownUITests */,
@@ -173,6 +172,7 @@
 				4E4865AA1BEFA07E00C159BF /* Image Resources */,
 				4E4865B01BEFC63700C159BF /* MainMenu.xib */,
 				4E48659F1BEE85D200C159BF /* MenubarCountdown-Bridging-Header.h */,
+				4E4D0E552367E5D9004B1404 /* MenubarCountdown.entitlements */,
 				4E4865B11BEFC63700C159BF /* StartTimerDialog.xib */,
 				4E4865971BEE749E00C159BF /* StartTimerDialogController.swift */,
 				4EB2044D1BED908300D83EF3 /* Stopwatch.swift */,
@@ -494,7 +494,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Menubar Countdown.entitlements";
+				CODE_SIGN_ENTITLEMENTS = MenubarCountdown/MenubarCountdown.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				COMBINE_HIDPI_IMAGES = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -510,7 +510,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Menubar Countdown.entitlements";
+				CODE_SIGN_ENTITLEMENTS = MenubarCountdown/MenubarCountdown.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				COMBINE_HIDPI_IMAGES = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
