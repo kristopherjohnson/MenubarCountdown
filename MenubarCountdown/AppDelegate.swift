@@ -189,7 +189,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     func showStatusItemIcon() {
         statusItem.button?.title = ""
         if let image = NSImage(named: "HourglassIcon") {
-            image.isTemplate = true
             statusItem.button?.image = image
         }
         else {

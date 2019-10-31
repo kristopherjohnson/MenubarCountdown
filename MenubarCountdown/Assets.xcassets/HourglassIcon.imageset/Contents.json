@@ -7,6 +7,7 @@
     },
     {
       "idiom" : "universal",
+      "filename" : "hourglass_36x36.png",
       "scale" : "2x"
     },
     {
@@ -17,5 +18,8 @@
   "info" : {
     "version" : 1,
     "author" : "xcode"
+  },
+  "properties" : {
+    "template-rendering-intent" : "template"
   }
 }
