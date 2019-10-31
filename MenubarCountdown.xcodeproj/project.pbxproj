@@ -25,6 +25,7 @@
 		4EB2044E1BED908300D83EF3 /* Stopwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB2044D1BED908300D83EF3 /* Stopwatch.swift */; };
 		4EB204501BEE29D700D83EF3 /* AppUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB2044F1BEE29D700D83EF3 /* AppUserDefaults.swift */; };
 		4EB204541BEE307900D83EF3 /* CALayerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB204531BEE307900D83EF3 /* CALayerExtensions.swift */; };
+		4EB58AAF236B881D00150BA5 /* ServicesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB58AAE236B881D00150BA5 /* ServicesProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		4EB2044D1BED908300D83EF3 /* Stopwatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stopwatch.swift; sourceTree = "<group>"; };
 		4EB2044F1BEE29D700D83EF3 /* AppUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUserDefaults.swift; sourceTree = "<group>"; };
 		4EB204531BEE307900D83EF3 /* CALayerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CALayerExtensions.swift; sourceTree = "<group>"; };
+		4EB58AAE236B881D00150BA5 /* ServicesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 				4E4865AA1BEFA07E00C159BF /* Image Resources */,
 				4E4865B01BEFC63700C159BF /* MainMenu.xib */,
 				4E4D0E552367E5D9004B1404 /* MenubarCountdown.entitlements */,
+				4EB58AAE236B881D00150BA5 /* ServicesProvider.swift */,
 				4E4865B11BEFC63700C159BF /* StartTimerDialog.xib */,
 				4E4865971BEE749E00C159BF /* StartTimerDialogController.swift */,
 				4EB2044D1BED908300D83EF3 /* Stopwatch.swift */,
@@ -334,6 +337,7 @@
 				4EB204501BEE29D700D83EF3 /* AppUserDefaults.swift in Sources */,
 				4EB2044E1BED908300D83EF3 /* Stopwatch.swift in Sources */,
 				4E48658E1BEE6CE500C159BF /* Log.swift in Sources */,
+				4EB58AAF236B881D00150BA5 /* ServicesProvider.swift in Sources */,
 				4E4865AF1BEFA2B900C159BF /* StringExtensions.swift in Sources */,
 				4E48659C1BEE81C200C159BF /* TimerExpiredAlertController.swift in Sources */,
 				4EB204231BED89F900D83EF3 /* AppDelegate.swift in Sources */,

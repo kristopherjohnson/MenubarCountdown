@@ -81,7 +81,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     }
 
     func applicationDidFinishLaunching(_ notification: Notification) {
-        Log.debug("application did finish launching")
+        Log.debug("application did finish launching: \(notification)")
+
+        UNUserNotificationCenter.current().delegate = self
+
+        NSApp.servicesProvider = ServicesProvider(appDelegate: self)
 
         stopwatch.reset()
 
@@ -90,8 +94,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         if UserDefaults.standard.bool(forKey: AppUserDefaults.showStartDialogOnLaunchKey) {
             showStartTimerDialog(self)
         }
-
-        UNUserNotificationCenter.current().delegate = self
     }
 
     func applicationWillTerminate(_ notification: Notification) {
@@ -374,7 +376,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     /**
      Start the timer.
 
-     Called when the user clicks the Start button in the StartTimerDialog.
+     Called when the user clicks the Start button in the StartTimerDialog
+     or invokes the Start Countdown service.
 
      If user selected "Show notification", then check for authorization and
      show the notification-authorization dialog if necessary before dismissing
@@ -434,8 +437,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     /**
      Reset everything to a not-running state.
 
-     Called when the user clicks the Stop menu item or
-     clicks the OK button in the TimerExpiredAlert.
+     Called when the user clicks the Stop menu item,
+     clicks the OK button in the TimerExpiredAlert,
+     or invokes the Stop Countdown service.
      */
     @IBAction func stopTimer(_ sender: AnyObject) {
         Log.debug("stop timer")
@@ -451,35 +455,43 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     /**
      Pause the countdown timer.
 
-     Called when the user chooses the Pause menu item.
+     Called when the user chooses the Pause menu item or invokes the Pause Countdown service.
      */
     @IBAction func pauseTimer(_ sender: AnyObject) {
         Log.debug("pause timer")
-
-        isTimerRunning = false
-        canPause = false
-        canResume = true
+        if canPause {
+            isTimerRunning = false
+            canPause = false
+            canResume = true
+        }
+        else {
+            Log.error("can't resume in current state")
+        }
     }
 
     /**
      Resume the countdown timer.
 
-     Called when the user chooses the Resume menu item.
+     Called when the user chooses the Resume menu item or invokes the Resume Countdown service.
      */
     @IBAction func resumeTimer(_ sender: AnyObject) {
         Log.debug("resume timer")
+        if canResume {
+            isTimerRunning = true
+            canPause = true
+            canResume = false
 
-        isTimerRunning = true
-        canPause = true
-        canResume = false
+            timerSettingSeconds = secondsRemaining
 
-        timerSettingSeconds = secondsRemaining
+            stopwatch.reset()
 
-        stopwatch.reset()
+            updateStatusItemTitle(timeRemaining: timerSettingSeconds)
 
-        updateStatusItemTitle(timeRemaining: timerSettingSeconds)
-
-        waitForNextSecond()
+            waitForNextSecond()
+        }
+        else {
+            Log.error("can't resume in current state")
+        }
     }
 
     /**

@@ -29,7 +29,7 @@ struct Log {
         let filename = file.lastPathComponent
 
         let msg = "ERROR: \(message) [\(function) \(filename):\(line)]"
-        os_log("%{private}@", type: .error, msg)
+        os_log("%{public}@", type: .error, msg)
     }
 
     /**
@@ -53,7 +53,7 @@ struct Log {
 
         // Note: we log using default level rather than .debug so that the
         // messages always go into the log for a debug build
-        os_log("%{private}@", msg)
+        os_log("%{public}@", msg)
 #endif
     }
 }

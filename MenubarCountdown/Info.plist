@@ -34,5 +34,60 @@
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+	<key>NSServices</key>
+	<array>
+		<dict>
+			<key>NSMessage</key>
+			<string>startCountdown</string>
+			<key>NSPortName</key>
+			<string>Menubar Countdown</string>
+			<key>NSServiceDescription</key>
+			<string>Show the Menubar Countdown start dialog</string>
+			<key>NSMenuItem</key>
+			<dict>
+				<key>default</key>
+				<string>Start Menubar Countdown</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>NSMessage</key>
+			<string>stopCountdown</string>
+			<key>NSPortName</key>
+			<string>Menubar Countdown</string>
+			<key>NSServiceDescription</key>
+			<string>Stop Menubar Countdown timer</string>
+			<key>NSMenuItem</key>
+			<dict>
+				<key>default</key>
+				<string>Stop Menubar Countdown</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>NSMessage</key>
+			<string>pauseCountdown</string>
+			<key>NSPortName</key>
+			<string>Menubar Countdown</string>
+			<key>NSServiceDescription</key>
+			<string>Pause the Menubar Countdown timer</string>
+			<key>NSMenuItem</key>
+			<dict>
+				<key>default</key>
+				<string>Pause Menubar Countdown</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>NSMessage</key>
+			<string>resumeCountdown</string>
+			<key>NSPortName</key>
+			<string>Menubar Countdown</string>
+			<key>NSServiceDescription</key>
+			<string>Resume the Menubar Countdown timer when paused</string>
+			<key>NSMenuItem</key>
+			<dict>
+				<key>default</key>
+				<string>Resume Menubar Countdown</string>
+			</dict>
+		</dict>
+	</array>
 </dict>
 </plist>
