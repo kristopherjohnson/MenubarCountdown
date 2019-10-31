@@ -30,8 +30,6 @@ struct Log {
 
         let msg = "ERROR: \(message) [\(function) \(filename):\(line)]"
         os_log("%{private}@", type: .error, msg)
-
-        DTraceErrorMessage(message, function, filename, line)
     }
 
     /**
@@ -56,8 +54,6 @@ struct Log {
         // Note: we log using default level rather than .debug so that the
         // messages always go into the log for a debug build
         os_log("%{private}@", msg)
-
-        DTraceDebugMessage(message, function, filename, line)
 #endif
     }
 }

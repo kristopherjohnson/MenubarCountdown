@@ -122,7 +122,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     @objc func nextSecondTimerDidFire(_ timer: Timer) {
         if isTimerRunning {
             secondsRemaining = Int(round(TimeInterval(timerSettingSeconds) - stopwatch.elapsedTimeInterval()))
-            DTraceTimerTick(Int32(secondsRemaining))
 
             if secondsRemaining <= 0 {
                 timerDidExpire()
@@ -212,8 +211,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
      Fires all of the configured notifications.
      */
     func timerDidExpire() {
-        DTraceTimerExpired()
-
         canPause = false
         canResume = false
 
@@ -422,7 +419,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
             startTimerDialogController.dismissDialog(sender)
 
             timerSettingSeconds = Int(startTimerDialogController.timerInterval)
-            DTraceStartTimer(Int32(timerSettingSeconds))
 
             isTimerRunning = true
             canPause = true
@@ -443,7 +439,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
      */
     @IBAction func stopTimer(_ sender: AnyObject) {
         Log.debug("stop timer")
-        DTraceStartTimer(Int32(secondsRemaining))
 
         isTimerRunning = false
         canPause = false
@@ -460,7 +455,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
      */
     @IBAction func pauseTimer(_ sender: AnyObject) {
         Log.debug("pause timer")
-        DTracePauseTimer(Int32(secondsRemaining))
 
         isTimerRunning = false
         canPause = false
@@ -474,7 +468,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
      */
     @IBAction func resumeTimer(_ sender: AnyObject) {
         Log.debug("resume timer")
-        DTraceResumeTimer(Int32(secondsRemaining))
 
         isTimerRunning = true
         canPause = true

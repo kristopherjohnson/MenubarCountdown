@@ -12,8 +12,6 @@
 		4E4865981BEE749E00C159BF /* StartTimerDialogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4865971BEE749E00C159BF /* StartTimerDialogController.swift */; };
 		4E48659A1BEE79EA00C159BF /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4865991BEE79EA00C159BF /* TextField.swift */; };
 		4E48659C1BEE81C200C159BF /* TimerExpiredAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E48659B1BEE81C200C159BF /* TimerExpiredAlertController.swift */; };
-		4E48659E1BEE83E000C159BF /* dtrace_probes.d in Sources */ = {isa = PBXBuildFile; fileRef = 4E48659D1BEE83E000C159BF /* dtrace_probes.d */; };
-		4E4865A11BEE880A00C159BF /* DTrace.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E4865A01BEE880A00C159BF /* DTrace.m */; };
 		4E4865A91BEFA07300C159BF /* MenuTimerIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 4E4865A81BEFA07300C159BF /* MenuTimerIcon.icns */; };
 		4E4865AD1BEFA12A00C159BF /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 4E4865AC1BEFA12A00C159BF /* Credits.rtf */; };
 		4E4865AF1BEFA2B900C159BF /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4865AE1BEFA2B900C159BF /* StringExtensions.swift */; };
@@ -52,10 +50,6 @@
 		4E4865971BEE749E00C159BF /* StartTimerDialogController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartTimerDialogController.swift; sourceTree = "<group>"; };
 		4E4865991BEE79EA00C159BF /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		4E48659B1BEE81C200C159BF /* TimerExpiredAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerExpiredAlertController.swift; sourceTree = "<group>"; };
-		4E48659D1BEE83E000C159BF /* dtrace_probes.d */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.dtrace; path = dtrace_probes.d; sourceTree = "<group>"; };
-		4E48659F1BEE85D200C159BF /* MenubarCountdown-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MenubarCountdown-Bridging-Header.h"; sourceTree = "<group>"; };
-		4E4865A01BEE880A00C159BF /* DTrace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTrace.m; sourceTree = "<group>"; };
-		4E4865A21BEE88E500C159BF /* DTrace.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTrace.h; sourceTree = "<group>"; };
 		4E4865A81BEFA07300C159BF /* MenuTimerIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = MenuTimerIcon.icns; sourceTree = "<group>"; };
 		4E4865AC1BEFA12A00C159BF /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		4E4865AE1BEFA2B900C159BF /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
@@ -106,9 +100,6 @@
 		4E4865A31BEE90D900C159BF /* Diagnostics */ = {
 			isa = PBXGroup;
 			children = (
-				4E48659D1BEE83E000C159BF /* dtrace_probes.d */,
-				4E4865A21BEE88E500C159BF /* DTrace.h */,
-				4E4865A01BEE880A00C159BF /* DTrace.m */,
 				4E48658D1BEE6CE500C159BF /* Log.swift */,
 			);
 			name = Diagnostics;
@@ -171,7 +162,6 @@
 				4E4865A41BEE910600C159BF /* Extensions */,
 				4E4865AA1BEFA07E00C159BF /* Image Resources */,
 				4E4865B01BEFC63700C159BF /* MainMenu.xib */,
-				4E48659F1BEE85D200C159BF /* MenubarCountdown-Bridging-Header.h */,
 				4E4D0E552367E5D9004B1404 /* MenubarCountdown.entitlements */,
 				4E4865B11BEFC63700C159BF /* StartTimerDialog.xib */,
 				4E4865971BEE749E00C159BF /* StartTimerDialogController.swift */,
@@ -342,12 +332,10 @@
 				4EB204541BEE307900D83EF3 /* CALayerExtensions.swift in Sources */,
 				4E48659A1BEE79EA00C159BF /* TextField.swift in Sources */,
 				4EB204501BEE29D700D83EF3 /* AppUserDefaults.swift in Sources */,
-				4E4865A11BEE880A00C159BF /* DTrace.m in Sources */,
 				4EB2044E1BED908300D83EF3 /* Stopwatch.swift in Sources */,
 				4E48658E1BEE6CE500C159BF /* Log.swift in Sources */,
 				4E4865AF1BEFA2B900C159BF /* StringExtensions.swift in Sources */,
 				4E48659C1BEE81C200C159BF /* TimerExpiredAlertController.swift in Sources */,
-				4E48659E1BEE83E000C159BF /* dtrace_probes.d in Sources */,
 				4EB204231BED89F900D83EF3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -502,7 +490,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.kristopherjohnson.MenubarCountdown;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "MenubarCountdown/MenubarCountdown-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -518,7 +505,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.kristopherjohnson.MenubarCountdown;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "MenubarCountdown/MenubarCountdown-Bridging-Header.h";
 			};
 			name = Release;
 		};
