@@ -72,6 +72,7 @@
 		4EB2044F1BEE29D700D83EF3 /* AppUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUserDefaults.swift; sourceTree = "<group>"; };
 		4EB204531BEE307900D83EF3 /* CALayerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CALayerExtensions.swift; sourceTree = "<group>"; };
 		4EB58AAE236B881D00150BA5 /* ServicesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesProvider.swift; sourceTree = "<group>"; };
+		4EB58AB8236DC3B300150BA5 /* Scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Scripts; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +143,7 @@
 				4EB204331BED89F900D83EF3 /* MenubarCountdownTests */,
 				4EB2043E1BED89F900D83EF3 /* MenubarCountdownUITests */,
 				4EB204201BED89F900D83EF3 /* Products */,
+				4EB58AB8236DC3B300150BA5 /* Scripts */,
 			);
 			sourceTree = "<group>";
 		};
