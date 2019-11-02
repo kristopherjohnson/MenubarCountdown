@@ -85,8 +85,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
 
         UNUserNotificationCenter.current().delegate = self
 
-        NSApp.servicesProvider = ServicesProvider(appDelegate: self)
-
         stopwatch.reset()
 
         initializeStatusItem()
@@ -94,6 +92,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         if UserDefaults.standard.bool(forKey: AppUserDefaults.showStartDialogOnLaunchKey) {
             showStartTimerDialog(self)
         }
+
+        NSApp.servicesProvider = ServicesProvider(appDelegate: self)
     }
 
     func applicationWillTerminate(_ notification: Notification) {
