@@ -42,6 +42,15 @@
                             <rect key="frame" x="3" y="3" width="202" height="61"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
+                                <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="38">
+                                    <rect key="frame" x="15" y="10" width="50" height="13"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Hours" id="39">
+                                        <font key="font" metaFont="system" size="10"/>
+                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
                                 <textField toolTip="Number of hours" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="22" userLabel="Hours" customClass="TextField" customModule="Menubar_Countdown" customModuleProvider="target">
                                     <rect key="frame" x="28" y="29" width="25" height="22"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -50,6 +59,7 @@
                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
+                                    <accessibility description="Hours" identifier="hoursText"/>
                                     <connections>
                                         <binding destination="54" name="value" keyPath="values.TimerHours" id="120"/>
                                         <outlet property="formatter" destination="71" id="72"/>
@@ -60,55 +70,10 @@
                                     <rect key="frame" x="53" y="26" width="19" height="27"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <stepperCell key="cell" continuous="YES" alignment="left" maxValue="99" valueWraps="YES" id="25"/>
+                                    <accessibility identifier="Hours stepper"/>
                                     <connections>
                                         <binding destination="54" name="value" keyPath="values.TimerHours" id="126"/>
                                         <outlet property="formatter" destination="71" id="73"/>
-                                    </connections>
-                                </stepper>
-                                <textField toolTip="Number of minutes" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="28" userLabel="Minutes" customClass="TextField" customModule="Menubar_Countdown" customModuleProvider="target">
-                                    <rect key="frame" x="88" y="29" width="25" height="22"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="right" title="00" drawsBackground="YES" id="29">
-                                        <font key="font" metaFont="system"/>
-                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                    </textFieldCell>
-                                    <connections>
-                                        <binding destination="54" name="value" keyPath="values.TimerMinutes" id="119"/>
-                                        <outlet property="formatter" destination="49" id="51"/>
-                                        <outlet property="nextKeyView" destination="32" id="66"/>
-                                    </connections>
-                                </textField>
-                                <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="30" userLabel="MinutesStepper">
-                                    <rect key="frame" x="113" y="26" width="19" height="27"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    <stepperCell key="cell" continuous="YES" alignment="left" maxValue="59" valueWraps="YES" id="31"/>
-                                    <connections>
-                                        <binding destination="54" name="value" keyPath="values.TimerMinutes" id="129"/>
-                                        <outlet property="formatter" destination="49" id="63"/>
-                                    </connections>
-                                </stepper>
-                                <textField toolTip="Number of seconds" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="32" userLabel="Seconds" customClass="TextField" customModule="Menubar_Countdown" customModuleProvider="target">
-                                    <rect key="frame" x="148" y="29" width="25" height="22"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="right" title="00" drawsBackground="YES" id="33">
-                                        <font key="font" metaFont="system"/>
-                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                    </textFieldCell>
-                                    <connections>
-                                        <binding destination="54" name="value" keyPath="values.TimerSeconds" id="123"/>
-                                        <outlet property="formatter" destination="49" id="52"/>
-                                        <outlet property="nextKeyView" destination="155" id="161"/>
-                                    </connections>
-                                </textField>
-                                <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="36" userLabel="SecondsStepper">
-                                    <rect key="frame" x="172" y="26" width="19" height="27"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    <stepperCell key="cell" continuous="YES" alignment="left" maxValue="59" valueWraps="YES" id="37"/>
-                                    <connections>
-                                        <binding destination="54" name="value" keyPath="values.TimerSeconds" id="133"/>
-                                        <outlet property="formatter" destination="49" id="64"/>
                                     </connections>
                                 </stepper>
                                 <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="26">
@@ -116,24 +81,6 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title=":" id="27">
                                         <font key="font" metaFont="system"/>
-                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                    </textFieldCell>
-                                </textField>
-                                <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="34">
-                                    <rect key="frame" x="135" y="34" width="9" height="17"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title=":" id="35">
-                                        <font key="font" metaFont="system"/>
-                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                    </textFieldCell>
-                                </textField>
-                                <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="38">
-                                    <rect key="frame" x="15" y="10" width="50" height="13"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Hours" id="39">
-                                        <font key="font" metaFont="system" size="10"/>
                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
@@ -147,6 +94,40 @@
                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
                                 </textField>
+                                <textField toolTip="Number of minutes" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="28" userLabel="Minutes" customClass="TextField" customModule="Menubar_Countdown" customModuleProvider="target">
+                                    <rect key="frame" x="88" y="29" width="25" height="22"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="right" title="00" drawsBackground="YES" id="29">
+                                        <font key="font" metaFont="system"/>
+                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                    <accessibility description="Minutes" identifier="minutesText"/>
+                                    <connections>
+                                        <binding destination="54" name="value" keyPath="values.TimerMinutes" id="119"/>
+                                        <outlet property="formatter" destination="49" id="51"/>
+                                        <outlet property="nextKeyView" destination="32" id="66"/>
+                                    </connections>
+                                </textField>
+                                <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="30" userLabel="MinutesStepper">
+                                    <rect key="frame" x="113" y="26" width="19" height="27"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <stepperCell key="cell" continuous="YES" alignment="left" maxValue="59" valueWraps="YES" id="31"/>
+                                    <accessibility identifier="Minutes stepper"/>
+                                    <connections>
+                                        <binding destination="54" name="value" keyPath="values.TimerMinutes" id="129"/>
+                                        <outlet property="formatter" destination="49" id="63"/>
+                                    </connections>
+                                </stepper>
+                                <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="34">
+                                    <rect key="frame" x="135" y="34" width="9" height="17"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title=":" id="35">
+                                        <font key="font" metaFont="system"/>
+                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
                                 <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="42">
                                     <rect key="frame" x="135" y="10" width="50" height="13"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -156,8 +137,34 @@
                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
                                 </textField>
+                                <textField toolTip="Number of seconds" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="32" userLabel="Seconds" customClass="TextField" customModule="Menubar_Countdown" customModuleProvider="target">
+                                    <rect key="frame" x="148" y="29" width="25" height="22"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="right" title="00" drawsBackground="YES" id="33">
+                                        <font key="font" metaFont="system"/>
+                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                    <accessibility description="Seconds" identifier="secondsText"/>
+                                    <connections>
+                                        <binding destination="54" name="value" keyPath="values.TimerSeconds" id="123"/>
+                                        <outlet property="formatter" destination="49" id="52"/>
+                                        <outlet property="nextKeyView" destination="155" id="161"/>
+                                    </connections>
+                                </textField>
+                                <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="36" userLabel="SecondsStepper">
+                                    <rect key="frame" x="172" y="26" width="19" height="27"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <stepperCell key="cell" continuous="YES" alignment="left" maxValue="59" valueWraps="YES" id="37"/>
+                                    <accessibility identifier="Seconds stepper"/>
+                                    <connections>
+                                        <binding destination="54" name="value" keyPath="values.TimerSeconds" id="133"/>
+                                        <outlet property="formatter" destination="49" id="64"/>
+                                    </connections>
+                                </stepper>
                             </subviews>
                         </view>
+                        <accessibility description="Time group" identifier="timeGroup"/>
                     </box>
                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="87">
                         <rect key="frame" x="17" y="367" width="299" height="17"/>
@@ -240,8 +247,8 @@
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
-                            <binding destination="54" name="enabled" keyPath="values.ShowNotificationOnExpiration" id="YbR-RT-bY4"/>
                             <binding destination="54" name="value" keyPath="values.PlaySoundWithNotification" id="71c-zx-F2U"/>
+                            <binding destination="54" name="enabled" keyPath="values.ShowNotificationOnExpiration" id="YbR-RT-bY4"/>
                             <outlet property="nextKeyView" destination="91" id="Haf-io-6GS"/>
                         </connections>
                     </button>
@@ -265,6 +272,7 @@
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
+                        <accessibility description="Announcement text" identifier="Announcement text"/>
                         <connections>
                             <binding destination="54" name="value" keyPath="values.AnnouncementText" id="112"/>
                             <outlet property="nextKeyView" destination="143" id="146"/>
