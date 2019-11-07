@@ -59,7 +59,7 @@
                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
-                                    <accessibility description="Hours" identifier="hoursText"/>
+                                    <accessibility description="Hours" help="Number of hours to count down" identifier="hours"/>
                                     <connections>
                                         <binding destination="54" name="value" keyPath="values.TimerHours" id="120"/>
                                         <outlet property="formatter" destination="71" id="72"/>
@@ -70,7 +70,7 @@
                                     <rect key="frame" x="53" y="26" width="19" height="27"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <stepperCell key="cell" continuous="YES" alignment="left" maxValue="99" valueWraps="YES" id="25"/>
-                                    <accessibility identifier="Hours stepper"/>
+                                    <accessibility description="Hours stepper" help="Increase or decrease hours" identifier="hoursStepper"/>
                                     <connections>
                                         <binding destination="54" name="value" keyPath="values.TimerHours" id="126"/>
                                         <outlet property="formatter" destination="71" id="73"/>
@@ -102,7 +102,7 @@
                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
-                                    <accessibility description="Minutes" identifier="minutesText"/>
+                                    <accessibility description="Minutes" help="Number of minutes to count down" identifier="minutes"/>
                                     <connections>
                                         <binding destination="54" name="value" keyPath="values.TimerMinutes" id="119"/>
                                         <outlet property="formatter" destination="49" id="51"/>
@@ -113,7 +113,7 @@
                                     <rect key="frame" x="113" y="26" width="19" height="27"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <stepperCell key="cell" continuous="YES" alignment="left" maxValue="59" valueWraps="YES" id="31"/>
-                                    <accessibility identifier="Minutes stepper"/>
+                                    <accessibility description="Minutes stepper" help="Increase or decrease minutes" identifier="minutesStepper"/>
                                     <connections>
                                         <binding destination="54" name="value" keyPath="values.TimerMinutes" id="129"/>
                                         <outlet property="formatter" destination="49" id="63"/>
@@ -145,7 +145,7 @@
                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
-                                    <accessibility description="Seconds" identifier="secondsText"/>
+                                    <accessibility description="Seconds" help="Number of seconds to count down" identifier="seconds"/>
                                     <connections>
                                         <binding destination="54" name="value" keyPath="values.TimerSeconds" id="123"/>
                                         <outlet property="formatter" destination="49" id="52"/>
@@ -156,7 +156,7 @@
                                     <rect key="frame" x="172" y="26" width="19" height="27"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <stepperCell key="cell" continuous="YES" alignment="left" maxValue="59" valueWraps="YES" id="37"/>
-                                    <accessibility identifier="Seconds stepper"/>
+                                    <accessibility description="Seconds stepper" help="Increase or decrease seconds" identifier="secondsStepper"/>
                                     <connections>
                                         <binding destination="54" name="value" keyPath="values.TimerSeconds" id="133"/>
                                         <outlet property="formatter" destination="49" id="64"/>
@@ -164,7 +164,7 @@
                                 </stepper>
                             </subviews>
                         </view>
-                        <accessibility description="Time group" identifier="timeGroup"/>
+                        <accessibility description="Time group" help="Set timer values" identifier="timeGroup"/>
                     </box>
                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="87">
                         <rect key="frame" x="17" y="367" width="299" height="17"/>
@@ -174,6 +174,7 @@
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
+                        <accessibility description="When countdown timer reaches zero"/>
                     </textField>
                     <button toolTip="If checked, the menubar display will start blinking when the timer reaches zero." fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="155" userLabel="BlinkOnExpiration">
                         <rect key="frame" x="81" y="340" width="194" height="18"/>
@@ -182,6 +183,7 @@
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <accessibility description="Blink in menu bar" help="Check to blink zeros in menu bar" identifier="blinkInMenuBar"/>
                         <connections>
                             <binding destination="54" name="value" keyPath="values.BlinkOnExpiration" id="159"/>
                             <outlet property="nextKeyView" destination="89" id="162"/>
@@ -194,6 +196,7 @@
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <accessibility description="Play system alert sound" help="Check to play the system alert sound" identifier="playAlertSound"/>
                         <connections>
                             <binding destination="54" name="value" keyPath="values.PlayAlertSoundOnExpiration" id="106"/>
                             <outlet property="nextKeyView" destination="157" id="163"/>
@@ -206,6 +209,7 @@
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <accessibility description="Repeat alert sound" help="Check to repeat the system alert sound" identifier="repeatAlertSound"/>
                         <connections>
                             <binding destination="54" name="enabled" keyPath="values.PlayAlertSoundOnExpiration" id="166"/>
                             <binding destination="54" name="value" keyPath="values.RepeatAlertSoundOnExpiration" id="160"/>
@@ -222,6 +226,7 @@
                                 <binding destination="54" name="value" keyPath="values.ShowAlertWindowOnExpiration" id="110"/>
                             </connections>
                         </buttonCell>
+                        <accessibility description="Show alert window" help="Check to show alert window" identifier="showAlertWindow"/>
                         <connections>
                             <binding destination="54" name="value" keyPath="values.ShowAlertWindowOnExpiration" id="136"/>
                             <outlet property="nextKeyView" destination="93" id="101"/>
@@ -234,6 +239,7 @@
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <accessibility description="Show notification" help="Check to show a notification" identifier="showNotification"/>
                         <connections>
                             <binding destination="54" name="value" keyPath="values.ShowNotificationOnExpiration" id="4TD-UV-0VB"/>
                             <outlet property="nextKeyView" destination="97" id="102"/>
@@ -246,6 +252,7 @@
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <accessibility description="Notification sound" help="If checked, play sound along with notification" identifier="playNotificationSound"/>
                         <connections>
                             <binding destination="54" name="value" keyPath="values.PlaySoundWithNotification" id="71c-zx-F2U"/>
                             <binding destination="54" name="enabled" keyPath="values.ShowNotificationOnExpiration" id="YbR-RT-bY4"/>
@@ -259,6 +266,7 @@
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <accessibility description="Speak announcement" help="Check to speak announcement" identifier="speakAnnouncement"/>
                         <connections>
                             <binding destination="54" name="value" keyPath="values.AnnounceExpiration" id="3wK-np-NMr"/>
                             <outlet property="nextKeyView" destination="97" id="Q36-HV-YcL"/>
@@ -272,7 +280,7 @@
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
-                        <accessibility description="Announcement text" identifier="Announcement text"/>
+                        <accessibility description="Announcement text" help="Spoken announcement" identifier="announcement"/>
                         <connections>
                             <binding destination="54" name="value" keyPath="values.AnnouncementText" id="112"/>
                             <outlet property="nextKeyView" destination="143" id="146"/>
@@ -285,6 +293,7 @@
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <accessibility description="Show settings window when application starts" help="Check to show this window on application launch" identifier="showSettingsOnLaunch"/>
                         <connections>
                             <binding destination="54" name="value" keyPath="values.ShowStartDialogOnLaunch" id="140"/>
                             <outlet property="nextKeyView" destination="13" id="142"/>
@@ -300,6 +309,7 @@
 Gw
 </string>
                         </buttonCell>
+                        <accessibility description="Cancel" help="Close this window" identifier="cancel"/>
                         <connections>
                             <action selector="dismissDialog:" target="47" id="135"/>
                             <outlet property="nextKeyView" destination="11" id="85"/>
@@ -315,6 +325,7 @@ Gw
 DQ
 </string>
                         </buttonCell>
+                        <accessibility description="Start" help="Click to start countdown" identifier="start"/>
                         <connections>
                             <action selector="startTimerDialogStartButtonWasClicked:" target="-2" id="19"/>
                             <outlet property="nextKeyView" destination="22" id="86"/>
@@ -327,6 +338,7 @@ DQ
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <accessibility description="Display seconds in menu bar" help="Check to display seconds in menu bar" identifier="displaySeconds"/>
                         <connections>
                             <binding destination="54" name="value" keyPath="values.ShowSeconds" id="148"/>
                             <outlet property="nextKeyView" destination="137" id="145"/>
