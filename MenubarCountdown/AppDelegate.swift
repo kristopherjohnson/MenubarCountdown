@@ -75,6 +75,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
      */
     @IBOutlet var timerExpiredAlertController: TimerExpiredAlertController?
 
+    let defaults = UserDefaults.standard
+
     override init() {
         super.init()
         AppUserDefaults.registerUserDefaults()
@@ -89,7 +91,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
 
         initializeStatusItem()
 
-        if UserDefaults.standard.bool(forKey: AppUserDefaults.showStartDialogOnLaunchKey) {
+        if showStartDialogOnLaunch {
             showStartTimerDialog(self)
         }
 
@@ -160,8 +162,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     func updateStatusItemTitle(timeRemaining: Int) {
         var timeRemaining = timeRemaining
         
-        let showSeconds = UserDefaults.standard.bool(forKey: AppUserDefaults.showSeconds)
-        if (!showSeconds) {
+        let includeSecondsInTitle = displaySeconds
+        if (!includeSecondsInTitle) {
             // Round timeRemaining up to the next minute
             let minutes = Double(timeRemaining) / 60.0
             timeRemaining = Int(ceil(minutes)) * 60
@@ -174,7 +176,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
 
         // TODO: Use localized time-formatting function
         var timeString: String
-        if showSeconds {
+        if includeSecondsInTitle {
             timeString = NSString(format: "%02d:%02d:%02d", hours, minutes, seconds) as String
         }
         else {
@@ -218,25 +220,23 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
 
         updateStatusItemTitle(timeRemaining: 0)
 
-        let defaults = UserDefaults.standard
-
-        if defaults.bool(forKey: AppUserDefaults.blinkOnExpirationKey) {
+        if blinkOnExpiration {
             startBlinking()
         }
 
-        if defaults.bool(forKey: AppUserDefaults.playAlertSoundOnExpirationKey) {
+        if playAlertSoundOnExpiration {
             playAlertSound()
         }
 
-        if defaults.bool(forKey: AppUserDefaults.announceExpirationKey) {
+        if speakAnnouncementOnExpiration {
             announceTimerExpired()
         }
 
-        if defaults.bool(forKey: AppUserDefaults.showAlertWindowOnExpirationKey) {
+        if showAlertWindowOnExpiration {
             showTimerExpiredAlert()
         }
 
-        if defaults.bool(forKey: AppUserDefaults.showNotificationOnExpirationKey) {
+        if showNotificationOnExpiration {
             showTimerExpiredNotification()
         }
     }
@@ -251,8 +251,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
             Log.debug("play alert sound")
             AudioServicesPlayAlertSound(kUserPreferredAlert);
 
-            let defaults = UserDefaults.standard
-            if defaults.bool(forKey: AppUserDefaults.repeatAlertSoundOnExpirationKey) {
+            if repeatAlertSoundOnExpiration {
                 var repeatInterval = TimeInterval(defaults.integer(forKey: AppUserDefaults.alertSoundRepeatIntervalKey))
                 if repeatInterval < 1.0 {
                     repeatInterval = 1.0
@@ -271,7 +270,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
      Speak the configured announcement.
      */
     func announceTimerExpired() {
-        let text = announcementText()
+        let text = announcementText
         Log.debug("speaking announcement \"\(text)\"")
         if let synth = NSSpeechSynthesizer(voice: nil) {
             synth.startSpeaking(text)
@@ -279,18 +278,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         else {
             Log.error("unable to initialize speech synthesizer")
         }
-    }
-
-    /**
-     Returns the configured announcement text, or a default value if not configured.
-     */
-    func announcementText() -> String {
-        var result = UserDefaults.standard.string(forKey: AppUserDefaults.announcementTextKey)
-        if (result == nil) || result!.isEmpty {
-            result = NSLocalizedString("The Menubar Countdown timer has reached zero.",
-                comment: "Default announcement text")
-        }
-        return result!
     }
 
     /**
@@ -303,7 +290,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
 
         if timerExpiredAlertController == nil {
             TimerExpiredAlertController.load(owner: self)
-            assert(timerExpiredAlertController != nil, "timerExpiredAlertController outlet must be set")
+            assert(timerExpiredAlertController != nil,
+                   "timerExpiredAlertController outlet must be set")
         }
         timerExpiredAlertController?.showAlert()
     }
@@ -329,7 +317,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
                 content.body = NSLocalizedString("The countdown timer has reached 00:00:00",
                                                  comment: "Notification body")
 
-                if UserDefaults.standard.bool(forKey: AppUserDefaults.playSoundWithNotification) &&
+                if self.playNotificationSoundOnExpiration &&
                     settings.soundSetting == .enabled
                 {
                     content.sound = UNNotificationSound.default
@@ -388,13 +376,14 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
 
         dismissTimerExpiredAlert(sender)
 
-        let defaults = UserDefaults.standard
         defaults.synchronize()
 
-        if defaults.bool(forKey: AppUserDefaults.showNotificationOnExpirationKey) {
+        if showNotificationOnExpiration {
             let authorizationOptions: UNAuthorizationOptions =
-                defaults.bool(forKey: AppUserDefaults.playSoundWithNotification)
-                    ? [.alert, .sound] : [.alert]
+                playNotificationSoundOnExpiration
+                    ? [.alert, .sound]
+                    : [.alert]
+
             let notificationCenter = UNUserNotificationCenter.current()
             notificationCenter.requestAuthorization(options: authorizationOptions) { (granted, error) in
                 if let error = error {
@@ -403,8 +392,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
 
                 if !granted {
                     Log.debug("user notification authorization was not granted")
-                    UserDefaults.standard.set(false,
-                                              forKey: AppUserDefaults.showNotificationOnExpirationKey)
+                    self.showNotificationOnExpiration = false
                 }
 
                 DispatchQueue.main.async {
@@ -536,9 +524,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void)
     {
         Log.debug("calling completion handler")
+
         let presentationOptions: UNNotificationPresentationOptions =
-            UserDefaults.standard.bool(forKey: AppUserDefaults.playSoundWithNotification)
-                ? [.alert, .sound] : [.alert]
+            playNotificationSoundOnExpiration
+                ? [.alert, .sound]
+                : [.alert]
+
         completionHandler(presentationOptions)
     }
 

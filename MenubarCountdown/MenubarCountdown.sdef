@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dictionary SYSTEM "file://localhost/System/Library/DTDs/sdef.dtd">
+<dictionary title="Menubar Countdown Terminology"
+            xmlns:xi="http://www.w3.org/2003/XInclude">
+
+    <!-- include the standard suite -->
+    <!--
+    <xi:include href="file:///System/Library/ScriptingDefinitions/CocoaStandard.sdef" xpointer="xpointer(/dictionary/suite)"/>
+    -->
+
+    <suite name="Menubar Countdown Suite" code="MbCd"
+            description="Scriptable objects for Menubar Countdown.">
+
+        <!-- This app does not have a savable file format, but we need to provide
+             one to prevent the warning ".sdef warning for argument 'FileType' of
+             command 'save' in suite 'Standard Suite': 'saveable file format' is
+             not a valid type name."
+         -->
+        <enumeration name="savable file format" code="savf" hidden="yes">
+            <enumerator name="menubarcountdown" code="Kfil" description="menubar countdown document"/>
+        </enumeration>
+
+        <class
+            name="application"
+            code="capp"
+            description="The Menubar Countdown application.">
+            <cocoa class="NSApplication"/>
+
+            <property
+                name="time remaining"
+                code="Mrem"
+                type="integer"
+                access="r"
+                description="Number of seconds remaining in countdown.">
+                <cocoa key="timeRemaining"/>
+            </property>
+            <property
+                name="expired"
+                code="Mexp"
+                type="boolean"
+                access="r"
+                description="true if countdown reached zero without being stopped.">
+                <cocoa key="isExpired"/>
+            </property>
+            <property
+                name="paused"
+                code="Misp"
+                type="boolean"
+                access="r"
+                description="true if countdown is paused.">
+                <cocoa key="isPaused"/>
+            </property>
+
+            <!--
+            <command
+                name="start countdown"
+                code="MbCdMsta"
+                description="Close all windows and start the countdown.">
+                <cocoa key="start"/>
+            </command>
+            <command
+                name="stop countdown"
+                code="MbCdMsto"
+                description="Stop the countdown and close all windows.">
+                <cocoa key="stop"/>
+            </command>
+            <command
+                name="pause countdown"
+                code="MbCdMpau"
+                description="Pause the countdown.">
+                <cocoa key="pause"/>
+            </command>
+            <command
+                name="resume countdown"
+                code="MbCdMres"
+                description="Resume a paused countdown.">
+                <cocoa key="resume"/>
+            </command>
+            <command
+                name="show start dialog"
+                code="MbCdMsho"
+                description="Stop countdown and show settings dialog">
+                <cocoa key="showStartDialog"/>
+            </command>
+            -->
+
+            <property
+                name="hours"
+                code="Mhou"
+                type="integer"
+                description="Number of hours to count down. 0-99">
+                <cocoa key="startHours"/>
+            </property>
+            <property
+                name="minutes"
+                code="Mmin"
+                type="integer"
+                description="Number of minutes to count down. 0-59">
+                <cocoa key="startMinutes"/>
+            </property>
+            <property
+                name="seconds"
+                code="Msec"
+                type="integer"
+                description="Number of seconds to count down. 0-59">
+                <cocoa key="startSeconds"/>
+            </property>
+            <property
+                name="blink"
+                code="Mbli"
+                type="boolean"
+                description="If true, blink 00:00:00 in menu bar when timer expires.">
+                <cocoa key="blinkOnExpiration"/>
+            </property>
+            <property
+                name="play alert sound"
+                code="Mpas"
+                type="boolean"
+                description="If true, play system alert sound when timer expires.">
+                <cocoa key="playAlertSoundOnExpiration"/>
+            </property>
+            <property
+                name="repeat alert sound"
+                code="Mras"
+                type="boolean"
+                description="If true, repeat system alert sound after timer expires.">
+                <cocoa key="repeatAlertSoundOnExpiration"/>
+            </property>
+            <property
+                name="show alert window"
+                code="Msaw"
+                type="boolean"
+                description="If true, show alert window when timer expires.">
+                <cocoa key="showAlertWindowOnExpiration"/>
+            </property>
+            <property
+                name="show notification"
+                code="Msno"
+                type="boolean"
+                description="If true, show notification when timer expires.">
+                <cocoa key="showNotificationOnExpiration"/>
+            </property>
+            <property
+                name="play notification sound"
+                code="Mpns"
+                type="boolean"
+                description="If true, play sound with notification when timer expires.">
+                <cocoa key="playNotificationSoundOnExpiration"/>
+            </property>
+            <property
+                name="speak announcement"
+                code="Mspe"
+                type="boolean"
+                description="If true, speak announcement when timer expires.">
+                <cocoa key="speakAnnouncementOnExpiration"/>
+            </property>
+            <property
+                name="announcement text"
+                code="Mann"
+                type="text"
+                description="Announcement spoken when timer expires.">
+                <cocoa key="announcementText"/>
+            </property>
+            <property
+                name="display seconds"
+                code="Mdsc"
+                type="boolean"
+                description="If true, show seconds in menu bar.">
+                <cocoa key="displaySeconds"/>
+            </property>
+            <property
+                name="show start dialog on launch"
+                code="Mlau"
+                type="boolean"
+                description="If true, show settings window on application launch.">
+                <cocoa key="showStartDialogOnLaunch"/>
+            </property>
+        </class>
+    </suite>￼
+</dictionary>

@@ -26,6 +26,8 @@
 		4EB204501BEE29D700D83EF3 /* AppUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB2044F1BEE29D700D83EF3 /* AppUserDefaults.swift */; };
 		4EB204541BEE307900D83EF3 /* CALayerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB204531BEE307900D83EF3 /* CALayerExtensions.swift */; };
 		4EB58AAF236B881D00150BA5 /* ServicesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB58AAE236B881D00150BA5 /* ServicesProvider.swift */; };
+		4EB58ABA237449B600150BA5 /* MenubarCountdown.sdef in Resources */ = {isa = PBXBuildFile; fileRef = 4EB58AB9237449B600150BA5 /* MenubarCountdown.sdef */; };
+		4EB58AC02374F6D200150BA5 /* AppDelegate_Scripting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB58ABF2374F6D200150BA5 /* AppDelegate_Scripting.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,8 @@
 		4EB204531BEE307900D83EF3 /* CALayerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CALayerExtensions.swift; sourceTree = "<group>"; };
 		4EB58AAE236B881D00150BA5 /* ServicesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesProvider.swift; sourceTree = "<group>"; };
 		4EB58AB8236DC3B300150BA5 /* Scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Scripts; sourceTree = "<group>"; };
+		4EB58AB9237449B600150BA5 /* MenubarCountdown.sdef */ = {isa = PBXFileReference; lastKnownFileType = text; path = MenubarCountdown.sdef; sourceTree = "<group>"; };
+		4EB58ABF2374F6D200150BA5 /* AppDelegate_Scripting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate_Scripting.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +164,7 @@
 		4EB204211BED89F900D83EF3 /* MenubarCountdown */ = {
 			isa = PBXGroup;
 			children = (
+				4EB58ABF2374F6D200150BA5 /* AppDelegate_Scripting.swift */,
 				4EB204221BED89F900D83EF3 /* AppDelegate.swift */,
 				4EB2044F1BEE29D700D83EF3 /* AppUserDefaults.swift */,
 				4E4865A31BEE90D900C159BF /* Diagnostics */,
@@ -167,6 +172,7 @@
 				4E4865AA1BEFA07E00C159BF /* Image Resources */,
 				4E4865B01BEFC63700C159BF /* MainMenu.xib */,
 				4E4D0E552367E5D9004B1404 /* MenubarCountdown.entitlements */,
+				4EB58AB9237449B600150BA5 /* MenubarCountdown.sdef */,
 				4EB58AAE236B881D00150BA5 /* ServicesProvider.swift */,
 				4E4865B11BEFC63700C159BF /* StartTimerDialog.xib */,
 				4E4865971BEE749E00C159BF /* StartTimerDialogController.swift */,
@@ -302,6 +308,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EB58ABA237449B600150BA5 /* MenubarCountdown.sdef in Resources */,
 				4E4865941BEE705E00C159BF /* UserDefaults.plist in Resources */,
 				4E4865A91BEFA07300C159BF /* MenuTimerIcon.icns in Resources */,
 				4E4865B51BEFC63700C159BF /* TimerExpiredAlert.xib in Resources */,
@@ -339,6 +346,7 @@
 				4EB204501BEE29D700D83EF3 /* AppUserDefaults.swift in Sources */,
 				4EB2044E1BED908300D83EF3 /* Stopwatch.swift in Sources */,
 				4E48658E1BEE6CE500C159BF /* Log.swift in Sources */,
+				4EB58AC02374F6D200150BA5 /* AppDelegate_Scripting.swift in Sources */,
 				4EB58AAF236B881D00150BA5 /* ServicesProvider.swift in Sources */,
 				4E4865AF1BEFA2B900C159BF /* StringExtensions.swift in Sources */,
 				4E48659C1BEE81C200C159BF /* TimerExpiredAlertController.swift in Sources */,
