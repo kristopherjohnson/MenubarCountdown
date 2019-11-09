@@ -22,7 +22,7 @@ extension NSApplication {
      */
     @objc func startTimerViaScript(_ command: NSScriptCommand) {
         Log.debug("\"start timer\" was invoked")
-        
+
         if let appDelegate = NSApplication.shared.delegate as? AppDelegate {
             appDelegate.startTimerViaScript(command: command)
         }
@@ -69,6 +69,31 @@ extension NSApplication {
 
         if let appDelegate = NSApplication.shared.delegate as? AppDelegate {
             appDelegate.showStartTimerDialog(command)
+        }
+    }
+
+    /**
+     Perform the `quit` scripting command.
+
+     Note that this application's `quit` is not defined as part of
+     the Standard Suite in `MenubarCountdown.sdef`.  I couldn't
+     get the standard Cocoa implementation to work reliably; sometimes
+     it would work but other times the application would stay open.
+     I couldn't figure out why.
+
+     So we define it as part of the Menubar Countdown suite to
+     bypass all of the Cocoa/NSApplication implementation.
+     (There is probably a better way to deal with this.)
+     */
+    @objc func quitViaScript(_ command: NSScriptCommand) {
+        Log.debug("\"quit\" was invoked")
+
+        // We can't just call `terminate()` here, because the caller
+        // is waiting for a response and the scripting machinery will
+        // keep the process alive until it gets it.  So queue up a
+        // call to `terminate()` at the earliest opportunity.
+        DispatchQueue.main.async {
+            self.terminate(command)
         }
     }
 }

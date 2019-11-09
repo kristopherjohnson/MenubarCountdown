@@ -6,6 +6,9 @@
 -- showing.)
 
 tell application "Menubar Countdown"
+	activate
+	
+	show start dialog
 	
 	set hours to 99
 	set minutes to 59

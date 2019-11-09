@@ -1,4 +1,7 @@
 tell application "Menubar Countdown"
+	
+	activate
+	
 	show start dialog
 	
 	say "Setting up test"
@@ -47,4 +50,6 @@ tell application "Menubar Countdown"
 	stop timer
 	say "Timer stopped"
 	say (time remaining as text) & " seconds remaining."
+	
+	quit
 end tell

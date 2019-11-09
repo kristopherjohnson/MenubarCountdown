@@ -3,10 +3,21 @@
 <dictionary title="Menubar Countdown Terminology"
             xmlns:xi="http://www.w3.org/2003/XInclude">
 
-    <!-- include the standard suite -->
     <!--
-    <xi:include href="file:///System/Library/ScriptingDefinitions/CocoaStandard.sdef" xpointer="xpointer(/dictionary/suite)"/>
+    Menubar Countdown doesn't have documents nor support printing,
+    so this is a small subset of the Standard Suite.
     -->
+    <suite name="Standard Suite" code="????" description="Common classes and commands for all applications.">
+        
+        <class name="application" code="capp" description="The application's top-level scripting object.">
+            <cocoa class="NSApplication"/>
+            <property name="name" code="pnam" type="text" access="r" description="The name of the application."/>
+            <property name="frontmost" code="pisf" type="boolean" access="r" description="Is this the active application?">
+                <cocoa key="isActive"/>
+            </property>
+            <property name="version" code="vers" type="text" access="r" description="The version number of the application."/>
+        </class>
+    </suite>
 
     <suite name="Menubar Countdown Suite" code="MbCd"
             description="Scriptable objects for Menubar Countdown.">
@@ -35,6 +46,17 @@
             name="show start dialog"
             code="MbCdMsho"
             description="Stop countdown and show settings dialog">
+        </command>
+
+        <!--
+        Note: We define `quit` here, rather than in the Standard Suite.
+        See comments for the `quitViaScript` method in
+        `NSApplication_Scripting.swift`.
+        -->
+        <command
+            name="quit"
+            code="MbCdMqui"
+            description="Quit the application.">
         </command>
 
         <class
@@ -173,6 +195,9 @@
             </responds-to>
             <responds-to command="show start dialog">
                 <cocoa method="showStartDialogViaScript:"/>
+            </responds-to>
+            <responds-to command="quit">
+                <cocoa method="quitViaScript:"/>
             </responds-to>
         </class>
     </suite>￼
