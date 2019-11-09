@@ -7,18 +7,21 @@
 import Cocoa
 
 /*
- Support for scripting.
+ Support for application scripting properties.
 
  See MenubarCountdown.sdef for definitions and descriptions
- of commmands and properties.
+ of the scripting properties.
 
  Do not rename or delete any of these methods without updating
  MenubarCountdown.sdef.
+
+ See `NSApplication_Scripting.swift` for implementations of
+ scripting commands.
 */
 
 /**
  Set of all scripting-related keys that are handled
- by the AppDelegate
+ by the AppDelegate.
  */
 fileprivate let scriptingKeys: Set = [
     "timeRemaining",
@@ -52,15 +55,27 @@ extension AppDelegate {
         return scriptingKeys.contains(key)
     }
 
+    /**
+     Get the `time remaining` scripting property value.
+     */
     @objc dynamic var timeRemaining: Int {
+        // TODO
         return 0
     }
 
+    /**
+     Get the `expired` scripting property value.
+     */
     @objc dynamic var isExpired: Bool {
+        // TODO
         return false
     }
 
+    /**
+     Get the `paused` scripting property value.
+     */
     @objc dynamic var isPaused: Bool {
+        // TODO
         return false
     }
 

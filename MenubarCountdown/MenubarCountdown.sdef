@@ -11,14 +11,31 @@
     <suite name="Menubar Countdown Suite" code="MbCd"
             description="Scriptable objects for Menubar Countdown.">
 
-        <!-- This app does not have a savable file format, but we need to provide
-             one to prevent the warning ".sdef warning for argument 'FileType' of
-             command 'save' in suite 'Standard Suite': 'saveable file format' is
-             not a valid type name."
-         -->
-        <enumeration name="savable file format" code="savf" hidden="yes">
-            <enumerator name="menubarcountdown" code="Kfil" description="menubar countdown document"/>
-        </enumeration>
+        <command
+            name="start timer"
+            code="MbCdMsta"
+            description="Close all windows and start the countdown.">
+        </command>
+        <command
+            name="stop timer"
+            code="MbCdMsto"
+            description="Stop the countdown and close all windows.">
+        </command>
+        <command
+            name="pause timer"
+            code="MbCdMpau"
+            description="Pause the countdown.">
+        </command>
+        <command
+            name="resume timer"
+            code="MbCdMres"
+            description="Resume a paused countdown.">
+        </command>
+        <command
+            name="show start dialog"
+            code="MbCdMsho"
+            description="Stop countdown and show settings dialog">
+        </command>
 
         <class
             name="application"
@@ -50,40 +67,6 @@
                 description="true if countdown is paused.">
                 <cocoa key="isPaused"/>
             </property>
-
-            <!--
-            <command
-                name="start countdown"
-                code="MbCdMsta"
-                description="Close all windows and start the countdown.">
-                <cocoa key="start"/>
-            </command>
-            <command
-                name="stop countdown"
-                code="MbCdMsto"
-                description="Stop the countdown and close all windows.">
-                <cocoa key="stop"/>
-            </command>
-            <command
-                name="pause countdown"
-                code="MbCdMpau"
-                description="Pause the countdown.">
-                <cocoa key="pause"/>
-            </command>
-            <command
-                name="resume countdown"
-                code="MbCdMres"
-                description="Resume a paused countdown.">
-                <cocoa key="resume"/>
-            </command>
-            <command
-                name="show start dialog"
-                code="MbCdMsho"
-                description="Stop countdown and show settings dialog">
-                <cocoa key="showStartDialog"/>
-            </command>
-            -->
-
             <property
                 name="hours"
                 code="Mhou"
@@ -175,6 +158,22 @@
                 description="If true, show settings window on application launch.">
                 <cocoa key="showStartDialogOnLaunch"/>
             </property>
+
+            <responds-to command="start timer">
+                <cocoa method="startTimerViaScript:"/>
+            </responds-to>
+            <responds-to command="stop timer">
+                <cocoa method="stopTimerViaScript:"/>
+            </responds-to>
+            <responds-to command="pause timer">
+                <cocoa method="pauseTimerViaScript:"/>
+            </responds-to>
+            <responds-to command="resume timer">
+                <cocoa method="resumeTimerViaScript:"/>
+            </responds-to>
+            <responds-to command="show start dialog">
+                <cocoa method="showStartDialogViaScript:"/>
+            </responds-to>
         </class>
     </suite>￼
 </dictionary>

@@ -347,7 +347,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
      Display the StartTimerDialog.xib dialog.
 
      Called at startup, when the user chooses the Start... menu item,
-     or when the user clicks the Restart Countdown... button on the alert.
+     when the user clicks the Restart Countdown... button on the alert,
+     or when the `show start dialog` scripting command is invoked.
      */
     @IBAction func showStartTimerDialog(_ sender: AnyObject) {
         Log.debug("show start timer dialog")
@@ -405,6 +406,17 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         }
     }
 
+    /**
+     Start the timer as a result of receiving a `start timer` script command.
+
+     This is similar to `startTimerDialogStartButtonWasClicked(_:)`, but we
+     don't want to prompt the user to authorize notifications.
+     */
+    func startTimerViaScript(command: NSScriptCommand) {
+        dismissTimerExpiredAlert(self)
+        dismissStartTimerDialogAndStartTimer(self)
+    }
+
     func dismissStartTimerDialogAndStartTimer(_ sender: AnyObject) {
         if let startTimerDialogController = startTimerDialogController {
             startTimerDialogController.dismissDialog(sender)
@@ -427,7 +439,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
 
      Called when the user clicks the Stop menu item,
      clicks the OK button in the TimerExpiredAlert,
-     or invokes the Stop Countdown service.
+     invokes the Stop Countdown service, or invokes
+     the `stop timer` scripting command.
      */
     @IBAction func stopTimer(_ sender: AnyObject) {
         Log.debug("stop timer")
@@ -443,7 +456,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     /**
      Pause the countdown timer.
 
-     Called when the user chooses the Pause menu item or invokes the Pause Countdown service.
+     Called when the user chooses the Pause menu item, invokes the Pause Countdown service, or invokes the `pause timer` scripting command.
      */
     @IBAction func pauseTimer(_ sender: AnyObject) {
         Log.debug("pause timer")
@@ -460,7 +473,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     /**
      Resume the countdown timer.
 
-     Called when the user chooses the Resume menu item or invokes the Resume Countdown service.
+     Called when the user chooses the Resume menu item, invokes the Resume Countdown service, or invokes the `resume timer` scripting command.
      */
     @IBAction func resumeTimer(_ sender: AnyObject) {
         Log.debug("resume timer")
