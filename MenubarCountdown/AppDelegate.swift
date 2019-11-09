@@ -422,6 +422,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
             startTimerDialogController.dismissDialog(sender)
 
             timerSettingSeconds = Int(startTimerDialogController.timerInterval)
+            secondsRemaining = timerSettingSeconds
 
             isTimerRunning = true
             canPause = true

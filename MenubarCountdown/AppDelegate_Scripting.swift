@@ -25,8 +25,8 @@ import Cocoa
  */
 fileprivate let scriptingKeys: Set = [
     "timeRemaining",
-    "isExpired",
-    "isPaused",
+    "timerHasExpired",
+    "timerIsPaused",
     "startHours",
     "startMinutes",
     "startSeconds",
@@ -59,23 +59,24 @@ extension AppDelegate {
      Get the `time remaining` scripting property value.
      */
     @objc dynamic var timeRemaining: Int {
-        // TODO
-        return 0
+        if secondsRemaining < 0 {
+            return 0
+        }
+        return secondsRemaining
     }
 
     /**
-     Get the `expired` scripting property value.
+     Get the `timer has expired` scripting property value.
      */
-    @objc dynamic var isExpired: Bool {
-        // TODO
-        return false
+    @objc dynamic var timerHasExpired: Bool {
+        secondsRemaining <= 0
     }
 
     /**
-     Get the `paused` scripting property value.
+     Get the `timer is paused` scripting property value.
      */
-    @objc dynamic var isPaused: Bool {
-        return canResume
+    @objc dynamic var timerIsPaused: Bool {
+        canResume
     }
 
     /**
@@ -89,7 +90,11 @@ extension AppDelegate {
             return Int(value) ?? 0
         }
         set {
-            // TODO: Validate range
+            if newValue < 0 || newValue > 99 {
+                Log.error("new hours value \(newValue) is not valid")
+                return
+            }
+
             let stringValue = NSString(format: "%02d", newValue)
             defaults.set(stringValue, forKey: AppUserDefaults.timerHoursKey)
             defaults.synchronize()
@@ -107,7 +112,11 @@ extension AppDelegate {
             return Int(value) ?? 0
         }
         set {
-            // TODO: validate range
+            if newValue < 0 || newValue > 59 {
+                Log.error("new minutes value \(newValue) is not valid")
+                return
+            }
+
             let stringValue = NSString(format: "%02d", newValue)
             defaults.set(stringValue, forKey: AppUserDefaults.timerMinutesKey)
             defaults.synchronize()
@@ -125,6 +134,11 @@ extension AppDelegate {
             return Int(value) ?? 0
         }
         set {
+            if newValue < 0 || newValue > 59 {
+                Log.error("new seconds value \(newValue) is not valid")
+                return
+            }
+
             let stringValue = NSString(format: "%02d", newValue)
             defaults.set(stringValue, forKey: AppUserDefaults.timerSecondsKey)
             defaults.synchronize()

@@ -52,20 +52,20 @@
                 <cocoa key="timeRemaining"/>
             </property>
             <property
-                name="expired"
+                name="timer has expired"
                 code="Mexp"
                 type="boolean"
                 access="r"
                 description="true if countdown reached zero without being stopped.">
-                <cocoa key="isExpired"/>
+                <cocoa key="timerHasExpired"/>
             </property>
             <property
-                name="paused"
+                name="timer is paused"
                 code="Misp"
                 type="boolean"
                 access="r"
                 description="true if countdown is paused.">
-                <cocoa key="isPaused"/>
+                <cocoa key="timerIsPaused"/>
             </property>
             <property
                 name="hours"
