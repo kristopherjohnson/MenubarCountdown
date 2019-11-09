@@ -1,11 +1,11 @@
 tell application "Menubar Countdown"
 	show start dialog
 	
-	say "Setting up"
+	say "Setting up test"
 	
 	set hours to 0
 	set minutes to 0
-	set seconds to 30
+	set seconds to 15
 	set display seconds to true
 	set announcement text to "Testing Menubar Countdown commands."
 	
@@ -17,12 +17,20 @@ tell application "Menubar Countdown"
 	delay 5
 	
 	pause timer
-	say "Timer paused"
+	if paused then
+		say "Timer paused"
+	else
+		display dialog "Timer should be paused, but isn't."
+	end if
 	
 	delay 5
 	
 	resume timer
-	say "Timer resumed"
+	if paused then
+		display dialog "Timer should not be paused, but is."
+	else
+		say "Timer resumed"
+	end if
 	
 	delay 5
 	

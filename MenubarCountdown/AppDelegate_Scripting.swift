@@ -75,8 +75,7 @@ extension AppDelegate {
      Get the `paused` scripting property value.
      */
     @objc dynamic var isPaused: Bool {
-        // TODO
-        return false
+        return canResume
     }
 
     /**
