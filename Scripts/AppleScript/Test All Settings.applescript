@@ -1,10 +1,6 @@
 -- This script sets the values of all elements of the Settings window,
 -- pauses for two seconds, then sets all the elements to different values.
 
--- Run this with the Menubar Countdown Settings window already displayed.
--- (Start Menubar Countdown and choose the Start... menu item if it is not
--- showing.)
-
 tell application "Menubar Countdown"
 	activate
 	

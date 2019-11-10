@@ -1,3 +1,9 @@
+-- Demonstrates how to use these Standard Suite scripting properties:
+--
+-- - name
+-- - version
+-- - frontmost
+
 tell application "Menubar Countdown"
 	activate
 	

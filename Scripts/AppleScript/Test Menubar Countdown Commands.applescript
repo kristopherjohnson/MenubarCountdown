@@ -1,3 +1,11 @@
+-- Demonstration of using these commands:
+--
+-- - show start dialog
+-- - start timer
+-- - pause timer
+-- - resume timer
+-- - stop timer
+
 tell application "Menubar Countdown"
 	
 	activate
@@ -32,7 +40,7 @@ tell application "Menubar Countdown"
 		say "Timer is paused."
 		say (time remaining as text) & " seconds remaining."
 	else
-		display dialog "Timer should be paused, but isn't."
+		display dialog "Timer should be paused, but is not."
 	end if
 	
 	delay 5
@@ -48,7 +56,7 @@ tell application "Menubar Countdown"
 	delay 5
 	
 	stop timer
-	say "Timer stopped"
+	say "Timer stopped."
 	say (time remaining as text) & " seconds remaining."
 	
 	quit
