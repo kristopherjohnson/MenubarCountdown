@@ -19,7 +19,10 @@ following forms of notification you want when the timer gets down to 00:00:00:
 - Display a notification in Notification Center.
 - Make a spoken announcement. You can specify the text to be spoken.
 
-The application can be controlled using AppleScript or JavaScript.  See [the examples](https://github.com/kristopherjohnson/MenubarCountdown/tree/master/Scripts) for details.
+The countdown timer can be controlled using AppleScript, JavaScript, or Swift.
+See the examples in the
+[Scripts](https://github.com/kristopherjohnson/MenubarCountdown/tree/master/Scripts)
+directory for details.
 
 Releases are available from [the Mac App Store](https://apps.apple.com/us/app/menubar-countdown/id1485343244?mt=12)
 or <https://github.com/kristopherjohnson/MenubarCountdown/releases>.
@@ -60,6 +63,11 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
 ## Release Notes
+
+v2.1 (work in progress)
+
+- Add scriptable interface for AppleScript and JavaScript.
+- Add service-provider interface for control via the Services menu in other applications.
 
 v2.0 (2019/10/28)
 
