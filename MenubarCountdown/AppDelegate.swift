@@ -420,19 +420,19 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
     func dismissStartTimerDialogAndStartTimer(_ sender: AnyObject) {
         if let startTimerDialogController = startTimerDialogController {
             startTimerDialogController.dismissDialog(sender)
-
-            timerSettingSeconds = Int(startTimerDialogController.timerInterval)
-            secondsRemaining = timerSettingSeconds
-
-            isTimerRunning = true
-            canPause = true
-            canResume = false
-            stopwatch.reset()
-
-            updateStatusItemTitle(timeRemaining: timerSettingSeconds)
-
-            waitForNextSecond()
         }
+
+        timerSettingSeconds = (startHours * 3600) + (startMinutes * 60) + startSeconds
+        secondsRemaining = timerSettingSeconds
+
+        isTimerRunning = true
+        canPause = true
+        canResume = false
+        stopwatch.reset()
+
+        updateStatusItemTitle(timeRemaining: timerSettingSeconds)
+
+        waitForNextSecond()
     }
 
     /**

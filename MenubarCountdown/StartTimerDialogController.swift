@@ -27,17 +27,6 @@ class StartTimerDialogController: NSWindowController {
     }
 
     /**
-     The total number of seconds represented by the hours:minutes:seconds settings.
-     */
-    var timerInterval: TimeInterval {
-        let defaults = UserDefaults.standard
-        let hours = defaults.integer(forKey: AppUserDefaults.timerHoursKey);
-        let minutes = defaults.integer(forKey: AppUserDefaults.timerMinutesKey);
-        let seconds = defaults.integer(forKey: AppUserDefaults.timerSecondsKey);
-        return TimeInterval((hours * 3600) + (minutes * 60) + seconds);
-    }
-
-    /**
      Display the dialog and bring it to the front.
      */
     func showDialog() {
