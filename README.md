@@ -19,7 +19,9 @@ following forms of notification you want when the timer gets down to 00:00:00:
 - Display a notification in Notification Center.
 - Make a spoken announcement. You can specify the text to be spoken.
 
-Releases are available from [the Mac App Store](https://apps.apple.com/us/app/menubar-countdown/id1485343244?mt=12) 
+The application can be controlled using AppleScript or JavaScript.  See [the examples](https://github.com/kristopherjohnson/MenubarCountdown/tree/master/Scripts) for details.
+
+Releases are available from [the Mac App Store](https://apps.apple.com/us/app/menubar-countdown/id1485343244?mt=12)
 or <https://github.com/kristopherjohnson/MenubarCountdown/releases>.
 
 The current [2.0 version](https://github.com/kristopherjohnson/MenubarCountdown/releases/tag/2.0)
