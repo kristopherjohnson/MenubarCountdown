@@ -2,8 +2,6 @@
 
 tell application "Menubar Countdown"
 	
-	activate
-	
 	set hours to 0
 	set minutes to 25
 	set seconds to 0

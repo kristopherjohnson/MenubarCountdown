@@ -1,0 +1,1 @@
+tell application "Menubar Countdown" to pause timer
