@@ -1,8 +1,8 @@
 Menubar Countdown
 -----------------
 
-_Menubar Countdown_ is a simple countdown timer that displays itself on the
-macOS menu bar.  It's great for use as a [pomodoro timer](https://en.wikipedia.org/wiki/Pomodoro_Technique),
+_Menubar Countdown_ is a simple countdown timer displayed in the
+macOS menu bar.  It can be used as a [pomodoro timer](https://en.wikipedia.org/wiki/Pomodoro_Technique),
 to remind yourself to get back to work after a break, or whenever you want
 to quickly set a time limit on some activity.
 
@@ -27,7 +27,7 @@ directory for details.
 Releases are available from [the Mac App Store](https://apps.apple.com/us/app/menubar-countdown/id1485343244?mt=12)
 or <https://github.com/kristopherjohnson/MenubarCountdown/releases>.
 
-The current [2.0 version](https://github.com/kristopherjohnson/MenubarCountdown/releases/tag/2.0)
+The current [2.1 version](https://github.com/kristopherjohnson/MenubarCountdown/releases/tag/2.1)
 of Menubar Countdown requires macOS Mojave 10.14.4 or
 newer.  It is compatible with macOS Catalina 10.15.
 
@@ -64,11 +64,12 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ## Release Notes
 
-v2.1 (work in progress)
+v2.1 (2019/11/10)
 
-- Add scriptable interface for AppleScript and JavaScript.
+- Add scriptable interface for AppleScript and OSA languages.
 - Add service-provider interface for control via the Services menu in other applications.
-
+- High-resolution menubar icon for Retina displays.
+-
 v2.0 (2019/10/28)
 
 - Updated for macOS 10.14.4 and newer.
