@@ -69,7 +69,7 @@ v2.1 (2019/11/10)
 - Add scriptable interface for AppleScript and OSA languages.
 - Add service-provider interface for control via the Services menu in other applications.
 - High-resolution menubar icon for Retina displays.
--
+
 v2.0 (2019/10/28)
 
 - Updated for macOS 10.14.4 and newer.
