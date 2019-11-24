@@ -27,7 +27,7 @@ directory for details.
 Releases are available from [the Mac App Store](https://apps.apple.com/us/app/menubar-countdown/id1485343244?mt=12)
 or <https://github.com/kristopherjohnson/MenubarCountdown/releases>.
 
-<a link="https://apps.apple.com/us/app/menubar-countdown/id1485343244?mt=12"><img src="https://undefinedvalue.s3.amazonaws.com/Download_on_the_Mac_App_Store_Badge_US-UK_RGB.svg" alt="Download on the Mac App Store"></a>
+<a href="https://apps.apple.com/us/app/menubar-countdown/id1485343244?mt=12"><img src="https://undefinedvalue.s3.amazonaws.com/Download_on_the_Mac_App_Store_Badge_US-UK_RGB.svg" alt="Download on the Mac App Store"></a>
 
 The current [2.1 version](https://github.com/kristopherjohnson/MenubarCountdown/releases/tag/2.1)
 of Menubar Countdown requires macOS Mojave 10.14.4 or
