@@ -237,7 +237,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         }
 
         if showNotificationOnExpiration {
-            showTimerExpiredNotification()
+            self.notificationId = showTimerExpiredNotification(
+                withSound: playNotificationSoundOnExpiration)
         }
     }
 
@@ -296,50 +297,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         timerExpiredAlertController?.showAlert()
     }
 
-    /**
-     Display notification indicating timer is expired.
-     */
-    func showTimerExpiredNotification() {
-        Log.debug("show timer-expired notification")
-
-        let notificationCenter = UNUserNotificationCenter.current()
-
-        notificationCenter.getNotificationSettings { settings in
-            guard settings.authorizationStatus == .authorized else {
-                Log.debug("not authorized to display notifications")
-                return
-            }
-
-            if settings.alertSetting == .enabled {
-                let content = UNMutableNotificationContent()
-                content.title = NSLocalizedString("Menubar Countdown Expired",
-                                                  comment: "Notification title")
-                content.body = NSLocalizedString("The countdown timer has reached 00:00:00",
-                                                 comment: "Notification body")
-
-                if self.playNotificationSoundOnExpiration &&
-                    settings.soundSetting == .enabled
-                {
-                    content.sound = UNNotificationSound.default
-                }
-
-                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.1,
-                                                                repeats: false)
-
-                self.notificationId = UUID().uuidString
-
-                let request = UNNotificationRequest(identifier: self.notificationId,
-                                                    content: content,
-                                                    trigger: trigger)
-
-                UNUserNotificationCenter.current().add(request) { error in
-                    if let error = error {
-                        Log.error("notification error: \(error.localizedDescription)")
-                    }
-                }
-            }
-        }
-    }
 
     // MARK: Menu item and button event handlers
 
@@ -380,24 +337,14 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         defaults.synchronize()
 
         if showNotificationOnExpiration {
-            let authorizationOptions: UNAuthorizationOptions =
-                playNotificationSoundOnExpiration
-                    ? [.alert, .sound]
-                    : [.alert]
-
-            let notificationCenter = UNUserNotificationCenter.current()
-            notificationCenter.requestAuthorization(options: authorizationOptions) { (granted, error) in
-                if let error = error {
-                    Log.debug("user notification authorization error: \(error)")
-                }
-
-                if !granted {
-                    Log.debug("user notification authorization was not granted")
-                    self.showNotificationOnExpiration = false
-                }
-
+            requestNotificationAuthorization(withSound: playNotificationSoundOnExpiration) { granted in
                 DispatchQueue.main.async {
-                    self.dismissStartTimerDialogAndStartTimer(sender)
+                    if granted {
+                        self.dismissStartTimerDialogAndStartTimer(sender)
+                    }
+                    else {
+                        self.showNotificationOnExpiration = false
+                    }
                 }
             }
         }
