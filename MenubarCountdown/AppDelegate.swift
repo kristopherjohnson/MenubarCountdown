@@ -229,7 +229,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
         }
 
         if speakAnnouncementOnExpiration {
-            announceTimerExpired()
+            speakTimerExpiredAnnouncement(
+                text: announcementText)
         }
 
         if showAlertWindowOnExpiration {
@@ -264,20 +265,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDele
                     userInfo: nil,
                     repeats: false)
             }
-        }
-    }
-
-    /**
-     Speak the configured announcement.
-     */
-    func announceTimerExpired() {
-        let text = announcementText
-        Log.debug("speaking announcement \"\(text)\"")
-        if let synth = NSSpeechSynthesizer(voice: nil) {
-            synth.startSpeaking(text)
-        }
-        else {
-            Log.error("unable to initialize speech synthesizer")
         }
     }
 

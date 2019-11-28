@@ -20,6 +20,7 @@
 		4E4865B51BEFC63700C159BF /* TimerExpiredAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E4865B21BEFC63700C159BF /* TimerExpiredAlert.xib */; };
 		4E532E932376F92F00A9CFE5 /* NSApplication_Scripting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E532E922376F92F00A9CFE5 /* NSApplication_Scripting.swift */; };
 		4E70D4D72390087C004DE5D8 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E70D4D62390087C004DE5D8 /* Notifications.swift */; };
+		4E70D4D923900F55004DE5D8 /* Speech.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E70D4D823900F55004DE5D8 /* Speech.swift */; };
 		4EB204231BED89F900D83EF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB204221BED89F900D83EF3 /* AppDelegate.swift */; };
 		4EB204271BED89F900D83EF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EB204261BED89F900D83EF3 /* Assets.xcassets */; };
 		4EB204351BED89F900D83EF3 /* MenubarCountdownTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EB204341BED89F900D83EF3 /* MenubarCountdownTests.swift */; };
@@ -64,6 +65,7 @@
 		4E4D0E552367E5D9004B1404 /* MenubarCountdown.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MenubarCountdown.entitlements; sourceTree = "<group>"; };
 		4E532E922376F92F00A9CFE5 /* NSApplication_Scripting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSApplication_Scripting.swift; sourceTree = "<group>"; };
 		4E70D4D62390087C004DE5D8 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		4E70D4D823900F55004DE5D8 /* Speech.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Speech.swift; sourceTree = "<group>"; };
 		4EB2041F1BED89F900D83EF3 /* Menubar Countdown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Menubar Countdown.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EB204221BED89F900D83EF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4EB204261BED89F900D83EF3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				4E4D0E552367E5D9004B1404 /* MenubarCountdown.entitlements */,
 				4E70D4D62390087C004DE5D8 /* Notifications.swift */,
 				4E532E942376F94D00A9CFE5 /* Scripting and Services */,
+				4E70D4D823900F55004DE5D8 /* Speech.swift */,
 				4E4865B11BEFC63700C159BF /* StartTimerDialog.xib */,
 				4E4865971BEE749E00C159BF /* StartTimerDialogController.swift */,
 				4EB2044D1BED908300D83EF3 /* Stopwatch.swift */,
@@ -357,6 +360,7 @@
 				4E4865981BEE749E00C159BF /* StartTimerDialogController.swift in Sources */,
 				4EB204541BEE307900D83EF3 /* CALayerExtensions.swift in Sources */,
 				4E48659A1BEE79EA00C159BF /* TextField.swift in Sources */,
+				4E70D4D923900F55004DE5D8 /* Speech.swift in Sources */,
 				4EB204501BEE29D700D83EF3 /* AppUserDefaults.swift in Sources */,
 				4EB2044E1BED908300D83EF3 /* Stopwatch.swift in Sources */,
 				4E48658E1BEE6CE500C159BF /* Log.swift in Sources */,
