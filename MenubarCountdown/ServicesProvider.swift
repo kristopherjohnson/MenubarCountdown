@@ -24,7 +24,7 @@ import Cocoa
  - Construction and registration of the service provider in `AppDelegate.applicationDidFinishLaunching()`
 
  */
-@objc class ServicesProvider: NSObject {
+@objc final class ServicesProvider: NSObject {
 
     private var appDelegate: AppDelegate
 

@@ -7,7 +7,7 @@
 import XCTest
 @testable import MenubarCountdown
 
-class MenubarCountdownTests: XCTestCase {
+final class MenubarCountdownTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

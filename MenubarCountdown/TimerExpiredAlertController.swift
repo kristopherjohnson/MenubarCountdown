@@ -11,7 +11,7 @@ import Cocoa
 
  Also see TimerExpiredAlert.xib.
  */
-class TimerExpiredAlertController: NSWindowController {
+final class TimerExpiredAlertController: NSWindowController {
     @IBOutlet var messageText: NSTextField!
 
     /**

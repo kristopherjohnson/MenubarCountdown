@@ -21,7 +21,7 @@ import UserNotifications
  The persistent settings of the app are managed by the UserDefaults system. 
  */
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDelegate {
+final class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCenterDelegate {
 
     /**
      Initial timer setting.

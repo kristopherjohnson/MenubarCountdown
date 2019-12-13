@@ -11,7 +11,7 @@ import Cocoa
 
  Also see StartTimerDialog.xib.
  */
-class StartTimerDialogController: NSWindowController {
+final class StartTimerDialogController: NSWindowController {
     @IBOutlet var startTimerDialog: NSWindow!
 
     /**

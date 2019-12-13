@@ -12,7 +12,7 @@ import Cocoa
  A Stopwatch computes the absolute time interval between
  the current time and the last call to `reset` (or `init`).
  */
-@objc class Stopwatch: NSObject {
+@objc final class Stopwatch: NSObject {
     
     /**
      Start of timing interval

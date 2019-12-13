@@ -17,7 +17,7 @@ import Cocoa
  which was written by James Huddleston, and improvements discussed at
  <http://stackoverflow.com/questions/970707/cocoa-keyboard-shortcuts-in-dialog-without-an-edit-menu>.
  */
-class TextField: NSTextField {
+final class TextField: NSTextField {
     override func performKeyEquivalent(with key: NSEvent) -> Bool {
         // Map Command-X to Cut
         //     Command-C to Copy
