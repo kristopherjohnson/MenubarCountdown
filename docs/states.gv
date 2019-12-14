@@ -1,0 +1,81 @@
+strict digraph States {
+    forcelabels=true
+
+    node [
+        shape=Mrecord
+        fontsize=13
+        label="{ \N | }"
+    ]
+
+    edge [
+        fontsize=9
+    ]
+
+    # states
+    init [
+        shape=point
+    ]
+    reset [
+        label="{ \N | entry / reset() }"
+    ]
+    dialog [
+        label="{ dialog showing | entry / reset() }"
+    ]
+    running [
+        label="{ \N | entry / show_timer() }"
+    ]
+    expired [
+        label="{ \N | entry / show_expired() }"
+    ]
+    paused [
+    ]
+    terminated [
+    ]
+    exit [
+        shape=point
+    ]
+
+    # psuedostate
+    decrement  [
+        label=""
+        shape=diamond
+        fixedsize=true
+        height=0.2
+        width=0.2
+    ]
+
+    init -> reset
+
+    # SHOW_DIALOG
+    { reset, dialog, paused, expired } -> dialog [
+        label=SHOW_DIALOG
+        color=darkgreen
+        fontcolor=darkgreen
+    ]
+
+    # PAUSE / RESUME
+    running    -> paused     [ label=PAUSE ]
+    paused     -> running    [ label=RESUME ]
+
+    # Ticking
+    dialog     -> running    [ label=START ]
+    running    -> decrement  [ label="TICK / decrement timer" ]
+    decrement  -> running    [ label="[timer > 0]" ]
+    decrement  -> expired    [ label="[timer == 0]" ]
+
+    # STOP
+    { expired, running, paused } -> reset [
+        label=STOP
+        color=blue
+        fontcolor=blue
+    ]
+
+    # QUIT
+    { reset, dialog, running, expired, paused } -> terminated [
+        label=QUIT
+        color=red
+        fontcolor=red
+    ]
+
+    terminated -> exit
+}
