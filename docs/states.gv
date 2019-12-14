@@ -1,81 +1,102 @@
 strict digraph States {
-    forcelabels=true
+    graph [
+        forcelabels=true;
+        compound=true;
+    ]
 
     node [
-        shape=Mrecord
-        fontsize=13
-        label="{ \N | }"
+        shape=Mrecord;
+        fontsize=13;
+        label="{ \N | }";
     ]
 
     edge [
-        fontsize=9
+        fontsize=9;
     ]
 
-    # states
     init [
         shape=point
     ]
-    reset [
+
+    stopped [
         label="{ \N | entry / reset() }"
     ]
+
     dialog [
         label="{ dialog showing | entry / reset() }"
     ]
-    running [
-        label="{ \N | entry / show_timer() }"
-    ]
-    expired [
-        label="{ \N | entry / show_expired() }"
-    ]
-    paused [
-    ]
+
+    subgraph cluster_started {
+        label="started";
+
+        running [
+            label="{ \N | entry / show_timer() }"
+        ]
+        paused [
+        ]
+        expired [
+            label="{ \N | entry / show_expired() }"
+        ]
+
+        # PAUSE / RESUME
+        running    -> paused     [ label=PAUSE ]
+        paused     -> running    [ label=RESUME ]
+
+        # psuedostate
+        decrement  [
+            label=""
+            shape=diamond
+            fixedsize=true
+            height=0.2
+            width=0.2
+        ]
+        running    -> decrement  [ label="TICK / decrement_timer()" ]
+        decrement  -> running    [ label="[timer > 0]" ]
+        decrement  -> expired    [ label="[timer == 0]" ]
+    }
+
     terminated [
     ]
+
     exit [
         shape=point
     ]
 
-    # psuedostate
-    decrement  [
-        label=""
-        shape=diamond
-        fixedsize=true
-        height=0.2
-        width=0.2
-    ]
-
-    init -> reset
+    init -> stopped
 
     # SHOW_DIALOG
-    { reset, dialog, paused, expired } -> dialog [
+    { stopped, dialog } -> dialog [
         label=SHOW_DIALOG
         color=darkgreen
         fontcolor=darkgreen
     ]
+    running -> dialog [
+        label=SHOW_DIALOG;
+        color=darkgreen;
+        fontcolor=darkgreen;
+        ltail=cluster_started;
+    ]
 
-    # PAUSE / RESUME
-    running    -> paused     [ label=PAUSE ]
-    paused     -> running    [ label=RESUME ]
-
-    # Ticking
     dialog     -> running    [ label=START ]
-    dialog     -> reset      [ label=CLOSE_DIALOG ]
-    running    -> decrement  [ label="TICK / decrement timer" ]
-    decrement  -> running    [ label="[timer > 0]" ]
-    decrement  -> expired    [ label="[timer == 0]" ]
+    dialog     -> stopped    [ label=CLOSE_DIALOG ]
 
     # STOP
-    { expired, running, paused } -> reset [
+    expired -> stopped [
         label=STOP
-        color=blue
-        fontcolor=blue
+        ltail=cluster_started;
     ]
 
     # QUIT
-    { reset, dialog, running, expired, paused } -> terminated [
+    { stopped, dialog } -> terminated [
         label=QUIT
         color=red
         fontcolor=red
+    ]
+    running -> terminated [
+        label=QUIT;
+        color=red;
+        fontcolor=red;
+        ltail=cluster_started;
     ]
 
     terminated -> exit
