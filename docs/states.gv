@@ -59,6 +59,7 @@ strict digraph States {
 
     # Ticking
     dialog     -> running    [ label=START ]
+    dialog     -> reset      [ label=CLOSE_DIALOG ]
     running    -> decrement  [ label="TICK / decrement timer" ]
     decrement  -> running    [ label="[timer > 0]" ]
     decrement  -> expired    [ label="[timer == 0]" ]
