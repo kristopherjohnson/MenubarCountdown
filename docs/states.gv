@@ -1,3 +1,11 @@
+# State machine diagram for Menubar Countdown
+#
+# To generate PNG from this file:
+#
+#     dot -T png -o states.png states.gv
+#
+# `dot` is part of Graphviz <https://www.graphviz.org>
+
 strict digraph States {
     graph [
         forcelabels=true;
@@ -19,11 +27,11 @@ strict digraph States {
     ]
 
     stopped [
-        label="{ \N | entry / reset() }"
+        label="{ \N | entry / reset_timer() }"
     ]
 
     dialog [
-        label="{ dialog showing | entry / reset() }"
+        label="{ dialog showing | entry / reset_timer(); show_dialog()\nexit / hide_dialog() }"
     ]
 
     subgraph cluster_started {
@@ -38,11 +46,9 @@ strict digraph States {
             label="{ \N | entry / show_expired() }"
         ]
 
-        # PAUSE / RESUME
         running    -> paused     [ label=PAUSE ]
         paused     -> running    [ label=RESUME ]
 
-        # psuedostate
         decrement  [
             label=""
             shape=diamond
@@ -50,6 +56,7 @@ strict digraph States {
             height=0.2
             width=0.2
         ]
+
         running    -> decrement  [ label="TICK / decrement_timer()" ]
         decrement  -> running    [ label="[timer > 0]" ]
         decrement  -> expired    [ label="[timer == 0]" ]
@@ -64,7 +71,6 @@ strict digraph States {
 
     init -> stopped
 
-    # SHOW_DIALOG
     { stopped, dialog } -> dialog [
         label=SHOW_DIALOG
         color=darkgreen
@@ -80,13 +86,11 @@ strict digraph States {
     dialog     -> running    [ label=START ]
     dialog     -> stopped    [ label=CLOSE_DIALOG ]
 
-    # STOP
     expired -> stopped [
         label=STOP
         ltail=cluster_started;
     ]
 
-    # QUIT
     { stopped, dialog } -> terminated [
         label=QUIT
         color=red
