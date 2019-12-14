@@ -10,98 +10,103 @@ strict digraph States {
     graph [
         forcelabels=true;
         compound=true;
-    ]
+    ];
 
     node [
         shape=Mrecord;
-        fontsize=13;
+        fontsize=14;
         label="{ \N | }";
-    ]
+    ];
 
     edge [
         fontsize=9;
-    ]
+    ];
 
     init [
-        shape=point
-    ]
+        shape=point;
+        height=0.10;
+        width=0.10;
+    ];
 
     stopped [
-        label="{ \N | entry / reset_timer() }"
-    ]
+        label="{ \N | entry / reset_timer() }";
+    ];
 
     dialog [
-        label="{ dialog showing | entry / reset_timer(); show_dialog()\nexit / hide_dialog() }"
-    ]
+        label="{ settings dialog showing | entry / reset_timer(); show_dialog()\nexit / hide_dialog() }";
+    ];
 
     subgraph cluster_started {
         label="started";
 
         running [
             label="{ \N | entry / show_timer() }"
-        ]
+        ];
         paused [
-        ]
+        ];
         expired [
             label="{ \N | entry / show_expired() }"
-        ]
+        ];
 
-        running    -> paused     [ label=PAUSE ]
-        paused     -> running    [ label=RESUME ]
+        running    -> paused     [ label=PAUSE ];
+        paused     -> running    [ label=RESUME ];
 
         decrement  [
-            label=""
-            shape=diamond
-            fixedsize=true
-            height=0.2
-            width=0.2
-        ]
+            label="";
+            shape=diamond;
+            fixedsize=true;
+            height=0.25;
+            width=0.25;
+        ];
 
-        running    -> decrement  [ label="TICK / decrement_timer()" ]
-        decrement  -> running    [ label="[timer > 0]" ]
-        decrement  -> expired    [ label="[timer == 0]" ]
+        running    -> decrement  [ label="TICK / decrement_timer()" ];
+        decrement  -> running    [ label="[timer > 0]" ];
+        decrement  -> expired    [ label="[timer <= 0]" ];
     }
 
-    terminated [
-    ]
+    terminating [
+    ];
 
     exit [
-        shape=point
-    ]
+        shape=point;
+        height=0.10;
+        width=0.10;
+        peripheries=2;
+    ];
 
-    init -> stopped
+    init -> stopped;
 
     { stopped, dialog } -> dialog [
-        label=SHOW_DIALOG
-        color=darkgreen
-        fontcolor=darkgreen
-    ]
+        label=SHOW_DIALOG;
+        color=darkgreen;
+        fontcolor=darkgreen;
+    ];
     running -> dialog [
         label=SHOW_DIALOG;
         color=darkgreen;
         fontcolor=darkgreen;
         ltail=cluster_started;
-    ]
+    ];
 
-    dialog     -> running    [ label=START ]
-    dialog     -> stopped    [ label=CLOSE_DIALOG ]
+    dialog -> running [ label=START ];
+    dialog -> stopped [ label=CLOSE_DIALOG ];
 
     expired -> stopped [
-        label=STOP
+        label=STOP;
         ltail=cluster_started;
-    ]
+    ];
 
-    { stopped, dialog } -> terminated [
-        label=QUIT
-        color=red
-        fontcolor=red
-    ]
-    running -> terminated [
+    { stopped, dialog } -> terminating [
+        label=QUIT;
+        color=red;
+        fontcolor=red;
+    ];
+    running -> terminating [
         label=QUIT;
         color=red;
         fontcolor=red;
         ltail=cluster_started;
-    ]
+    ];
 
-    terminated -> exit
+    terminating -> exit;
 }
