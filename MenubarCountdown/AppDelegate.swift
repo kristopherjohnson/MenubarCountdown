@@ -111,11 +111,12 @@ final class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCent
         let elapsed = stopwatch.elapsedTimeInterval()
         let intervalToNextSecond = ceil(elapsed) - elapsed
 
-        Timer.scheduledTimer(timeInterval: intervalToNextSecond,
+        let t = Timer.scheduledTimer(timeInterval: intervalToNextSecond,
             target: self,
             selector: #selector(nextSecondTimerDidFire(_:)),
             userInfo: nil,
             repeats: false)
+        t.tolerance = 0.25
     }
 
     /**
