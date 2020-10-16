@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  MenubarCountdown
 //
-//  Copyright © 2009,2015,2019 Kristopher Johnson. All rights reserved.
+//  Copyright © 2009,2015,2019,2020 Kristopher Johnson. All rights reserved.
 
 import Cocoa
 import AudioToolbox

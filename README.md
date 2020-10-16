@@ -42,7 +42,7 @@ For macOS 10.5, use version 1.2, available from
 
 ## License
 
-Copyright 2009,2015,2019 Kristopher Johnson
+Copyright 2009,2015,2019,2020 Kristopher Johnson
 
 Permission is hereby granted, free of charge, to any person obtaining a
 copy of this software and associated documentation files (the
@@ -65,6 +65,11 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
 ## Release Notes
+
+v2.2 (in progress)
+
+- Support Command+drag icon from menu bar to terminate
+- Add tolerance to once-per-second timer to improve energy usage
 
 v2.1 (2019/11/10)
 
