@@ -22,34 +22,43 @@ strict digraph States {
         fontsize=9;
     ];
 
+    # Initial state
     init [
         shape=point;
         height=0.10;
         width=0.10;
     ];
 
+    # Terminal state
+    exit [
+        shape=point;
+        height=0.10;
+        width=0.10;
+        peripheries=2;
+    ];
+
     stopped [
-        label="{ \N | entry / reset_timer() }";
+        label="{ \N | entry / resetTimer() }";
     ];
 
     dialog [
-        label="{ settings dialog showing | entry / reset_timer(); show_dialog()\nexit / hide_dialog() }";
+        label="{ showing settings dialog | entry / resetTimer(); showDialog()\nexit / hideDialog() }";
     ];
 
     subgraph cluster_started {
         label="started";
 
         running [
-            label="{ \N | entry / show_timer() }"
+            label="{ \N | entry / showTimer()\ndo / tickEachSecond() }"
         ];
         paused [
         ];
         expired [
-            label="{ \N | entry / show_expired() }"
+            label="{ \N | entry / showExpired() }"
         ];
 
-        running    -> paused     [ label=PAUSE ];
-        paused     -> running    [ label=RESUME ];
+        running -> paused   [ label=PAUSE ];
+        paused  -> running  [ label=RESUME ];
 
         decrement  [
             label="";
@@ -59,19 +68,12 @@ strict digraph States {
             width=0.25;
         ];
 
-        running    -> decrement  [ label="TICK / decrement_timer()" ];
+        running    -> decrement  [ label="TICK / decrementTimer()" ];
         decrement  -> running    [ label="[timer > 0]" ];
         decrement  -> expired    [ label="[timer <= 0]" ];
     }
 
     terminating [
-    ];
-
-    exit [
-        shape=point;
-        height=0.10;
-        width=0.10;
-        peripheries=2;
     ];
 
     init -> stopped;
@@ -91,6 +93,7 @@ strict digraph States {
     dialog -> running [ label=START ];
     dialog -> stopped [ label=CLOSE_DIALOG ];
 
+    # cluster_started -> stopped
     expired -> stopped [
         label=STOP;
         ltail=cluster_started;
@@ -101,6 +104,8 @@ strict digraph States {
         color=red;
         fontcolor=red;
     ];
+
+    # cluster_started -> terminating
     running -> terminating [
         label=QUIT;
         color=red;
