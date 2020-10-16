@@ -148,6 +148,9 @@ final class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCent
         let statusBar = NSStatusBar.system
         statusItem = statusBar.statusItem(withLength: NSStatusItem.variableLength)
 
+        statusItem.isVisible = true
+        statusItem.behavior = [.terminationOnRemoval]
+        
         statusItem.menu = menu
         statusItem.button?.wantsLayer = true
         statusItem.button?.toolTip = NSLocalizedString("Menubar Countdown",
