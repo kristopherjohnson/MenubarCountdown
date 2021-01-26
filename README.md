@@ -24,8 +24,10 @@ See the examples in the
 [Scripts](https://github.com/kristopherjohnson/MenubarCountdown/tree/master/Scripts)
 directory for details.
 
-Releases are available from [the Mac App Store](https://apps.apple.com/us/app/menubar-countdown/id1485343244?mt=12)
-or <https://github.com/kristopherjohnson/MenubarCountdown/releases>.
+Releases are available from:
+- The [Mac App Store](https://apps.apple.com/us/app/menubar-countdown/id1485343244?mt=12)
+- <https://github.com/kristopherjohnson/MenubarCountdown/releases>
+- [Homebrew](https://formulae.brew.sh/cask/menubar-countdown) (e.g. `brew install cask menubar-countdown`)
 
 <a href="https://apps.apple.com/us/app/menubar-countdown/id1485343244?mt=12"><img src="https://undefinedvalue.s3.amazonaws.com/Download_on_the_Mac_App_Store_Badge_US-UK_RGB.svg" alt="Download on the Mac App Store"></a>
 
