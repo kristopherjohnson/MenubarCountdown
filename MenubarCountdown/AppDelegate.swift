@@ -186,7 +186,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCent
         else {
             timeString = NSString(format: "%02d:%02d", hours, minutes) as String
         }
-        statusItem.button?.image = nil
+        // statusItem.button?.image = nil
         statusItem.button?.title = timeString
     }
 
@@ -197,6 +197,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCent
         statusItem.button?.title = ""
         if let image = NSImage(named: "HourglassIcon") {
             statusItem.button?.image = image
+            statusItem.button?.imagePosition = NSControl.ImagePosition.imageLeft
         }
         else {
             Log.error("unable to load HourglassIcon")
