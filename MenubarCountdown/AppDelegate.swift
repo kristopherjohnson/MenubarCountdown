@@ -288,7 +288,6 @@ final class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCent
         timerExpiredAlertController?.showAlert()
     }
 
-
     // MARK: Menu item and button event handlers
 
     /**
@@ -359,8 +358,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCent
         if let startTimerDialogController = startTimerDialogController {
             startTimerDialogController.dismissDialog(sender)
         }
-
         timerSettingSeconds = (startHours * 3600) + (startMinutes * 60) + startSeconds
+        internalStart()
+    }
+
+    func internalStart() {
         secondsRemaining = timerSettingSeconds
 
         isTimerRunning = true
@@ -371,6 +373,18 @@ final class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCent
         updateStatusItemTitle(timeRemaining: timerSettingSeconds)
 
         waitForNextSecond()
+    }
+
+    /**
+     Quick start a 25 minute timer
+
+     Called when the user clicks the Start 25 menu item.
+     */
+
+    @IBAction func start25(_ sender: AnyObject) {
+        Log.debug("start25 timer")
+        timerSettingSeconds = 25 * 60
+        internalStart()
     }
 
     /**
