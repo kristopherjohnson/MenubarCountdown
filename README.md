@@ -41,6 +41,9 @@ For macOS versions 10.6 through 10.14.3, use
 For macOS 10.5, use version 1.2, available from
 <http://s3.amazonaws.com/capablehands/downloads/MenubarCountdown-1.2.zip>
 
+To build in XCode
+- Product > Clean Build Folder
+- Change "Team" under "Signing & Capabilities"
 
 ## License
 
