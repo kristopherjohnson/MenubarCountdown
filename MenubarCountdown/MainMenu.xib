@@ -14,6 +14,12 @@
         <customObject id="420" customClass="NSFontManager"/>
         <menu title="Menubar Countdown" id="450">
             <items>
+                <menuItem title="Start 25m" toolTip="Start a 25 minute countdown" id="Gxq-Wq-YcP">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="start25:" target="458" id="ZUc-jj-hH9"/>
+                    </connections>
+                </menuItem>
                 <menuItem title="Start…" toolTip="Start a countdown" id="451">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
